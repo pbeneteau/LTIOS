@@ -15,6 +15,9 @@
 		0007E4E81F1FECD700EBA50C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0007E4E61F1FECD700EBA50C /* LaunchScreen.storyboard */; };
 		0007E4F31F1FECD700EBA50C /* LTiosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007E4F21F1FECD700EBA50C /* LTiosTests.swift */; };
 		0007E4FE1F1FECD700EBA50C /* LTiosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007E4FD1F1FECD700EBA50C /* LTiosUITests.swift */; };
+		117A79360B93C15264F4D4A7 /* Pods_LTiosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ABAAA08C0B5E246906D3643 /* Pods_LTiosTests.framework */; };
+		98CA6EFB58DD7B6491BEE45C /* Pods_LTiosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D63D386CE37523546D50354D /* Pods_LTiosUITests.framework */; };
+		9A502145D7C38C05BE014890 /* Pods_LTios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACEF576580160AAA28DC6F2 /* Pods_LTios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,15 @@
 		0007E4F91F1FECD700EBA50C /* LTiosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LTiosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0007E4FD1F1FECD700EBA50C /* LTiosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTiosUITests.swift; sourceTree = "<group>"; };
 		0007E4FF1F1FECD700EBA50C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		132C40A84842BF014D4FBBF4 /* Pods-LTios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LTios/Pods-LTios.debug.xcconfig"; sourceTree = "<group>"; };
+		6ABAAA08C0B5E246906D3643 /* Pods_LTiosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTiosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71D3A809CBE0D3BB16C4D7CF /* Pods-LTiosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTiosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LTiosUITests/Pods-LTiosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9ACEF576580160AAA28DC6F2 /* Pods_LTios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F90CFDBDD9EC15C089F0C53 /* Pods-LTiosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTiosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LTiosTests/Pods-LTiosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B409A6A7AD5B5EEECD0F4ACE /* Pods-LTios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTios.release.xcconfig"; path = "Pods/Target Support Files/Pods-LTios/Pods-LTios.release.xcconfig"; sourceTree = "<group>"; };
+		D63D386CE37523546D50354D /* Pods_LTiosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTiosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB9C1CEE77C2EC9EE0738B63 /* Pods-LTiosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTiosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LTiosUITests/Pods-LTiosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EE6CD51744C95BA1D35FADC6 /* Pods-LTiosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTiosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LTiosTests/Pods-LTiosTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A502145D7C38C05BE014890 /* Pods_LTios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				117A79360B93C15264F4D4A7 /* Pods_LTiosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98CA6EFB58DD7B6491BEE45C /* Pods_LTiosUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +98,8 @@
 				0007E4F11F1FECD700EBA50C /* LTiosTests */,
 				0007E4FC1F1FECD700EBA50C /* LTiosUITests */,
 				0007E4D81F1FECD700EBA50C /* Products */,
+				53E49E158886914849036045 /* Pods */,
+				E46FE9E542005773D8AD582F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +145,29 @@
 			path = LTiosUITests;
 			sourceTree = "<group>";
 		};
+		53E49E158886914849036045 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				132C40A84842BF014D4FBBF4 /* Pods-LTios.debug.xcconfig */,
+				B409A6A7AD5B5EEECD0F4ACE /* Pods-LTios.release.xcconfig */,
+				9F90CFDBDD9EC15C089F0C53 /* Pods-LTiosTests.debug.xcconfig */,
+				EE6CD51744C95BA1D35FADC6 /* Pods-LTiosTests.release.xcconfig */,
+				71D3A809CBE0D3BB16C4D7CF /* Pods-LTiosUITests.debug.xcconfig */,
+				EB9C1CEE77C2EC9EE0738B63 /* Pods-LTiosUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E46FE9E542005773D8AD582F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9ACEF576580160AAA28DC6F2 /* Pods_LTios.framework */,
+				6ABAAA08C0B5E246906D3643 /* Pods_LTiosTests.framework */,
+				D63D386CE37523546D50354D /* Pods_LTiosUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0007E5021F1FECD700EBA50C /* Build configuration list for PBXNativeTarget "LTios" */;
 			buildPhases = (
+				BCCE959AB011C0C79D598EE1 /* [CP] Check Pods Manifest.lock */,
 				0007E4D31F1FECD700EBA50C /* Sources */,
 				0007E4D41F1FECD700EBA50C /* Frameworks */,
 				0007E4D51F1FECD700EBA50C /* Resources */,
+				322825D44C8D070E2781BD17 /* [CP] Embed Pods Frameworks */,
+				2D5B08BA606DAF3F90F68997 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0007E5051F1FECD700EBA50C /* Build configuration list for PBXNativeTarget "LTiosTests" */;
 			buildPhases = (
+				D060573470A0A6875F6AC1DA /* [CP] Check Pods Manifest.lock */,
 				0007E4EA1F1FECD700EBA50C /* Sources */,
 				0007E4EB1F1FECD700EBA50C /* Frameworks */,
 				0007E4EC1F1FECD700EBA50C /* Resources */,
+				06777EC960E4648323CB8190 /* [CP] Embed Pods Frameworks */,
+				A3ADA7E721F74CEAB72256F3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +216,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0007E5081F1FECD700EBA50C /* Build configuration list for PBXNativeTarget "LTiosUITests" */;
 			buildPhases = (
+				320B501CBBB8E2FD805BE927 /* [CP] Check Pods Manifest.lock */,
 				0007E4F51F1FECD700EBA50C /* Sources */,
 				0007E4F61F1FECD700EBA50C /* Frameworks */,
 				0007E4F71F1FECD700EBA50C /* Resources */,
+				50CA3E57B3E8F94163D36AE1 /* [CP] Embed Pods Frameworks */,
+				B7405E42A8383E4E7B4AD91F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,6 +308,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06777EC960E4648323CB8190 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LTiosTests/Pods-LTiosTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2D5B08BA606DAF3F90F68997 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LTios/Pods-LTios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		320B501CBBB8E2FD805BE927 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		322825D44C8D070E2781BD17 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LTios/Pods-LTios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		50CA3E57B3E8F94163D36AE1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LTiosUITests/Pods-LTiosUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3ADA7E721F74CEAB72256F3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LTiosTests/Pods-LTiosTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7405E42A8383E4E7B4AD91F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LTiosUITests/Pods-LTiosUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCCE959AB011C0C79D598EE1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D060573470A0A6875F6AC1DA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0007E4D31F1FECD700EBA50C /* Sources */ = {
@@ -417,12 +604,13 @@
 		};
 		0007E5031F1FECD700EBA50C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 132C40A84842BF014D4FBBF4 /* Pods-LTios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = D8J97J3MM9;
 				INFOPLIST_FILE = LTios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tastyapp.LTios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.littleworld.littleworld;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -430,12 +618,13 @@
 		};
 		0007E5041F1FECD700EBA50C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B409A6A7AD5B5EEECD0F4ACE /* Pods-LTios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = D8J97J3MM9;
 				INFOPLIST_FILE = LTios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tastyapp.LTios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.littleworld.littleworld;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -443,6 +632,7 @@
 		};
 		0007E5061F1FECD700EBA50C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F90CFDBDD9EC15C089F0C53 /* Pods-LTiosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -458,6 +648,7 @@
 		};
 		0007E5071F1FECD700EBA50C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE6CD51744C95BA1D35FADC6 /* Pods-LTiosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -473,6 +664,7 @@
 		};
 		0007E5091F1FECD700EBA50C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71D3A809CBE0D3BB16C4D7CF /* Pods-LTiosUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = D8J97J3MM9;
@@ -487,6 +679,7 @@
 		};
 		0007E50A1F1FECD700EBA50C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB9C1CEE77C2EC9EE0738B63 /* Pods-LTiosUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = D8J97J3MM9;
@@ -518,6 +711,7 @@
 				0007E5041F1FECD700EBA50C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0007E5051F1FECD700EBA50C /* Build configuration list for PBXNativeTarget "LTiosTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +720,7 @@
 				0007E5071F1FECD700EBA50C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0007E5081F1FECD700EBA50C /* Build configuration list for PBXNativeTarget "LTiosUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +729,7 @@
 				0007E50A1F1FECD700EBA50C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
