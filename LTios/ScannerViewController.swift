@@ -19,7 +19,7 @@ class ScannerViewController: UIViewController {
     view.translatesAutoresizingMaskIntoConstraints = false
     view.font = Font.bold.bigTitle
     view.text = "Little World"
-    view.textColor = .white
+    view.textColor = TextColor.Dark.title
     return view
   }()
   
@@ -41,12 +41,10 @@ class ScannerViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.view.alpha = 0.4
     view.insertSubview(titleLabel, at: 4)
     view.insertSubview(userIcon, at: 1)
     view.setNeedsUpdateConstraints()
     
-    self.view.backgroundColor = .blue
   }
   
   override func viewDidAppear(_ animated: Bool) {
