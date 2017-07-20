@@ -25,7 +25,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     let view = UIScrollView()
     view.delegate = self
     view.isPagingEnabled = true
-    view.showsVerticalScrollIndicator = true
+    view.showsVerticalScrollIndicator = false
     view.tag = 20
     return view
   }()

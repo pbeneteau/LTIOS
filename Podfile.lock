@@ -1,0 +1,86 @@
+PODS:
+  - CryptoSwift (0.6.9)
+  - Firebase/Auth (4.0.2):
+    - Firebase/Core
+    - FirebaseAuth (= 4.0.0)
+  - Firebase/Core (4.0.2):
+    - FirebaseAnalytics (= 4.0.1)
+    - FirebaseCore (= 4.0.2)
+  - Firebase/Database (4.0.2):
+    - Firebase/Core
+    - FirebaseDatabase (= 4.0.0)
+  - Firebase/Storage (4.0.2):
+    - Firebase/Core
+    - FirebaseStorage (= 2.0.0)
+  - FirebaseAnalytics (4.0.1):
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseAuth (4.0.0):
+    - FirebaseAnalytics (~> 4.0)
+    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseCore (4.0.2):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseDatabase (4.0.0):
+    - FirebaseAnalytics (~> 4.0)
+  - FirebaseInstanceID (2.0.0):
+    - FirebaseCore (~> 4.0)
+  - FirebaseStorage (2.0.0):
+    - FirebaseAnalytics (~> 4.0)
+    - FirebaseCore (~> 4.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleToolboxForMac/DebugUtils (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.1):
+    - GoogleToolboxForMac/DebugUtils (= 2.1.1)
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
+  - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
+  - GTMSessionFetcher/Core (1.1.10)
+  - PhoneNumberKit (1.2.3):
+    - PhoneNumberKit/PhoneNumberKitCore (= 1.2.3)
+    - PhoneNumberKit/UIKit (= 1.2.3)
+  - PhoneNumberKit/PhoneNumberKitCore (1.2.3)
+  - PhoneNumberKit/UIKit (1.2.3):
+    - PhoneNumberKit/PhoneNumberKitCore
+  - Pulsator (0.3.0)
+  - ReachabilitySwift (3)
+  - SnapKit (3.2.0)
+  - Whisper (5.0.0)
+
+DEPENDENCIES:
+  - CryptoSwift
+  - Firebase/Auth
+  - Firebase/Core
+  - Firebase/Database
+  - Firebase/Storage
+  - PhoneNumberKit (~> 1.2)
+  - Pulsator
+  - ReachabilitySwift (~> 3)
+  - SnapKit (~> 3.2.0)
+  - Whisper
+
+SPEC CHECKSUMS:
+  CryptoSwift: a22f6ba238e9ce4d26ee7bf45b9ed82e7122d4a0
+  Firebase: c7ad0731eab26d18a3fc547dd048b0f7cd9c63ae
+  FirebaseAnalytics: 4d7040fefc3cd8b291cde35f12cf063d7963f15d
+  FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
+  FirebaseCore: 1a8bf6c795ad07d2918278657954ffd2552e9c17
+  FirebaseDatabase: d829b3a8c3e2ac7a16773c5df226966b0805dfc2
+  FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
+  FirebaseStorage: 8110a1ed2034c8fbfd83890d2acc9cdbbd99afec
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
+  PhoneNumberKit: 1e5cca669113fc361a8c82ec1ee559c62b8cd0f7
+  Pulsator: '0191f14f7ab82d6dbde6fdbde42036f07a4450e3'
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
+
+PODFILE CHECKSUM: 81c239770c413f896dbe15e9772b8d37fdd968c4
+
+COCOAPODS: 1.1.1

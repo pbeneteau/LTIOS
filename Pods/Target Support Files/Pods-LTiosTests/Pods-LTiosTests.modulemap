@@ -1,0 +1,6 @@
+framework module Pods_LTiosTests {
+  umbrella header "Pods-LTiosTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
