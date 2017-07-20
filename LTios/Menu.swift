@@ -16,9 +16,9 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     let view = UIScrollView()
     view.delegate = self
     view.isPagingEnabled = true
-    view.showsHorizontalScrollIndicator = true
+    view.showsHorizontalScrollIndicator = false
     view.tag = 10
-    view.backgroundColor = .black
+    view.backgroundColor = .clear
     return view
   }()
   
@@ -27,8 +27,9 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     let view = UIScrollView()
     view.delegate = self
     view.isPagingEnabled = true
-    view.showsVerticalScrollIndicator = true
+    view.showsVerticalScrollIndicator = false
     view.tag = 20
+    view.backgroundColor = .red
     return view
   }()
   
@@ -115,7 +116,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
       }
       
       verticalScrollView.snp.makeConstraints { (make) -> Void in
-        make.left.equalTo(notificationVC.view.snp.right)
+        make.left.equalTo(view.snp.left)
         make.width.equalTo(view.snp.width)
         make.height.equalTo(view.snp.height)
       }
@@ -133,10 +134,8 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
       }
       
       scannerVC.view.snp.makeConstraints { (make) -> Void in
-        make.left.equalTo(view.snp.left)
-        make.top.equalTo(view.snp.top)
-        make.right.equalTo(view.snp.right)
-        make.bottom.equalTo(view.snp.bottom)
+        make.centerY.equalTo(view.snp.centerY)
+        make.centerX.equalTo(view.snp.centerX)
         make.width.equalTo(view.snp.width)
         make.height.equalTo(view.snp.height)
       }
@@ -190,16 +189,29 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         self.horizontalScrollView.isScrollEnabled = true
       }
     }
-  }
-  
-  func scrollToChatVC() {
-    UIView.animate(withDuration: 0.5) {
-      self.horizontalScrollView.contentOffset.x = self.view.frame.size.width + 300
+    if scrollView.contentOffset.x > view.frame.size.width {
+      let tintColor = view.frame.size.width / scrollView.contentOffset.x
+      
+      if tintColor > 0.7 {
+        chatButton.backgroundColor = UIColor(red: tintColor, green: tintColor, blue: tintColor, alpha: 1)
+      }
+      
+      if scrollView.contentOffset.x < view.frame.size.width {
+        let tintColor = scrollView.contentOffset.x / view.frame.size.width
+        
+        if tintColor > 0.7 {
+          notificationButton.backgroundColor = UIColor(red: tintColor, green: tintColor, blue: tintColor, alpha: 1)
+        }
+      }
     }
   }
   
+  func scrollToChatVC() {
+    self.horizontalScrollView.setContentOffset(CGPoint(x: self.view.frame.width * 2,y: 0), animated: true)
+  }
+  
   func scrollToNotifivationVC() {
-    self.horizontalScrollView.contentOffset.x = 0
+    self.horizontalScrollView.setContentOffset(CGPoint(x: 0,y: 0), animated: true)
   }
   
   
