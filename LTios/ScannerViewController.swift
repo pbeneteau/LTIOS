@@ -40,7 +40,7 @@ class ScannerViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    self.view.alpha = 0.4
     view.insertSubview(titleLabel, at: 4)
     view.insertSubview(userIcon, at: 1)
     view.setNeedsUpdateConstraints()
