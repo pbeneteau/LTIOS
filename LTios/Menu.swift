@@ -209,6 +209,10 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
       if scrollView.contentOffset.y < view.frame.size.height {
         let blurIntensity = 1 - scrollView.contentOffset.y / view.frame.size.height
         blurEffectView.alpha = blurIntensity
+        let buttonsAlpha = 1 - blurIntensity
+        chatButton.alpha = buttonsAlpha
+        notificationButton.alpha = buttonsAlpha
+        blurEffectView.alpha = blurIntensity
       }
     }
     if scrollView.contentOffset.x > view.frame.size.width {
