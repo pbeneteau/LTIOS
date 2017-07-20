@@ -21,6 +21,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     return view
   }()
   
+  
   lazy var verticalScrollView: UIScrollView = {
     let view = UIScrollView()
     view.delegate = self
