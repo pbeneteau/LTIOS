@@ -168,7 +168,6 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
       chatButton.snp.makeConstraints { (make) -> Void in
         make.width.equalTo(50)
         make.height.equalTo(35)
-        
         make.centerX.equalTo(view.snp.right).multipliedBy(0.9)
         make.top.equalTo(view.snp.bottom).multipliedBy(0.93)
         
@@ -177,7 +176,6 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
       notificationButton.snp.makeConstraints { (make) -> Void in
         make.width.equalTo(50)
         make.height.equalTo(35)
-        
         make.centerX.equalTo(view.snp.centerX).multipliedBy(0.2)
         make.top.equalTo(view.snp.bottom).multipliedBy(0.93)
         
