@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Pulsator
 
 class ScannerViewController: UIViewController {
   
@@ -28,8 +29,12 @@ class ScannerViewController: UIViewController {
     return view
   }()
   
-  lazy var pulsator: ScannerPulsator = {
-    let view = ScannerPulsator()
+  lazy var pulsator: Pulsator = {
+    let view = Pulsator()
+    view.radius = 200
+    view.numPulse = 3
+    view.animationDuration = 10
+    view.backgroundColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0).cgColor
     return view
   }()
   

@@ -13,7 +13,6 @@ class ProfileViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.view.backgroundColor = UIColor.orange
   }
   
   override func didReceiveMemoryWarning() {

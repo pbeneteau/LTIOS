@@ -12,7 +12,6 @@ class NotificationCenterViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = UIColor.gray
   }
   
   override func didReceiveMemoryWarning() {
