@@ -44,6 +44,7 @@ class ScannerViewController: UIViewController {
     view.insertSubview(titleLabel, at: 4)
     view.insertSubview(userIcon, at: 1)
     view.setNeedsUpdateConstraints()
+    view.backgroundColor = .white
     
   }
   

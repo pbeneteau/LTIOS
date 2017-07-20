@@ -18,6 +18,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     view.isPagingEnabled = true
     view.showsHorizontalScrollIndicator = true
     view.tag = 10
+    view.backgroundColor = .black
     return view
   }()
   
@@ -42,20 +43,19 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
   
   // Mark: Navigation Buttons
   
-  lazy var chatButton: UIButton = {
-    let view = UIButton()
+  lazy var chatButton: GreenButton = {
+    let view = GreenButton()
     view.setTitle("Chat", for: .normal)
     view.addTarget(self, action: #selector(scrollToChatVC), for: .touchUpInside)
     return view
   }()
   
-  lazy var notificationButton: UIButton = {
-    let view = UIButton()
+  lazy var notificationButton: GreenButton = {
+    let view = GreenButton()
     view.setTitle("Notif", for: .normal)
     view.addTarget(self, action: #selector(scrollToNotifivationVC), for: .touchUpInside)
     return view
   }()
-  
   
   
   
@@ -83,7 +83,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     
     
     addChildViewController(notificationVC)
-    verticalScrollView.addSubview(notificationVC.view)
+    horizontalScrollView.addSubview(notificationVC.view)
     notificationVC.didMove(toParentViewController: self)
     
     
@@ -135,6 +135,8 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
       scannerVC.view.snp.makeConstraints { (make) -> Void in
         make.left.equalTo(view.snp.left)
         make.top.equalTo(view.snp.top)
+        make.right.equalTo(view.snp.right)
+        make.bottom.equalTo(view.snp.bottom)
         make.width.equalTo(view.snp.width)
         make.height.equalTo(view.snp.height)
       }
@@ -154,22 +156,20 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
       }
       
       chatButton.snp.makeConstraints { (make) -> Void in
-        make.width.equalTo(40)
-        make.height.equalTo(40)
+        make.width.equalTo(50)
+        make.height.equalTo(35)
         
         make.centerX.equalTo(view.snp.right).multipliedBy(0.9)
         make.top.equalTo(view.snp.bottom).multipliedBy(0.93)
         
-        
       }
       
       notificationButton.snp.makeConstraints { (make) -> Void in
-        make.width.equalTo(40)
-        make.height.equalTo(40)
+        make.width.equalTo(50)
+        make.height.equalTo(35)
         
         make.centerX.equalTo(view.snp.centerX).multipliedBy(0.2)
         make.top.equalTo(view.snp.bottom).multipliedBy(0.93)
-        
         
       }
       
@@ -193,16 +193,13 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
   }
   
   func scrollToChatVC() {
-    DispatchQueue.main.async {
-      UIView.animate(withDuration: 0.2, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
-        self.horizontalScrollView.contentOffset.x += CGFloat(self.view.frame.size.width)
-      }, completion: nil)
+    UIView.animate(withDuration: 0.5) {
+      self.horizontalScrollView.contentOffset.x = self.view.frame.size.width + 300
     }
   }
   
   func scrollToNotifivationVC() {
-    
-    horizontalScrollView.contentOffset.x = 0
+    self.horizontalScrollView.contentOffset.x = 0
   }
   
   
