@@ -733,6 +733,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 132C40A84842BF014D4FBBF4 /* Pods-LTios.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = D8J97J3MM9;
 				INFOPLIST_FILE = LTios/Info.plist;
@@ -751,6 +752,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B409A6A7AD5B5EEECD0F4ACE /* Pods-LTios.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = D8J97J3MM9;
 				INFOPLIST_FILE = LTios/Info.plist;
