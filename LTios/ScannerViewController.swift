@@ -1,0 +1,94 @@
+//
+//  ScannerViewController.swift
+//  LTios
+//
+//  Created by antoine beneteau on 2017-07-20.
+//  Copyright © 2017 Tastyapp. All rights reserved.
+//
+
+import UIKit
+
+class ScannerViewController: UIViewController {
+  
+  var didSetupConstraints = false
+  var isGrown = false
+  
+  lazy var titleLabel: TitleLabel = {
+    let view = TitleLabel()
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.font = Font.bold.bigTitle
+    view.text = "Little World"
+    return view
+  }()
+  
+  lazy var userIcon: UserIcon = {
+    let view = UserIcon()
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.addTarget(self, action: #selector(usericonPressed(sender:)), for: .touchUpInside)
+    return view
+  }()
+  
+  lazy var pulsator: ScannerPulsator = {
+    let view = ScannerPulsator()
+    return view
+  }()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    view.insertSubview(titleLabel, at: 4)
+    view.insertSubview(userIcon, at: 1)
+    view.setNeedsUpdateConstraints()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(true)
+    if !pulsator.isPulsating {
+      userIcon.layer.superlayer?.insertSublayer(pulsator, below: userIcon.layer)
+      pulsator.start()
+    }
+  }
+  
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    view.layer.layoutIfNeeded()
+    pulsator.position = userIcon.layer.position
+  }
+  
+  override func updateViewConstraints() {
+    
+    if !didSetupConstraints {
+      
+      titleLabel.snp.makeConstraints { (make) -> Void in
+        make.width.equalTo(view.snp.width).multipliedBy(0.8)
+        make.centerX.equalTo(view.snp.centerX).multipliedBy(1.0)
+        make.top.equalTo(view.snp.bottom).multipliedBy(0.05)
+      }
+      
+      userIcon.snp.makeConstraints { (make) -> Void in
+        make.centerX.equalTo(view.snp.centerX)
+        make.centerY.equalTo(view.snp.centerY)
+        make.width.equalTo(50)
+        make.height.equalTo(50)
+      }
+      
+    }
+    
+    super.updateViewConstraints()
+  }
+  
+  @objc private func usericonPressed(sender: UIButton) {
+    if pulsator.isPulsating {
+      pulsator.stop()
+      userIcon.setImage(#imageLiteral(resourceName: "userHide"), for: .normal)
+    } else {
+      userIcon.setImage(#imageLiteral(resourceName: "userNormal"), for: .normal)
+      pulsator.start()
+    }
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+  }
+  
+}
