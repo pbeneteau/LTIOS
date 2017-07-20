@@ -13,15 +13,7 @@ class ScannerViewController: UIViewController {
   
   var didSetupConstraints = false
   var isGrown = false
-  
-  lazy var titleLabel: TitleLabel = {
-    let view = TitleLabel()
-    view.translatesAutoresizingMaskIntoConstraints = false
-    view.font = Font.bold.bigTitle
-    view.text = "Little World"
-    view.textColor = TextColor.Dark.title
-    return view
-  }()
+
   
   lazy var userIcon: UserIcon = {
     let view = UserIcon()
@@ -41,7 +33,6 @@ class ScannerViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.insertSubview(titleLabel, at: 4)
     view.insertSubview(userIcon, at: 1)
     view.setNeedsUpdateConstraints()
     view.backgroundColor = .white
@@ -65,12 +56,6 @@ class ScannerViewController: UIViewController {
   override func updateViewConstraints() {
     
     if !didSetupConstraints {
-      
-      titleLabel.snp.makeConstraints { (make) -> Void in
-        make.width.equalTo(view.snp.width).multipliedBy(0.8)
-        make.centerX.equalTo(view.snp.centerX).multipliedBy(1.0)
-        make.top.equalTo(view.snp.bottom).multipliedBy(0.05)
-      }
       
       userIcon.snp.makeConstraints { (make) -> Void in
         make.centerX.equalTo(view.snp.centerX)

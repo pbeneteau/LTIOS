@@ -58,6 +58,8 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     return view
   }()
   
+  let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+  var blurEffectView = UIVisualEffectView()
   
   
   override func viewDidLoad() {
@@ -96,6 +98,11 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     view.addSubview(chatButton)
     view.addSubview(notificationButton)
     
+    blurEffectView.frame = profileVC.view.bounds
+    blurEffectView = UIVisualEffectView(effect: blurEffect)
+    blurEffectView.alpha = 0
+    scannerVC.view.addSubview(blurEffectView)
+    
     view.setNeedsUpdateConstraints()
     
     
@@ -111,20 +118,24 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     if !didSetupConstraints {
       
       horizontalScrollView.snp.makeConstraints { (make) -> Void in
+        make.centerX.equalTo(view.snp.centerX)
+        make.centerY.equalTo(view.snp.centerY)
         make.width.equalTo(view.snp.width)
         make.height.equalTo(view.snp.height)
       }
       
       verticalScrollView.snp.makeConstraints { (make) -> Void in
-        make.left.equalTo(view.snp.left)
+        make.centerX.equalTo(view.snp.centerX)
+        make.centerY.equalTo(view.snp.centerY)
         make.width.equalTo(view.snp.width)
         make.height.equalTo(view.snp.height)
       }
       
       notificationVC.view.snp.makeConstraints { (make) -> Void in
         make.left.equalTo(horizontalScrollView.snp.left)
+        make.bottom.equalTo(view.snp.bottom)
         make.width.equalTo(view.snp.width)
-        make.height.equalTo(view.snp.height)
+        make.height.equalTo(view.snp.height).multipliedBy(0.9)
       }
       
       chatVC.view.snp.makeConstraints { (make) -> Void in
@@ -172,6 +183,13 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         
       }
       
+      blurEffectView.snp.makeConstraints { (make) -> Void in
+        make.centerX.equalTo(scannerVC.view.snp.centerX)
+        make.centerY.equalTo(scannerVC.view.snp.centerY)
+        make.width.equalTo(scannerVC.view.snp.width)
+        make.height.equalTo(scannerVC.view.snp.height)
+      }
+      
       didSetupConstraints = true
       
     }
@@ -181,12 +199,16 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     if scrollView.tag == 20 {
-      if scrollView.contentOffset.y < view.frame.size.height {
+      if scrollView.contentOffset.y == 0.0 {
         self.horizontalScrollView.isScrollEnabled = false
-      } else if scrollView.contentOffset.y > view.frame.size.height {
+      } else if scrollView.contentOffset.y == view.frame.size.height * 2.0 {
         self.horizontalScrollView.isScrollEnabled = false
       } else {
         self.horizontalScrollView.isScrollEnabled = true
+      }
+      if scrollView.contentOffset.y < view.frame.size.height {
+        let blurIntensity = 1 - scrollView.contentOffset.y / view.frame.size.height
+        blurEffectView.alpha = blurIntensity
       }
     }
     if scrollView.contentOffset.x > view.frame.size.width {
