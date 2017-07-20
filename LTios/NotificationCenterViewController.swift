@@ -9,15 +9,30 @@
 import UIKit
 
 class NotificationCenterViewController: UIViewController {
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
-  
+    
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .green
+        
+        let maskLayer = CAShapeLayer()
+        
+        
+        let path = UIBezierPath(roundedRect:self.view.bounds,
+                                byRoundingCorners:[.topRight, .bottomRight],
+                                cornerRadii: CGSize(width: 10, height:  10))
+        
+        
+        maskLayer.path = path.cgPath
+        self.view.layer.mask = maskLayer
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
 }

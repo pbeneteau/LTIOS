@@ -13,7 +13,19 @@ class ProfileViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.backgroundColor = .red
-  }
+
+    let maskLayer = CAShapeLayer()
+    
+    
+    let path = UIBezierPath(roundedRect:self.view.bounds,
+                            byRoundingCorners:[.bottomRight, .bottomLeft],
+                            cornerRadii: CGSize(width: 10, height:  10))
+    
+    
+    maskLayer.path = path.cgPath
+    self.view.layer.mask = maskLayer
+    
+    }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()

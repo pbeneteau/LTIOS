@@ -12,7 +12,18 @@ class ChatViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.view.backgroundColor = .blue
     
+    let maskLayer = CAShapeLayer()
+    
+    
+    let path = UIBezierPath(roundedRect:self.view.bounds,
+                            byRoundingCorners:[.topLeft, .bottomLeft],
+                            cornerRadii: CGSize(width: 10, height:  10))
+    
+    
+    maskLayer.path = path.cgPath
+    self.view.layer.mask = maskLayer
   }
   
   override func didReceiveMemoryWarning() {
