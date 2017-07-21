@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 
+
 class RegisterViewController: UIViewController {
   
   var didSetupConstraints = false

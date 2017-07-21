@@ -13,18 +13,14 @@ class StartViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    do {
-      try Auth.auth().signOut()
-    } catch let signOutError as NSError {
-      print ("Error signing out: %@", signOutError)
-    }
+
     Auth.auth().addStateDidChangeListener { auth, user in
-      if user != nil {
+      if user == nil {
         mainUser.user = user
-        //let homeVC = ScannerViewController()
-        //self.present(homeVC, animated: false, completion: nil)
+        let menuVC = MenuViewController()
+        self.present(menuVC, animated: false, completion: nil)
       } else {
-        let loginVC = PhoneVerificationViewController()
+        let loginVC = LoginViewController()
         self.present(loginVC, animated: false, completion: nil)
       }
     }

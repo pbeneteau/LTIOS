@@ -328,7 +328,7 @@ class NameAndContactsViewController: UIViewController {
     mainUser.contactList = contactList
     self.uploadContactListToFirebase()
   }
-  
+    
   func uploadContactListToFirebase() {
     if mainUser.user != nil {
       for contact in mainUser.contactList {
