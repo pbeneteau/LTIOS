@@ -19,6 +19,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     view.showsHorizontalScrollIndicator = false
     view.tag = 10
     view.backgroundColor = .clear
+    view.bounces = false
     return view
   }()
   
@@ -30,6 +31,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     view.showsVerticalScrollIndicator = false
     view.tag = 20
     view.backgroundColor = .red
+    view.bounces = false
     return view
   }()
   
@@ -135,11 +137,12 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         make.left.equalTo(horizontalScrollView.snp.left)
         make.bottom.equalTo(view.snp.bottom)
         make.width.equalTo(view.snp.width)
-        make.height.equalTo(view.snp.height).multipliedBy(0.9)
+        make.height.equalTo(view.snp.height)
       }
       
       chatVC.view.snp.makeConstraints { (make) -> Void in
         make.left.equalTo(notificationVC.view.snp.right).offset(view.frame.size.width)
+        make.bottom.equalTo(view.snp.bottom)
         make.width.equalTo(view.snp.width)
         make.height.equalTo(view.snp.height)
       }
@@ -182,10 +185,10 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
       }
       
       blurEffectView.snp.makeConstraints { (make) -> Void in
-        make.centerX.equalTo(scannerVC.view.snp.centerX)
-        make.centerY.equalTo(scannerVC.view.snp.centerY)
-        make.width.equalTo(scannerVC.view.snp.width)
-        make.height.equalTo(scannerVC.view.snp.height)
+        make.centerX.equalTo(view.snp.centerX)
+        make.centerY.equalTo(view.snp.centerY)
+        make.width.equalTo(view.snp.width)
+        make.height.equalTo(view.snp.height)
       }
       
       didSetupConstraints = true

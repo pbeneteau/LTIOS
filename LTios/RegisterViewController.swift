@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
   
   var didSetupConstraints = false
+  
+  var validEmail: Bool = false
+  var validPass: Bool = false
   
   lazy var titleLabel: TitleLabel = {
     let view = TitleLabel()
@@ -48,6 +52,7 @@ class RegisterViewController: UIViewController {
     view.autocorrectionType = .no
     view.keyboardType = .emailAddress
     view.borderStyle = UITextBorderStyle.roundedRect
+    view.addTarget(self, action: #selector(checkEmail), for: UIControlEvents.allEvents)
     return view
   }()
   
@@ -60,6 +65,7 @@ class RegisterViewController: UIViewController {
     view.isSecureTextEntry = true
     view.borderStyle = UITextBorderStyle.roundedRect
     view.clearsOnBeginEditing = true
+    view.addTarget(self, action: #selector(checkPasswords), for: UIControlEvents.allEvents)
     return view
   }()
   
@@ -72,6 +78,7 @@ class RegisterViewController: UIViewController {
     view.isSecureTextEntry = true
     view.borderStyle = UITextBorderStyle.roundedRect
     view.clearsOnBeginEditing = true
+    view.addTarget(self, action: #selector(checkPasswords), for: UIControlEvents.editingChanged)
     return view
   }()
   
@@ -80,6 +87,8 @@ class RegisterViewController: UIViewController {
     view.translatesAutoresizingMaskIntoConstraints = false
     view.setTitle("Continuer", for: .normal)
     view.titleLabel?.font = Font.bold.subtitle
+    view.setBackgroundColor(color: UIColor(red:0.50, green:0.55, blue:0.55, alpha:1.0), forState: .normal)
+    view.isEnabled = false
     view.addTarget(self, action: #selector(continueButtonPressed(sender:)), for: .touchUpInside)
     return view
   }()
@@ -87,16 +96,16 @@ class RegisterViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    view.addSubview(titleLabel)
-    view.addSubview(emailLabel)
-    view.addSubview(emailTextField)
-    view.addSubview(passwordLabel)
-    view.addSubview(passwordTextField)
-    view.addSubview(password2Label)
-    view.addSubview(password2TextField)
-    view.addSubview(continueButton)
+    self.view.addSubview(self.titleLabel)
+    self.view.addSubview(self.emailLabel)
+    self.view.addSubview(self.emailTextField)
+    self.view.addSubview(self.passwordLabel)
+    self.view.addSubview(self.passwordTextField)
+    self.view.addSubview(self.password2Label)
+    self.view.addSubview(self.password2TextField)
+    self.view.addSubview(self.continueButton)
     
-    view.setNeedsUpdateConstraints()
+    self.view.setNeedsUpdateConstraints()
     
   }
   
@@ -170,13 +179,64 @@ class RegisterViewController: UIViewController {
   }
   
   @objc private func continueButtonPressed(sender: UIButton) {
-    if emailTextField.text != "" && passwordTextField.text != nil {
-      if password2TextField.text == passwordTextField.text {
-        let nameContactVC = NameAndContactsViewController()
-        self.present(nameContactVC, animated: true, completion: nil)
+    view.endEditing(true)
+    Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+      if error != nil {
+        print("error: \(String(describing: error?.localizedDescription))")
+      } else {
+        mainUser.email = self.emailTextField.text
+        
+        if mainUser.user != nil && mainUser.email != nil && mainUser.phoneNumber != nil {
+          FirebaseConst.phoneDatabaseRef.child(mainUser.phoneNumber!).setValue(mainUser.email!)
+          let nameContactVC = NameAndContactsViewController()
+          self.present(nameContactVC, animated: false, completion: nil)
+        }
       }
     }
   }
   
+  func checkEmail() {
+    if emailTextField.text != "" {
+      if emailTextField.text!.isEmail {
+        validEmail = true
+        if validEmail && validPass {
+          continueButton.setBackgroundColor(color: UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0), forState: .normal)
+          continueButton.isEnabled = true
+        }
+      } else {
+        validEmail = false
+        continueButton.setBackgroundColor(color: UIColor(red:0.50, green:0.55, blue:0.55, alpha:1.0), forState: .normal)
+        continueButton.isEnabled = false
+      }
+    } else {
+      validEmail = false
+      continueButton.setBackgroundColor(color: UIColor(red:0.50, green:0.55, blue:0.55, alpha:1.0), forState: .normal)
+      continueButton.isEnabled = false
+    }
+  }
+  
+  func checkPasswords() {
+    if (passwordTextField.text?.characters.count)! >= 5 {
+      if passwordTextField.text == password2TextField.text {
+        validPass = true
+        if validEmail && validPass {
+          continueButton.setBackgroundColor(color: UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0), forState: .normal)
+          continueButton.isEnabled = true
+        }
+      } else {
+        validPass = false
+        continueButton.setBackgroundColor(color: UIColor(red:0.50, green:0.55, blue:0.55, alpha:1.0), forState: .normal)
+        continueButton.isEnabled = false
+      }
+    } else {
+      validPass = false
+      continueButton.setBackgroundColor(color: UIColor(red:0.50, green:0.55, blue:0.55, alpha:1.0), forState: .normal)
+      continueButton.isEnabled = false
+    }
+  }
+  
+  override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    view.endEditing(true)
+  }
   
 }

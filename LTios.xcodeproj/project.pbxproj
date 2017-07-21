@@ -37,6 +37,7 @@
 		00CC1A981F20071400ECADAD /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CC1A971F20071400ECADAD /* Firebase.swift */; };
 		00CC1A9C1F20074D00ECADAD /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CC1A9B1F20074D00ECADAD /* Notification.swift */; };
 		00CC1A9E1F200C7D00ECADAD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CC1A9D1F200C7D00ECADAD /* GoogleService-Info.plist */; };
+		00EBDEA01F2159A100676E70 /* MainUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EBDE9F1F2159A100676E70 /* MainUser.swift */; };
 		117A79360B93C15264F4D4A7 /* Pods_LTiosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ABAAA08C0B5E246906D3643 /* Pods_LTiosTests.framework */; };
 		98CA6EFB58DD7B6491BEE45C /* Pods_LTiosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D63D386CE37523546D50354D /* Pods_LTiosUITests.framework */; };
 		9A502145D7C38C05BE014890 /* Pods_LTios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACEF576580160AAA28DC6F2 /* Pods_LTios.framework */; };
@@ -96,6 +97,7 @@
 		00CC1A971F20071400ECADAD /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		00CC1A9B1F20074D00ECADAD /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		00CC1A9D1F200C7D00ECADAD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		00EBDE9F1F2159A100676E70 /* MainUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUser.swift; sourceTree = "<group>"; };
 		132C40A84842BF014D4FBBF4 /* Pods-LTios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LTios/Pods-LTios.debug.xcconfig"; sourceTree = "<group>"; };
 		6ABAAA08C0B5E246906D3643 /* Pods_LTiosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTiosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D3A809CBE0D3BB16C4D7CF /* Pods-LTiosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTiosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LTiosUITests/Pods-LTiosUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -240,10 +242,11 @@
 		00CC1A901F1FF0A500ECADAD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				00CC1A931F20064200ECADAD /* NearbyUser.swift */,
+				00EBDE9F1F2159A100676E70 /* MainUser.swift */,
 				00CC1A951F20064D00ECADAD /* Contact.swift */,
-				00CC1A971F20071400ECADAD /* Firebase.swift */,
+				00CC1A931F20064200ECADAD /* NearbyUser.swift */,
 				00CC1A9B1F20074D00ECADAD /* Notification.swift */,
+				00CC1A971F20071400ECADAD /* Firebase.swift */,
 				0074A25D1F201B0800683A53 /* Color + Font */,
 			);
 			name = Models;
@@ -578,6 +581,7 @@
 				00CC1A981F20071400ECADAD /* Firebase.swift in Sources */,
 				0074A2691F20AA5100683A53 /* RegisterViewController.swift in Sources */,
 				00CC1A941F20064200ECADAD /* NearbyUser.swift in Sources */,
+				00EBDEA01F2159A100676E70 /* MainUser.swift in Sources */,
 				0074A25C1F2017A700683A53 /* Labels.swift in Sources */,
 				0074A2651F20208D00683A53 /* TextFields.swift in Sources */,
 				0007E4DD1F1FECD700EBA50C /* StartViewController.swift in Sources */,
