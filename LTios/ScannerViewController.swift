@@ -8,6 +8,7 @@
 
 import UIKit
 import Pulsator
+import SCLAlertView
 
 class ScannerViewController: UIViewController {
     

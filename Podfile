@@ -17,6 +17,7 @@ target 'LTios' do
   pod ‘ReachabilitySwift’, ‘~> 3’
   pod 'CryptoSwift'
   pod 'PhoneNumberKit', '~> 1.2'
+  pod 'SCLAlertView'
 
   target 'LTiosTests' do
     inherit! :search_paths

@@ -7,11 +7,38 @@
 //
 
 import UIKit
+import Firebase
+import Contacts
+import ContactsUI
+import PhoneNumberKit
+import CryptoSwift
 
 class NameAndContactsViewController: UIViewController {
   
   var didSetupConstraints = false
   
+  let phoneNumberKit = PhoneNumberKit()
+  
+  var validPseudo: Bool = false
+  var validContact: Bool = false
+  
+  lazy var nameTitle: TitleLabel = {
+    let view = TitleLabel()
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.text = "Pseudo"
+    view.font = Font.bold.title
+    view.textColor = TextColor.Light.title
+    return view
+  }()
+  
+  lazy var contactTitle: TitleLabel = {
+    let view = TitleLabel()
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.text = "Carnet d'adresse"
+    view.font = Font.bold.title
+    view.textColor = TextColor.Dark.text
+    return view
+  }()
   
   lazy var nameView: NameInputView = {
     let view = NameInputView()
@@ -42,6 +69,7 @@ class NameAndContactsViewController: UIViewController {
     view.autocorrectionType = .no
     view.borderStyle = UITextBorderStyle.roundedRect
     view.clearsOnBeginEditing = true
+    view.addTarget(self, action: #selector(checkPseudo), for: UIControlEvents.editingChanged)
     return view
   }()
   
@@ -87,20 +115,34 @@ class NameAndContactsViewController: UIViewController {
     return view
   }()
   
+  lazy var finishButton: BlueButton = {
+    let view = BlueButton()
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.setTitle("Continuer", for: .normal)
+    view.titleLabel?.font = Font.bold.subtitle
+    view.addTarget(self, action: #selector(finishButtonPressed(sender:)), for: .touchUpInside)
+    view.isHidden = true
+    return view
+  }()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    view.addSubview(nameView)
-    view.addSubview(contactView)
-    view.addSubview(nameLabel)
-    view.addSubview(nameTextField)
-    view.addSubview(contactDescription)
-    view.addSubview(importButton)
-    view.addSubview(contactActivityIndicator)
-    view.addSubview(succesNameImage)
-    view.addSubview(succesContactImage)
+    self.view.addSubview(self.nameView)
+    self.view.addSubview(self.contactView)
+    self.view.addSubview(self.nameTitle)
+    self.view.addSubview(self.contactTitle)
+    self.view.addSubview(self.nameLabel)
+    self.view.addSubview(self.nameTextField)
+    self.view.addSubview(self.contactDescription)
+    self.view.addSubview(self.importButton)
+    self.view.addSubview(self.contactActivityIndicator)
+    self.view.addSubview(self.succesNameImage)
+    self.view.addSubview(self.succesContactImage)
+    self.view.addSubview(self.finishButton)
     
-    view.setNeedsUpdateConstraints()
+    self.view.setNeedsUpdateConstraints()
+    
   }
   
   override func updateViewConstraints() {
@@ -118,11 +160,23 @@ class NameAndContactsViewController: UIViewController {
         make.top.equalTo(nameView.snp.bottom)
       }
       
+      nameTitle.snp.makeConstraints { (make) -> Void in
+        make.width.equalTo(view.snp.width).multipliedBy(0.8)
+        make.centerX.equalTo(view.snp.centerX)
+        make.top.equalTo(nameView.snp.bottom).multipliedBy(0.2)
+      }
+      
+      contactTitle.snp.makeConstraints { (make) -> Void in
+        make.width.equalTo(view.snp.width).multipliedBy(0.8)
+        make.centerX.equalTo(view.snp.centerX)
+        make.top.equalTo(contactView.snp.top).multipliedBy(1.2)
+      }
+      
       nameTextField.snp.makeConstraints { (make) -> Void in
         make.width.equalTo(view.snp.width).dividedBy(2.0)
         make.height.equalTo(40)
+        make.top.equalTo(nameView.snp.bottom).multipliedBy(0.6)
         make.centerX.equalTo(nameView.snp.centerX)
-        make.centerY.equalTo(nameView.snp.centerY)
       }
       
       nameLabel.snp.makeConstraints { (make) -> Void in
@@ -134,7 +188,7 @@ class NameAndContactsViewController: UIViewController {
       succesNameImage.snp.makeConstraints { (make) -> Void in
         make.width.equalTo(35)
         make.height.equalTo(35)
-        make.centerY.equalTo(nameView.snp.centerY)
+        make.centerY.equalTo(nameTextField.snp.centerY)
         make.left.equalTo(nameTextField.snp.right).offset(10)
       }
       
@@ -142,13 +196,13 @@ class NameAndContactsViewController: UIViewController {
         make.width.equalTo(view.snp.width).dividedBy(2.0)
         make.height.equalTo(40)
         make.centerX.equalTo(contactView.snp.centerX)
-        make.centerY.equalTo(contactView.snp.centerY).offset(-20)
+        make.top.equalTo(contactView.snp.top).multipliedBy(1.8)
       }
       
       contactDescription.snp.makeConstraints { (make) -> Void in
         make.width.equalTo(contactView.snp.width).multipliedBy(0.7)
         make.centerX.equalTo(contactView.snp.centerX)
-        make.bottom.equalTo(importButton.snp.top).offset(-30)
+        make.top.equalTo(contactView.snp.top).multipliedBy(1.45)
       }
       
       contactActivityIndicator.snp.makeConstraints { (make) -> Void in
@@ -161,6 +215,13 @@ class NameAndContactsViewController: UIViewController {
         make.height.equalTo(35)
         make.top.equalTo(importButton.snp.bottom).offset(30)
         make.centerX.equalTo(contactView.snp.centerX)
+      }
+      
+      finishButton.snp.makeConstraints { (make) -> Void in
+        make.width.equalTo(view.snp.width).dividedBy(2.0)
+        make.height.equalTo(40)
+        make.centerX.equalTo(contactView.snp.centerX)
+        make.top.equalTo(contactView.snp.top).multipliedBy(1.8)
       }
       
       didSetupConstraints = true
@@ -199,7 +260,125 @@ class NameAndContactsViewController: UIViewController {
     if true {
       contactActivityIndicator.isHidden = false
       contactActivityIndicator.startAnimating()
+      
+      let entityType = CNEntityType.contacts
+      let authStatus = CNContactStore.authorizationStatus(for: entityType)
+      
+      if authStatus == CNAuthorizationStatus.notDetermined {
+        let contactStore = CNContactStore.init()
+        contactStore.requestAccess(for: entityType, completionHandler: { (success, nil) in
+          if success {
+            self.importContacts(contactStore: contactStore)
+            
+          } else {
+            print("Not authorized")
+          }
+        })
+      } else if authStatus == CNAuthorizationStatus.authorized {
+        self.importContacts(contactStore: CNContactStore())
+      }
     }
+  }
+  
+  func importContacts(contactStore: CNContactStore) {
+    var contactList = [Contact]()
+    
+    let fetchRequest = CNContactFetchRequest(keysToFetch: [CNContactGivenNameKey as CNKeyDescriptor, CNContactFamilyNameKey as CNKeyDescriptor, CNContactPhoneNumbersKey as CNKeyDescriptor])
+    try! contactStore.enumerateContacts(with: fetchRequest) { contact, stop in
+      if contact.phoneNumbers.count > 0 && !contact.givenName.isEmpty && !contact.familyName.isEmpty {
+        var phoneNumbers = [String]()
+        phoneNumbers.removeAll()
+        
+        for phone in contact.phoneNumbers {
+          let number = phone.value
+          do {
+            if let digits = number.value(forKey: "digits") as? String {
+              let phoneNumber = try self.phoneNumberKit.parse(digits)
+              let phoneNumberConverted = self.phoneNumberKit.format(phoneNumber, toType: .e164)
+              if phoneNumber.type == .mobile {
+                let cryptedNumber = phoneNumberConverted.md5()
+                phoneNumbers.append(cryptedNumber)
+              }
+            }
+          }
+          catch {
+            //print("Generic parser error")
+          }
+        }
+        phoneNumbers = Array(Set(phoneNumbers))
+        let contactCustom: Contact
+        var contactName = "\(contact.givenName) \(contact.familyName)"
+        contactName = contactName.replacingOccurrences(of: ".", with: "")
+        contactName = contactName.replacingOccurrences(of: "#", with: "")
+        contactName = contactName.replacingOccurrences(of: "$", with: "")
+        contactName = contactName.replacingOccurrences(of: "[", with: "")
+        contactName = contactName.replacingOccurrences(of: "]", with: "")
+        if contactName == "" {
+          contactName = "Inconu"
+        }
+        
+        contactCustom = Contact(fullName: contactName, phoneNumbers: phoneNumbers)
+        if !contactList.contains(contactCustom) {
+          contactList.append(contactCustom)
+        }
+        
+      }
+    }
+    contactList = contactList.sorted(by: { $0.fullName < $1.fullName })
+    mainUser.contactList = contactList
+    self.uploadContactListToFirebase()
+  }
+  
+  func uploadContactListToFirebase() {
+    if mainUser.user != nil {
+      for contact in mainUser.contactList {
+        var i = 0
+        for phone in contact.phoneNumbers {
+          FirebaseConst.usersDatabaseRef.child((mainUser.user?.uid)!).child("ContactList").child(contact.fullName).child("PhoneNumber").child("phone\(i)").setValue(phone)
+          i += 1
+        }
+      }
+      self.contactActivityIndicator.stopAnimating()
+      self.contactActivityIndicator.isHidden = true
+      self.contactSuccess()
+      validContact = true
+      if validPseudo && validContact {
+        mainUser.publicName = nameTextField.text
+        finishButton.isHidden = false
+        importButton.isHidden = true
+      } else {
+        finishButton.isHidden = true
+      }
+    } else {
+      validContact = false
+    }
+  }
+  
+  func checkPseudo() {
+    if (nameTextField.text?.characters.count)! > 1 && (nameTextField.text?.characters.count)! < 9 {
+      firstConnection = true
+      nameSuccess()
+      validPseudo = true
+      if validPseudo && validContact {
+        mainUser.publicName = nameTextField.text
+        finishButton.isHidden = false
+        importButton.isHidden = true
+      } else {
+        finishButton.isHidden = true
+      }
+    } else {
+      nameFail()
+      validPseudo = false
+    }
+  }
+  
+  @objc func finishButtonPressed(sender: UIButton) {
+    let menuVC = MenuViewController()
+    self.present(menuVC, animated: true, completion: nil)
+  }
+  
+  override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    view.endEditing(true)
   }
   
 }
