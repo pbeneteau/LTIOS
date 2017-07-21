@@ -315,5 +315,3 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     super.didReceiveMemoryWarning()
   }
 }
-
-
