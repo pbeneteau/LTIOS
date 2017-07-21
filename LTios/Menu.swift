@@ -44,6 +44,25 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     let notificationVC = NotificationCenterViewController() // left
     
     
+    // Mark: NAvigation bar
+    
+    lazy var titleLabel: TitleLabel = {
+        let view = TitleLabel()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.font = Font.bold.subtitle
+        view.text = "Scanner"
+        view.textColor = .gray
+        view.alpha = 0.7
+        return view
+    }()
+    
+    lazy var titleLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
+        return view
+    }()
+    
+    
     // Mark: Navigation Buttons
     
     lazy var chatButton: UIButton = {
@@ -102,6 +121,9 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         verticalScrollView.contentOffset = CGPoint(x: 0, y: view.frame.size.height)
         horizontalScrollView.contentSize = CGSize(width: view.frame.size.width * 3, height: view.frame.size.height)
         verticalScrollView.contentSize = CGSize(width: view.frame.size.width, height: view.frame.size.height * 3)
+        
+        view.addSubview(titleLabel)
+        view.addSubview(titleLine)
         
         view.addSubview(chatButton)
         view.addSubview(notificationButton)
@@ -209,6 +231,19 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
                 make.height.equalTo(scannerVC.view.snp.height)
             }
             
+            titleLabel.snp.makeConstraints { (make) -> Void in
+                make.width.equalTo(view.snp.width).multipliedBy(0.4)
+                make.centerX.equalTo(view.snp.centerX).multipliedBy(0.5)
+                make.topMargin.equalTo(35)
+            }
+            
+            titleLine.snp.makeConstraints { (make) -> Void in
+                make.width.equalTo(view.snp.width)
+                make.height.equalTo(0.5)
+                make.centerX.equalTo(view.snp.centerX)
+                make.top.equalTo(view.snp.bottom).multipliedBy(0.1)
+            }
+            
             didSetupConstraints = true
             
         }
@@ -217,6 +252,19 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        
+        // Resolve a bug
+        if scrollView.tag == 10 {
+            if scrollView.contentOffset.x >= view.frame.width - 20 && scrollView.contentOffset.x <= view.frame.width + 20 {
+                scannerVC.view.isUserInteractionEnabled = true
+                verticalScrollView.isUserInteractionEnabled = true
+            } else {
+                scannerVC.view.isUserInteractionEnabled = false
+                verticalScrollView.isUserInteractionEnabled = false
+            }
+            
+        }
         
         if scrollView.tag == 20 {
             
@@ -227,41 +275,49 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
             } else {
                 self.horizontalScrollView.isScrollEnabled = true
             }
+            
+            // Scrolling to profile VC
             if scrollView.contentOffset.y < view.frame.size.height {
                 
                 let blurIntensity = 1 - scrollView.contentOffset.y / view.frame.size.height
                 
                 blurEffectView.alpha = blurIntensity
-                
+                titleLine.alpha = 1 - blurIntensity
                 
                 chatButtonVerticalScrollAnimations(alpha: 1 - blurIntensity)
                 notifButtonVerticalScrollAnimations(alpha: 1 - blurIntensity)
             }
             
+            // Scrolling to contacts VC
             if scrollView.contentOffset.y > view.frame.size.height {
                 
                 let alpha = (scrollView.contentOffset.y - view.frame.size.height) / (view.frame.size.height)
                 
                 colorEffectView.alpha = alpha
                 
+                titleLine.alpha = 1 - alpha * 5
                 chatButtonVerticalScrollAnimations(alpha: 1 - alpha * 5)
                 notifButtonVerticalScrollAnimations(alpha: 1 - alpha * 5)
             }
             
         } else {
             
-            
+            // Scrolling to chat VC
             if scrollView.contentOffset.x > view.frame.size.width {
                 
                 colorEffectView.alpha = (scrollView.contentOffset.x  - view.frame.size.width) / (view.frame.size.width)
-
+                titleLine.alpha = 1 - (scrollView.contentOffset.x  - view.frame.size.width) / (view.frame.size.width)
+                
                 //chatButtonHorizontalScrollAnimations(scrollX: scrollView.contentOffset.x)
             }
             
+            
+            // Scrolling to notifications VC
             if scrollView.contentOffset.x < view.frame.size.width {
                 
                 colorEffectView.alpha = 1 - scrollView.contentOffset.x / view.frame.size.width
-
+                titleLine.alpha = scrollView.contentOffset.x / view.frame.size.width
+                
                 //notifButtonHorizontalScrollAnimations(scrollX: scrollView.contentOffset.x)
             }
         }
@@ -292,18 +348,18 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     
     func chatButtonVerticalScrollAnimations(alpha: CGFloat) {
         chatButton.alpha = alpha
-
+        
     }
     
     func notifButtonVerticalScrollAnimations(alpha: CGFloat) {
         notificationButton.alpha = alpha
-
+        
     }
     
     // Mark: Menu buttons actions
     
     func scrollToChatVC() {
-        self.horizontalScrollView.setContentOffset(CGPoint(x: self.view.frame.width * 2,y: 0), animated: true)
+        self.horizontalScrollView.setContentOffset(CGPoint(x: self.view.frame.width * 2, y: 0), animated: true)
     }
     
     func scrollToNotifivationVC() {
