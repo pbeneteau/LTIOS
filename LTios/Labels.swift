@@ -21,7 +21,7 @@ class TitleLabel: UILabel {
   
   func commonInit(){
     textColor = TextColor.Dark.title
-    textAlignment = .center
+    textAlignment = .left
     font = Font.regular.title
   }
 }
