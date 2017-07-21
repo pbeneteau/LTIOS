@@ -30,7 +30,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     view.isPagingEnabled = true
     view.showsVerticalScrollIndicator = false
     view.tag = 20
-    view.backgroundColor = .red
+    view.backgroundColor = .clear
     view.bounces = false
     return view
   }()
@@ -46,22 +46,28 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
   
   // Mark: Navigation Buttons
   
-  lazy var chatButton: GreenButton = {
-    let view = GreenButton()
-    view.setTitle("Chat", for: .normal)
+  lazy var chatButton: UIButton = {
+    let view = UIButton()
+    let icon = UIImage(named: "speech-bubble")?.withRenderingMode(.alwaysTemplate)
+    view.setImage(icon, for: .normal)
+    view.tintColor = .lightGray
     view.addTarget(self, action: #selector(scrollToChatVC), for: .touchUpInside)
     return view
   }()
   
-  lazy var notificationButton: GreenButton = {
-    let view = GreenButton()
-    view.setTitle("Notif", for: .normal)
+  lazy var notificationButton: UIButton = {
+    let view = UIButton()
+    let icon = UIImage(named: "notifications")?.withRenderingMode(.alwaysTemplate)
+    view.setImage(icon, for: .normal)
+    view.tintColor = .lightGray
     view.addTarget(self, action: #selector(scrollToNotifivationVC), for: .touchUpInside)
     return view
   }()
   
   let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
   var blurEffectView = UIVisualEffectView()
+  
+  var colorEffectView = UIView()
   
   
   override func viewDidLoad() {
@@ -100,10 +106,15 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     view.addSubview(chatButton)
     view.addSubview(notificationButton)
     
-    blurEffectView.frame = profileVC.view.bounds
+    blurEffectView.frame = scannerVC.view.bounds
     blurEffectView = UIVisualEffectView(effect: blurEffect)
     blurEffectView.alpha = 0
     scannerVC.view.addSubview(blurEffectView)
+    
+    colorEffectView.frame = scannerVC.view.bounds
+    colorEffectView.backgroundColor = UIColor(red:0.20, green:0.29, blue:0.37, alpha:1.0)
+    colorEffectView.alpha = 0
+    scannerVC.view.addSubview(colorEffectView)
     
     view.setNeedsUpdateConstraints()
     
@@ -137,14 +148,14 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         make.left.equalTo(horizontalScrollView.snp.left)
         make.bottom.equalTo(view.snp.bottom)
         make.width.equalTo(view.snp.width)
-        make.height.equalTo(view.snp.height)
+        make.height.equalTo(view.snp.height).multipliedBy(0.9)
       }
       
       chatVC.view.snp.makeConstraints { (make) -> Void in
         make.left.equalTo(notificationVC.view.snp.right).offset(view.frame.size.width)
         make.bottom.equalTo(view.snp.bottom)
         make.width.equalTo(view.snp.width)
-        make.height.equalTo(view.snp.height)
+        make.height.equalTo(view.snp.height).multipliedBy(0.9)
       }
       
       scannerVC.view.snp.makeConstraints { (make) -> Void in
@@ -162,33 +173,40 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
       }
       
       addressBookVC.view.snp.makeConstraints { (make) -> Void in
-        make.top.equalTo(profileVC.view.snp.bottom).offset(view.frame.size.height)
+        make.top.equalTo(profileVC.view.snp.bottom).offset(view.frame.size.height * 1.1)
         make.left.equalTo(verticalScrollView.snp.left)
         make.width.equalTo(view.snp.width)
-        make.height.equalTo(view.snp.height)
+        make.height.equalTo(view.snp.height).multipliedBy(0.9)
       }
       
       chatButton.snp.makeConstraints { (make) -> Void in
-        make.width.equalTo(50)
-        make.height.equalTo(35)
+        make.width.equalTo(32)
+        make.height.equalTo(28)
         make.centerX.equalTo(view.snp.right).multipliedBy(0.9)
         make.top.equalTo(view.snp.bottom).multipliedBy(0.93)
         
       }
       
       notificationButton.snp.makeConstraints { (make) -> Void in
-        make.width.equalTo(50)
-        make.height.equalTo(35)
+        make.width.equalTo(30)
+        make.height.equalTo(30)
         make.centerX.equalTo(view.snp.centerX).multipliedBy(0.2)
         make.top.equalTo(view.snp.bottom).multipliedBy(0.93)
         
       }
       
       blurEffectView.snp.makeConstraints { (make) -> Void in
-        make.centerX.equalTo(view.snp.centerX)
-        make.centerY.equalTo(view.snp.centerY)
-        make.width.equalTo(view.snp.width)
-        make.height.equalTo(view.snp.height)
+        make.centerX.equalTo(scannerVC.view.snp.centerX)
+        make.centerY.equalTo(scannerVC.view.snp.centerY)
+        make.width.equalTo(scannerVC.view.snp.width)
+        make.height.equalTo(scannerVC.view.snp.height)
+      }
+      
+      colorEffectView.snp.makeConstraints { (make) -> Void in
+        make.centerX.equalTo(scannerVC.view.snp.centerX)
+        make.centerY.equalTo(scannerVC.view.snp.centerY)
+        make.width.equalTo(scannerVC.view.snp.width)
+        make.height.equalTo(scannerVC.view.snp.height)
       }
       
       didSetupConstraints = true
@@ -199,7 +217,9 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
   }
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    
     if scrollView.tag == 20 {
+      
       if scrollView.contentOffset.y == 0.0 {
         self.horizontalScrollView.isScrollEnabled = false
       } else if scrollView.contentOffset.y == view.frame.size.height * 2.0 {
@@ -208,30 +228,79 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         self.horizontalScrollView.isScrollEnabled = true
       }
       if scrollView.contentOffset.y < view.frame.size.height {
+        
         let blurIntensity = 1 - scrollView.contentOffset.y / view.frame.size.height
+        
         blurEffectView.alpha = blurIntensity
-        let buttonsAlpha = 1 - blurIntensity
-        chatButton.alpha = buttonsAlpha
-        notificationButton.alpha = buttonsAlpha
-        blurEffectView.alpha = blurIntensity
+        
+        
+        chatButtonVerticalScrollAnimations(alpha: 1 - blurIntensity)
+        notifButtonVerticalScrollAnimations(alpha: 1 - blurIntensity)
       }
-    }
-    if scrollView.contentOffset.x > view.frame.size.width {
-      let tintColor = view.frame.size.width / scrollView.contentOffset.x
       
-      if tintColor > 0.7 {
-        chatButton.backgroundColor = UIColor(red: tintColor, green: tintColor, blue: tintColor, alpha: 1)
+      if scrollView.contentOffset.y > view.frame.size.height {
+        
+        let alpha = (scrollView.contentOffset.y - view.frame.size.height) / (view.frame.size.height)
+        
+        colorEffectView.alpha = alpha
+        
+        chatButtonVerticalScrollAnimations(alpha: 1 - alpha * 5)
+        notifButtonVerticalScrollAnimations(alpha: 1 - alpha * 5)
+      }
+      
+    } else {
+      
+      
+      if scrollView.contentOffset.x > view.frame.size.width {
+        
+        colorEffectView.alpha = (scrollView.contentOffset.x  - view.frame.size.width) / (view.frame.size.width)
+        
+        //chatButtonHorizontalScrollAnimations(scrollX: scrollView.contentOffset.x)
       }
       
       if scrollView.contentOffset.x < view.frame.size.width {
-        let tintColor = scrollView.contentOffset.x / view.frame.size.width
         
-        if tintColor > 0.7 {
-          notificationButton.backgroundColor = UIColor(red: tintColor, green: tintColor, blue: tintColor, alpha: 1)
-        }
+        colorEffectView.alpha = 1 - scrollView.contentOffset.x / view.frame.size.width
+        
+        //notifButtonHorizontalScrollAnimations(scrollX: scrollView.contentOffset.x)
       }
     }
+    
   }
+  
+  // Mark: Menu buttons animations during horizontal scroll
+  
+  func chatButtonHorizontalScrollAnimations(scrollX: CGFloat) {
+    
+    let tintColor = view.frame.size.width / scrollX
+    
+    if tintColor >= 0.7 {
+      chatButton.tintColor = UIColor(red: tintColor, green: tintColor, blue: tintColor, alpha: 1)
+    }
+  }
+  
+  func notifButtonHorizontalScrollAnimations(scrollX: CGFloat) {
+    
+    let tintColor = scrollX / view.frame.size.width
+    
+    if tintColor >= 0.7 {
+      notificationButton.tintColor = UIColor(red: tintColor, green: tintColor, blue: tintColor, alpha: 1)
+    }
+  }
+  
+  // Mark: Menu buttons animations during vertical scroll
+  
+  func chatButtonVerticalScrollAnimations(alpha: CGFloat) {
+    chatButton.alpha = alpha
+    
+  }
+  
+  func notifButtonVerticalScrollAnimations(alpha: CGFloat) {
+    notificationButton.alpha = alpha
+    
+  }
+  
+  // Mark: Menu buttons actions
   
   func scrollToChatVC() {
     self.horizontalScrollView.setContentOffset(CGPoint(x: self.view.frame.width * 2,y: 0), animated: true)
