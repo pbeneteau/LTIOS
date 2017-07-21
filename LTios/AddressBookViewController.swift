@@ -8,12 +8,25 @@
 
 import UIKit
 
-class AddressBookViewController: UIViewController {
+class AddressBookViewController: UIViewController, UIScrollViewDelegate {
+    
+    var didSetupConstraints = false
+    
+    lazy var horizontalScrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.delegate = self
+        view.isPagingEnabled = true
+        view.showsHorizontalScrollIndicator = true
+        view.tag = 10
+        view.backgroundColor = .clear
+        view.bounces = false
+        return view
+    }()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .yellow
+        self.view.backgroundColor = .white
         
         let maskLayer = CAShapeLayer()
 
@@ -27,11 +40,30 @@ class AddressBookViewController: UIViewController {
         self.view.layer.mask = maskLayer
         
         
+        view.addSubview(horizontalScrollView)
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    override func updateViewConstraints() {
+        
+        if !didSetupConstraints {
+            
+            horizontalScrollView.snp.makeConstraints { (make) -> Void in
+                make.centerX.equalTo(view.snp.centerX)
+                make.centerY.equalTo(view.snp.centerY)
+                make.width.equalTo(view.snp.width)
+                make.height.equalTo(view.snp.height)
+            }
+            
+            didSetupConstraints = true
+            
+        }
+        
+        super.updateViewConstraints()
+    }
     
 }

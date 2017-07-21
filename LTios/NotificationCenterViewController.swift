@@ -13,13 +13,13 @@ class NotificationCenterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .green
+        self.view.backgroundColor = .white
         
         let maskLayer = CAShapeLayer()
         
         
         let path = UIBezierPath(roundedRect:self.view.bounds,
-                                byRoundingCorners:[.topRight, .bottomRight],
+                                byRoundingCorners:[.topRight, .topLeft],
                                 cornerRadii: CGSize(width: 10, height:  10))
         
         
