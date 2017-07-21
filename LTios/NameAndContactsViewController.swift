@@ -115,6 +115,16 @@ class NameAndContactsViewController: UIViewController {
     return view
   }()
   
+  lazy var finishButton: BlueButton = {
+    let view = BlueButton()
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.setTitle("Continuer", for: .normal)
+    view.titleLabel?.font = Font.bold.subtitle
+    view.addTarget(self, action: #selector(finishButtonPressed(sender:)), for: .touchUpInside)
+    view.isHidden = true
+    return view
+  }()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -129,6 +139,7 @@ class NameAndContactsViewController: UIViewController {
     self.view.addSubview(self.contactActivityIndicator)
     self.view.addSubview(self.succesNameImage)
     self.view.addSubview(self.succesContactImage)
+    self.view.addSubview(self.finishButton)
     
     self.view.setNeedsUpdateConstraints()
     
@@ -204,6 +215,13 @@ class NameAndContactsViewController: UIViewController {
         make.height.equalTo(35)
         make.top.equalTo(importButton.snp.bottom).offset(30)
         make.centerX.equalTo(contactView.snp.centerX)
+      }
+      
+      finishButton.snp.makeConstraints { (make) -> Void in
+        make.width.equalTo(view.snp.width).dividedBy(2.0)
+        make.height.equalTo(40)
+        make.centerX.equalTo(contactView.snp.centerX)
+        make.top.equalTo(contactView.snp.top).multipliedBy(1.8)
       }
       
       didSetupConstraints = true
@@ -314,27 +332,49 @@ class NameAndContactsViewController: UIViewController {
   func uploadContactListToFirebase() {
     if mainUser.user != nil {
       for contact in mainUser.contactList {
-        FirebaseConst.User.usersContactListDatabaseRef.child(contact.fullName)
         var i = 0
         for phone in contact.phoneNumbers {
-          FirebaseConst.User.usersContactListDatabaseRef.child(contact.fullName).child("PhoneNumber").child("phone\(i)").setValue(phone)
+          FirebaseConst.usersDatabaseRef.child((mainUser.user?.uid)!).child("ContactList").child(contact.fullName).child("PhoneNumber").child("phone\(i)").setValue(phone)
           i += 1
         }
-        self.contactActivityIndicator.stopAnimating()
-        self.contactActivityIndicator.isHidden = true
-        self.contactSuccess()
       }
+      self.contactActivityIndicator.stopAnimating()
+      self.contactActivityIndicator.isHidden = true
+      self.contactSuccess()
+      validContact = true
+      if validPseudo && validContact {
+        mainUser.publicName = nameTextField.text
+        finishButton.isHidden = false
+        importButton.isHidden = true
+      } else {
+        finishButton.isHidden = true
+      }
+    } else {
+      validContact = false
     }
   }
   
   func checkPseudo() {
     if (nameTextField.text?.characters.count)! > 1 && (nameTextField.text?.characters.count)! < 9 {
+      firstConnection = true
       nameSuccess()
       validPseudo = true
+      if validPseudo && validContact {
+        mainUser.publicName = nameTextField.text
+        finishButton.isHidden = false
+        importButton.isHidden = true
+      } else {
+        finishButton.isHidden = true
+      }
     } else {
       nameFail()
       validPseudo = false
     }
+  }
+  
+  @objc func finishButtonPressed(sender: UIButton) {
+    let menuVC = MenuViewController()
+    self.present(menuVC, animated: true, completion: nil)
   }
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

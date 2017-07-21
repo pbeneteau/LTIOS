@@ -17,9 +17,8 @@ struct FirebaseConst {
   static let demandsDatabaseRef = Database.database().reference().child("Demands")
   
   struct User {
-    static let usersContactListDatabaseRef = Database.database().reference().child("Users").child("ContactList")
-    static let usersPseudoDatabaseRef = Database.database().reference().child("Users").child("Pseudo")
   }
 }
 
 let mainUser = MainUser()
+var firstConnection: Bool = false

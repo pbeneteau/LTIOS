@@ -88,20 +88,23 @@ class PhoneVerificationViewController: UIViewController, UITextFieldDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    self.view.addSubview(self.titleLabel)
+    self.view.addSubview(self.descriptionText)
+    self.view.addSubview(self.phoneTextField)
+    self.view.addSubview(self.sendButton)
+    self.view.addSubview(self.codeTextField)
+    self.view.addSubview(self.verifyButton)
+    
+    self.view.setNeedsUpdateConstraints()
+    
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
     Auth.auth().addStateDidChangeListener { auth, user in
       if user != nil {
         mainUser.user = user
         let homeVC = ScannerViewController()
         self.present(homeVC, animated: false, completion: nil)
-      } else {
-        self.view.addSubview(self.titleLabel)
-        self.view.addSubview(self.descriptionText)
-        self.view.addSubview(self.phoneTextField)
-        self.view.addSubview(self.sendButton)
-        self.view.addSubview(self.codeTextField)
-        self.view.addSubview(self.verifyButton)
-        
-        self.view.setNeedsUpdateConstraints()
       }
     }
   }

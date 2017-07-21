@@ -49,6 +49,7 @@ PODS:
     - PhoneNumberKit/PhoneNumberKitCore
   - Pulsator (0.3.0)
   - ReachabilitySwift (3)
+  - SCLAlertView (0.7.0)
   - SnapKit (3.2.0)
   - Whisper (5.0.0)
 
@@ -61,6 +62,7 @@ DEPENDENCIES:
   - PhoneNumberKit (~> 1.2)
   - Pulsator
   - ReachabilitySwift (~> 3)
+  - SCLAlertView
   - SnapKit (~> 3.2.0)
   - Whisper
 
@@ -78,9 +80,10 @@ SPEC CHECKSUMS:
   PhoneNumberKit: 1e5cca669113fc361a8c82ec1ee559c62b8cd0f7
   Pulsator: '0191f14f7ab82d6dbde6fdbde42036f07a4450e3'
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: 81c239770c413f896dbe15e9772b8d37fdd968c4
+PODFILE CHECKSUM: d4edfd98c4914a69285162862bc06c76b7b6597f
 
 COCOAPODS: 1.1.1

@@ -8,12 +8,20 @@
 
 import UIKit
 import Pulsator
+import SCLAlertView
 
 class ScannerViewController: UIViewController {
   
   var didSetupConstraints = false
   var isGrown = false
 
+  lazy var FirstConnectionAlert: SCLAlertView = {
+    let view = SCLAlertView()
+    view.addButton("Non merci", action: {
+      print("Pas de tuto")
+    })
+    return view
+  }()
   
   lazy var userIcon: UserIcon = {
     let view = UserIcon()
@@ -44,6 +52,12 @@ class ScannerViewController: UIViewController {
     if !pulsator.isPulsating {
       userIcon.layer.superlayer?.insertSublayer(pulsator, below: userIcon.layer)
       pulsator.start()
+    }
+    if firstConnection {
+      if mainUser.publicName != nil {
+        FirstConnectionAlert.showNotice("Hey", subTitle: "\nBienvenue \(mainUser.publicName!) \n C'est ta première connexion, appuies sur commencer pour suivre le rapide tutoriel", closeButtonTitle: "Commencer !")
+        firstConnection = false
+      }
     }
   }
   
