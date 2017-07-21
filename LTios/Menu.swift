@@ -98,9 +98,9 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         verticalScrollView.addSubview(scannerVC.view)
         scannerVC.didMove(toParentViewController: self)
         
-        addChildViewController(profileVC)
-        verticalScrollView.addSubview(profileVC.view)
-        profileVC.didMove(toParentViewController: self)
+        addChildViewController(notificationVC)
+        verticalScrollView.addSubview(notificationVC.view)
+        notificationVC.didMove(toParentViewController: self)
         
         addChildViewController(addressBookVC)
         verticalScrollView.addSubview(addressBookVC.view)
@@ -111,9 +111,9 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         chatVC.didMove(toParentViewController: self)
         
         
-        addChildViewController(notificationVC)
-        horizontalScrollView.addSubview(notificationVC.view)
-        notificationVC.didMove(toParentViewController: self)
+        addChildViewController(profileVC)
+        horizontalScrollView.addSubview(profileVC.view)
+        profileVC.didMove(toParentViewController: self)
         
         
         horizontalScrollView.contentOffset = CGPoint(x: view.frame.size.width, y: 0)
@@ -166,7 +166,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
                 make.height.equalTo(view.snp.height)
             }
             
-            notificationVC.view.snp.makeConstraints { (make) -> Void in
+            profileVC.view.snp.makeConstraints { (make) -> Void in
                 make.left.equalTo(horizontalScrollView.snp.left)
                 make.bottom.equalTo(view.snp.bottom)
                 make.width.equalTo(view.snp.width)
@@ -174,7 +174,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
             }
             
             chatVC.view.snp.makeConstraints { (make) -> Void in
-                make.left.equalTo(notificationVC.view.snp.right).offset(view.frame.size.width)
+                make.left.equalTo(profileVC.view.snp.right).offset(view.frame.size.width)
                 make.bottom.equalTo(view.snp.bottom)
                 make.width.equalTo(view.snp.width)
                 make.height.equalTo(view.snp.height).multipliedBy(0.9)
@@ -187,7 +187,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
                 make.height.equalTo(view.snp.height)
             }
             
-            profileVC.view.snp.makeConstraints { (make) -> Void in
+            notificationVC.view.snp.makeConstraints { (make) -> Void in
                 make.top.equalTo(verticalScrollView.snp.top)
                 make.left.equalTo(verticalScrollView.snp.left)
                 make.width.equalTo(view.snp.width)
@@ -195,7 +195,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
             }
             
             addressBookVC.view.snp.makeConstraints { (make) -> Void in
-                make.top.equalTo(profileVC.view.snp.bottom).offset(view.frame.size.height * 1.1)
+                make.top.equalTo(notificationVC.view.snp.bottom).offset(view.frame.size.height * 1.1)
                 make.left.equalTo(verticalScrollView.snp.left)
                 make.width.equalTo(view.snp.width)
                 make.height.equalTo(view.snp.height).multipliedBy(0.9)
