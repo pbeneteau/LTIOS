@@ -88,6 +88,7 @@ class PhoneVerificationViewController: UIViewController, UITextFieldDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    
     self.view.addSubview(self.titleLabel)
     self.view.addSubview(self.descriptionText)
     self.view.addSubview(self.phoneTextField)
