@@ -138,6 +138,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     
     blurEffectView.frame = scannerVC.view.bounds
     blurEffectView = UIVisualEffectView(effect: blurEffect)
+    blurEffectView.backgroundColor = .gray
     blurEffectView.alpha = 0
     scannerVC.view.addSubview(blurEffectView)
     
