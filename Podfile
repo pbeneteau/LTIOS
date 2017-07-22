@@ -11,12 +11,12 @@ target 'LTios' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
-  pod 'SnapKit', '~> 3.2.0'
-  pod "Pulsator"
+  pod 'SnapKit'
+  pod 'Pulsator'
   pod 'Whisper'
-  pod ‘ReachabilitySwift’, ‘~> 3’
+  pod 'ReachabilitySwift'
   pod 'CryptoSwift'
-  pod 'PhoneNumberKit', '~> 1.2'
+  pod 'PhoneNumberKit'
   pod 'SCLAlertView'
 
   target 'LTiosTests' do
