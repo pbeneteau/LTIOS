@@ -21,7 +21,7 @@ class StartViewController: UIViewController {
         self.present(menuVC, animated: false, completion: nil)
       } else {
         let loginVC = PhoneVerificationViewController()
-        self.navigationController?.pushViewController(loginVC, animated: true)
+        self.present(loginVC, animated: false, completion: nil)
       }
     }
   }
