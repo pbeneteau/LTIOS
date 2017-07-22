@@ -56,12 +56,15 @@ class NotificationsUITableViewCell: UITableViewCell {
             
             titleLabel.snp.makeConstraints { (make) -> Void in
                 make.width.equalTo(contentView.snp.width).multipliedBy(0.9)
-
+                make.leftMargin.equalTo(15)
+                make.top.equalTo(contentView.snp.bottom).multipliedBy(0.1)
+                
             }
             
             descriptionLabel.snp.makeConstraints { (make) -> Void in
                 make.width.equalTo(contentView.snp.width).multipliedBy(0.9)
-                make.centerX.equalTo(contentView.snp.centerX)
+                make.leftMargin.equalTo(15)
+                make.top.equalTo(titleLabel.snp.bottom).multipliedBy(1.2)
             }
             
             
