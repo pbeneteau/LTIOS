@@ -27,8 +27,8 @@ class ScannerViewController: UIViewController {
     let view = Pulsator()
     view.radius = 200
     view.numPulse = 3
-    view.animationDuration = 10
-    view.backgroundColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0).cgColor
+    view.animationDuration = 7
+    view.backgroundColor = UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0).cgColor
     return view
   }()
   
@@ -39,7 +39,8 @@ class ScannerViewController: UIViewController {
     return view
   }()
   
-  
+    var queue = Timer()
+
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -47,8 +48,9 @@ class ScannerViewController: UIViewController {
     view.setNeedsUpdateConstraints()
     view.backgroundColor = .white
     view.insertSubview(lightArea, at: 0)
+    
   }
-  
+    
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(true)
     if !pulsator.isPulsating {

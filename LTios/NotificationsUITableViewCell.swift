@@ -33,18 +33,19 @@ class NotificationsUITableViewCell: UITableViewCell {
     descriptionLabel.numberOfLines = 0
     descriptionLabel.lineBreakMode = .byWordWrapping
     
-    acceptButton.setImage(#imageLiteral(resourceName: "accept"), for: .normal)
-    acceptButton.isHidden = true
-    refuseButton.setImage(#imageLiteral(resourceName: "refuse"), for: .normal)
-    refuseButton.isHidden = true
+//    acceptButton.setImage(#imageLiteral(resourceName: "accept"), for: .normal)
+//    acceptButton.isHidden = true
+//    refuseButton.setImage(#imageLiteral(resourceName: "refuse"), for: .normal)
+//    refuseButton.isHidden = true
+    
     statusLabel.font = Font.regular.text
     statusLabel.textColor = TextColor.Light.text
     statusLabel.isHidden = true
     
     contentView.addSubview(titleLabel)
     contentView.addSubview(descriptionLabel)
-    contentView.addSubview(acceptButton)
-    contentView.addSubview(refuseButton)
+//    contentView.addSubview(acceptButton)
+//    contentView.addSubview(refuseButton)
     contentView.addSubview(statusLabel)
     
     self.updateConstraints()
@@ -76,25 +77,25 @@ class NotificationsUITableViewCell: UITableViewCell {
         make.top.equalTo(titleLabel.snp.bottom).multipliedBy(1.2)
       }
       
-      acceptButton.snp.makeConstraints { (make) -> Void in
-        make.width.equalTo(40)
-        make.height.equalTo(40)
-        make.left.equalTo(descriptionLabel.snp.right).offset(10)
-        make.centerY.equalTo(descriptionLabel.snp.centerY)
-      }
-      
-      refuseButton.snp.makeConstraints { (make) -> Void in
-        make.width.equalTo(40)
-        make.height.equalTo(40)
-        make.left.equalTo(acceptButton.snp.right).offset(10)
-        make.centerY.equalTo(descriptionLabel.snp.centerY)
-      }
+//      acceptButton.snp.makeConstraints { (make) -> Void in
+//        make.width.equalTo(40)
+//        make.height.equalTo(40)
+//        make.left.equalTo(descriptionLabel.snp.right).offset(10)
+//        make.centerY.equalTo(descriptionLabel.snp.centerY)
+//      }
+//      
+//      refuseButton.snp.makeConstraints { (make) -> Void in
+//        make.width.equalTo(40)
+//        make.height.equalTo(40)
+//        make.left.equalTo(acceptButton.snp.right).offset(10)
+//        make.centerY.equalTo(descriptionLabel.snp.centerY)
+//      }
       
       statusLabel.snp.makeConstraints { (make) -> Void in
-        make.width.equalTo(contentView.snp.width).multipliedBy(0.3)
+        make.width.equalTo(contentView.snp.width).multipliedBy(0.2)
         make.height.equalTo(21)
-        make.left.equalTo(descriptionLabel.snp.right).offset(20)
-        make.centerY.equalTo(descriptionLabel.snp.centerY)
+        make.right.equalTo(contentView.snp.right)
+        make.bottom.equalTo(descriptionLabel.snp.bottom)
       }
       
       

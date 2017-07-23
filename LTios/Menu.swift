@@ -308,6 +308,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         
         let blurIntensity = 1 - scrollView.contentOffset.y / view.frame.size.height
         
+        blurEffectView.backgroundColor = .clear
         blurEffectView.alpha = blurIntensity
         titleLine.alpha = 1 - blurIntensity
         
