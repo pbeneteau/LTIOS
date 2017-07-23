@@ -159,17 +159,17 @@ class PhoneVerificationViewController: UIViewController, UITextFieldDelegate, UI
       }
       
       countryView.snp.makeConstraints { (make) -> Void in
-        make.width.equalTo(view.snp.width).multipliedBy(0.9)
+        make.width.equalTo(view.snp.width)
         make.centerX.equalTo(view.snp.centerX)
         make.bottom.equalTo(view.snp.bottom)
-        make.height.equalTo(view.snp.height).multipliedBy(0.9)
+        make.height.equalTo(view.snp.height)
       }
       
       countryTableView.snp.makeConstraints { (make) -> Void in
         make.width.equalTo(countryView.snp.width)
         make.centerX.equalTo(countryView.snp.centerX)
-        make.top.equalTo(countryView.snp.top)
-        make.height.equalTo(countryView.snp.height)
+        make.bottom.equalTo(countryView.snp.bottom)
+        make.height.equalTo(countryView.snp.height).multipliedBy(0.9)
       }
       
       didSetupConstraints = true
@@ -249,7 +249,6 @@ extension PhoneVerificationViewController: UITableViewDelegate {
     
     cell.selectionStyle = .none
     cell.backgroundColor = .clear
-    
     
     cell.titleLabel.text = phoneNumberKit.allCountries()[indexPath.row]
     

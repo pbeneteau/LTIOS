@@ -60,8 +60,7 @@ class CountryView: UIView {
   }
   
   func commonInit(){
-    backgroundColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0)
-    layer.cornerRadius = 10
+    backgroundColor = .clear
   }
 }
 
@@ -77,13 +76,10 @@ class CountryTableView: UITableView {
   }
   
   func commonInit(){
-    backgroundColor = .clear
+    backgroundColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0)
     allowsMultipleSelection = false
-    separatorInset.top = 40
     estimatedRowHeight = 90
-    rowHeight = 90  //UITableViewAutomaticDimension
-    sectionHeaderHeight = 30
-    sectionFooterHeight = 20
+    rowHeight = 50  //UITableViewAutomaticDimension
     layer.cornerRadius = 10
     register(CountryTableViewCell.self, forCellReuseIdentifier: "cell")
   }

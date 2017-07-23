@@ -22,7 +22,6 @@ class CountryTableViewCell: UITableViewCell {
     
     titleLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
     titleLabel.textColor = .white
-    titleLabel.frame = CGRect(x: 15, y: 15, width: 10, height: 20)
     
     contentView.addSubview(titleLabel)
     

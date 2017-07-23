@@ -75,7 +75,7 @@ class LoginViewController: UIViewController {
     let view = BlueButton()
     view.translatesAutoresizingMaskIntoConstraints = false
     view.setTitle("S'inscrire", for: .normal)
-    view.titleLabel?.font = Font.bold.subtitle
+    view.titleLabel?.font = Font.bold.bigText
     view.setBackgroundColor(color: TextColor.Dark.subtitle, forState: .normal)
     view.addTarget(self, action: #selector(registerButtonPressed(sender:)), for: .touchUpInside)
     return view

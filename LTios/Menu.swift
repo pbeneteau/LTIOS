@@ -52,7 +52,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     view.font = Font.bold.subtitle
     view.text = "Scanner"
     view.textColor = .gray
-    view.alpha = 0.7
+    view.alpha = 1.0
     return view
   }()
   
@@ -280,7 +280,6 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
   
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    
     // Resolve a bug
     if scrollView.tag == 10 {
       if scrollView.contentOffset.x >= view.frame.width - 20 && scrollView.contentOffset.x <= view.frame.width + 20 {
@@ -290,11 +289,10 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         scannerVC.view.isUserInteractionEnabled = false
         verticalScrollView.isUserInteractionEnabled = false
       }
+      titleManagerHorizontal(scrollX: scrollView.contentOffset.x)
     }
     
-    
     if scrollView.tag == 20 {
-      
       if scrollView.contentOffset.y == 0.0 {
         self.horizontalScrollView.isScrollEnabled = false
       } else if scrollView.contentOffset.y == view.frame.size.height * 2.0 {
@@ -303,6 +301,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         self.horizontalScrollView.isScrollEnabled = true
       }
       
+      titleManagerVertical(scrollY: scrollView.contentOffset.y)
       
       // Scrolling to notification VC
       if scrollView.contentOffset.y < view.frame.size.height {
@@ -356,8 +355,63 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         profileButtonHorizontalScrollAnimations(scrollX: scrollView.contentOffset.x)
       }
     }
-
     
+  }
+  
+  func titleManagerHorizontal(scrollX: CGFloat) {
+    if scrollX > view.frame.size.width { // chat
+      if scrollX < view.frame.size.width * 1.5 { // chat
+        self.titleLabel.text = "Scanner"
+        let alpha = (1  - (scrollX - self.view.frame.width) / self.view.frame.width)
+        self.titleLabel.alpha = alpha
+        self.titleLabel.textColor = .gray
+      } else {
+        let alpha = 1 - (1  - (scrollX - self.view.frame.width) / self.view.frame.width)
+        self.titleLabel.alpha = alpha
+        self.titleLabel.text = "Chat"
+        self.titleLabel.textColor = .white
+      }
+    } else if scrollX < view.frame.size.width { // profile
+      if scrollX > view.frame.size.width / 2 {
+        self.titleLabel.text = "Scanner"
+        let alpha = (scrollX / self.view.frame.width)
+        self.titleLabel.alpha = alpha
+        self.titleLabel.textColor = .gray
+      } else {
+        self.titleLabel.text = "Profile"
+        let alpha = 1 - (scrollX / self.view.frame.width)
+        self.titleLabel.alpha = alpha
+        self.titleLabel.textColor = .white
+      }
+    }
+  }
+  
+  func titleManagerVertical(scrollY: CGFloat) {
+    if scrollY < view.frame.size.height { // Notif
+      if scrollY > view.frame.size.height / 2 { // Notif
+        self.titleLabel.text = "Scanner"
+        let alpha = (scrollY / self.view.frame.height)
+        self.titleLabel.alpha = alpha
+        self.titleLabel.textColor = .gray
+      } else {
+        self.titleLabel.text = "Notifications"
+        let alpha = 1 - (scrollY / self.view.frame.height)
+        self.titleLabel.alpha = alpha
+        self.titleLabel.textColor = .white
+      }
+    } else if scrollY > view.frame.size.height { // addressBook
+      if scrollY < view.frame.size.height * 1.5 { // addressBook
+        self.titleLabel.text = "Scanner"
+        let alpha = (1  - (scrollY - self.view.frame.height) / self.view.frame.height)
+        self.titleLabel.alpha = alpha
+        self.titleLabel.textColor = .gray
+      } else {
+        self.titleLabel.text = "Carnet d'adresse"
+        let alpha = 1 - (1  - (scrollY - self.view.frame.height) / self.view.frame.height)
+        self.titleLabel.alpha = alpha
+        self.titleLabel.textColor = .white
+      }
+    }
   }
   
   
@@ -366,7 +420,6 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
   func chatButtonHorizontalScrollAnimations(scrollX: CGFloat) {
     
     let alpha = (1  - (scrollX - self.view.frame.width) / self.view.frame.width) - 0.5
-    
     chatButton.alpha = alpha
   }
   
