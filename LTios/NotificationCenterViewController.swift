@@ -74,7 +74,7 @@ class NotificationCenterViewController: UIViewController, UITableViewDataSource 
       
       tableView.snp.makeConstraints { (make) -> Void in
         make.width.equalTo(view.snp.width)
-        make.height.equalTo(view.snp.height).multipliedBy(0.9)
+        make.height.equalTo(view.snp.height).multipliedBy(0.85)
         make.centerX.equalTo(view.snp.centerX)
         make.bottom.equalTo(view.snp.bottom)
       }
@@ -96,7 +96,7 @@ extension NotificationCenterViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let  headerCell = tableView.dequeueReusableCell(withIdentifier: "cell")
-    headerCell?.backgroundColor = UIColor(red:0.50, green:0.55, blue:0.55, alpha: 1.0)
+    headerCell?.backgroundColor = UIColor(red:0.15, green:0.15, blue:0.15, alpha: 1)
     
     if (section == 0) {
       headerCell?.textLabel?.text = "   Récents"

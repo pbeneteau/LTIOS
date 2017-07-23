@@ -362,11 +362,11 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     if scrollX > view.frame.size.width { // chat
       if scrollX < view.frame.size.width * 1.5 { // chat
         self.titleLabel.text = "Scanner"
-        let alpha = (1  - (scrollX - self.view.frame.width) / self.view.frame.width)
+        let alpha = (1  - (scrollX - view.frame.width) / view.frame.width)
         self.titleLabel.alpha = alpha
         self.titleLabel.textColor = .gray
       } else {
-        let alpha = 1 - (1  - (scrollX - self.view.frame.width) / self.view.frame.width)
+        let alpha = (scrollX - view.frame.width * 1.5) / view.frame.width
         self.titleLabel.alpha = alpha
         self.titleLabel.text = "Chat"
         self.titleLabel.textColor = .white
@@ -374,12 +374,12 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     } else if scrollX < view.frame.size.width { // profile
       if scrollX > view.frame.size.width / 2 {
         self.titleLabel.text = "Scanner"
-        let alpha = (scrollX / self.view.frame.width)
+        let alpha = (scrollX / view.frame.width)
         self.titleLabel.alpha = alpha
         self.titleLabel.textColor = .gray
       } else {
         self.titleLabel.text = "Profile"
-        let alpha = 1 - (scrollX / self.view.frame.width)
+        let alpha = 1 - (scrollX - view.frame.width * 0.5) / view.frame.width
         self.titleLabel.alpha = alpha
         self.titleLabel.textColor = .white
       }
@@ -407,7 +407,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         self.titleLabel.textColor = .gray
       } else {
         self.titleLabel.text = "Carnet d'adresse"
-        let alpha = 1 - (1  - (scrollY - self.view.frame.height) / self.view.frame.height)
+        let alpha = (scrollY - self.view.frame.height) / self.view.frame.height
         self.titleLabel.alpha = alpha
         self.titleLabel.textColor = .white
       }
