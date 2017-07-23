@@ -17,7 +17,7 @@ class StartViewController: UIViewController {
     Auth.auth().addStateDidChangeListener { auth, user in
       if user != nil {
         mainUser.user = user
-        let menuVC = MenuViewController()
+        let menuVC = LoginViewController()
         self.present(menuVC, animated: false, completion: nil)
       } else {
         let loginVC = LoginViewController()

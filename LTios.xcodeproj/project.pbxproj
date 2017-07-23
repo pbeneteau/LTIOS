@@ -14,6 +14,7 @@
 		0007E4F31F1FECD700EBA50C /* LTiosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007E4F21F1FECD700EBA50C /* LTiosTests.swift */; };
 		0007E4FE1F1FECD700EBA50C /* LTiosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007E4FD1F1FECD700EBA50C /* LTiosUITests.swift */; };
 		002D61541F2415F400C2768F /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D61531F2415F400C2768F /* CountryTableViewCell.swift */; };
+		002D61561F24DB4E00C2768F /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D61551F24DB4E00C2768F /* Variables.swift */; };
 		0074A2521F2015E500683A53 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A2511F2015E500683A53 /* LoginViewController.swift */; };
 		0074A2541F2015EE00683A53 /* PhoneVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A2531F2015EE00683A53 /* PhoneVerificationViewController.swift */; };
 		0074A25A1F2016C600683A53 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A2591F2016C600683A53 /* ScannerViewController.swift */; };
@@ -76,6 +77,7 @@
 		0007E4FD1F1FECD700EBA50C /* LTiosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTiosUITests.swift; sourceTree = "<group>"; };
 		0007E4FF1F1FECD700EBA50C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		002D61531F2415F400C2768F /* CountryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
+		002D61551F24DB4E00C2768F /* Variables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Variables.swift; sourceTree = "<group>"; };
 		0074A2511F2015E500683A53 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0074A2531F2015EE00683A53 /* PhoneVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneVerificationViewController.swift; sourceTree = "<group>"; };
 		0074A2591F2016C600683A53 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				00CC1A931F20064200ECADAD /* NearbyUser.swift */,
 				00CC1A9B1F20074D00ECADAD /* Notification.swift */,
 				00CC1A971F20071400ECADAD /* Firebase.swift */,
+				002D61551F24DB4E00C2768F /* Variables.swift */,
 				0074A25D1F201B0800683A53 /* Color + Font */,
 			);
 			name = Models;
@@ -591,6 +594,7 @@
 				00EBDEA01F2159A100676E70 /* MainUser.swift in Sources */,
 				0074A25C1F2017A700683A53 /* Labels.swift in Sources */,
 				0074A2651F20208D00683A53 /* TextFields.swift in Sources */,
+				002D61561F24DB4E00C2768F /* Variables.swift in Sources */,
 				002D61541F2415F400C2768F /* CountryTableViewCell.swift in Sources */,
 				0007E4DD1F1FECD700EBA50C /* StartViewController.swift in Sources */,
 				0074A2631F20208200683A53 /* Buttons.swift in Sources */,

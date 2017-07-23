@@ -9,21 +9,24 @@
 import UIKit
 
 class CountryTableViewCell: UITableViewCell {
-
+  
   var didSetupConstraints = false
   
   
-  let titleLabel = UILabel()
-  
+  let countryLabel = UILabel()
+  let countryFlag = UIImageView()
+  let check = UIImageView(image: #imageLiteral(resourceName: "check"))
   
   override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     
     
-    titleLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
-    titleLabel.textColor = .white
+    countryLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
+    countryLabel.textColor = TextColor.Light.text
     
-    contentView.addSubview(titleLabel)
+    contentView.addSubview(countryFlag)
+    contentView.addSubview(countryLabel)
+    contentView.addSubview(check)
     
     self.updateConstraints()
   }
@@ -42,12 +45,26 @@ class CountryTableViewCell: UITableViewCell {
   override func updateConstraints() {
     if !didSetupConstraints {
       
-      titleLabel.snp.makeConstraints { (make) -> Void in
-        make.width.equalTo(contentView.snp.width).multipliedBy(0.9)
+      countryFlag.snp.makeConstraints { (make) -> Void in
+        make.width.equalTo(40)
+        make.height.equalTo(26)
         make.leftMargin.equalTo(15)
-        make.top.equalTo(contentView.snp.bottom).multipliedBy(0.1)
-        
+        make.centerY.equalTo(contentView.snp.centerY)
       }
+      
+      countryLabel.snp.makeConstraints { (make) -> Void in
+        make.width.equalTo(contentView.snp.width).multipliedBy(0.7)
+        make.left.equalTo(countryFlag.snp.right).offset(15)
+        make.centerY.equalTo(contentView.snp.centerY)
+      }
+      
+      check.snp.makeConstraints { (make) -> Void in
+        make.width.equalTo(15)
+        make.height.equalTo(13)
+        make.right.equalTo(contentView.snp.right).multipliedBy(0.95)
+        make.centerY.equalTo(contentView.snp.centerY)
+      }
+      
       
       didSetupConstraints = true
       
@@ -58,7 +75,6 @@ class CountryTableViewCell: UITableViewCell {
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
     
-    // Configure the view for the selected state
   }
-
+  
 }

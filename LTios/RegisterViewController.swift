@@ -99,14 +99,14 @@ class RegisterViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.view.addSubview(self.titleLabel)
-    self.view.addSubview(self.emailLabel)
-    self.view.addSubview(self.emailTextField)
-    self.view.addSubview(self.passwordLabel)
-    self.view.addSubview(self.passwordTextField)
-    self.view.addSubview(self.password2Label)
-    self.view.addSubview(self.password2TextField)
-    self.view.addSubview(self.continueButton)
+    view.addSubview(self.titleLabel)
+    view.addSubview(self.emailLabel)
+    view.addSubview(self.emailTextField)
+    view.addSubview(self.passwordLabel)
+    view.addSubview(self.passwordTextField)
+    view.addSubview(self.password2Label)
+    view.addSubview(self.password2TextField)
+    view.addSubview(self.continueButton)
     
     self.view.setNeedsUpdateConstraints()
     
@@ -191,6 +191,8 @@ class RegisterViewController: UIViewController {
         
         if mainUser.user != nil && mainUser.email != nil && mainUser.phoneNumber != nil {
           FirebaseConst.phoneDatabaseRef.child(mainUser.phoneNumber!).setValue(mainUser.email!)
+          FirebaseConst.usersDatabaseRef.child((mainUser.user?.uid)!).child("Phone").setValue(mainUser.phoneNumber!)
+          FirebaseConst.usersDatabaseRef.child((mainUser.user?.uid)!).child("Country").setValue(mainUser.countryCode!)
           let nameContactVC = NameAndContactsViewController()
           self.present(nameContactVC, animated: false, completion: nil)
         }

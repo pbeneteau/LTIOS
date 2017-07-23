@@ -128,20 +128,20 @@ class NameAndContactsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.view.addSubview(self.nameView)
-    self.view.addSubview(self.contactView)
-    self.view.addSubview(self.nameTitle)
-    self.view.addSubview(self.contactTitle)
-    self.view.addSubview(self.nameLabel)
-    self.view.addSubview(self.nameTextField)
-    self.view.addSubview(self.contactDescription)
-    self.view.addSubview(self.importButton)
-    self.view.addSubview(self.contactActivityIndicator)
-    self.view.addSubview(self.succesNameImage)
-    self.view.addSubview(self.succesContactImage)
-    self.view.addSubview(self.finishButton)
+    view.addSubview(self.nameView)
+    view.addSubview(self.contactView)
+    view.addSubview(self.nameTitle)
+    view.addSubview(self.contactTitle)
+    view.addSubview(self.nameLabel)
+    view.addSubview(self.nameTextField)
+    view.addSubview(self.contactDescription)
+    view.addSubview(self.importButton)
+    view.addSubview(self.contactActivityIndicator)
+    view.addSubview(self.succesNameImage)
+    view.addSubview(self.succesContactImage)
+    view.addSubview(self.finishButton)
     
-    self.view.setNeedsUpdateConstraints()
+    view.setNeedsUpdateConstraints()
     
   }
   

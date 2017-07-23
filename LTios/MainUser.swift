@@ -17,6 +17,7 @@ class MainUser {
   var pushID: String?
   var phoneNumber: String?
   var email: String?
+  var countryCode: String?
   
   // Scanning datas
   var nearbyUserArray = [NearbyUser]()

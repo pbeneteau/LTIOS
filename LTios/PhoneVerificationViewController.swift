@@ -13,9 +13,23 @@ import Firebase
 
 class PhoneVerificationViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource {
   
+  var countryViewBottomConstraint: Constraint? = nil
+  
   var didSetupConstraints = false
   
   let phoneNumberKit = PhoneNumberKit()
+  var partialFormater = PartialFormatter()
+  
+  var countrySelected = "FR"
+  
+  struct Objects {
+    var sectionName : String!
+    var sectionObjects : [String]!
+  }
+  
+  var countriesNameArray = [Objects]()
+  var countriesCodeArray = [Objects]()
+  var alphabeticalIndex = [String]()
   
   lazy var titleLabel: TitleLabel = {
     let view = TitleLabel()
@@ -31,16 +45,17 @@ class PhoneVerificationViewController: UIViewController, UITextFieldDelegate, UI
     return view
   }()
   
-  lazy var phoneTextField: PhoneNumberTextField = {
-    let view = PhoneNumberTextField()
+  lazy var phoneTextField: UITextField = {
+    let view = UITextField()
     view.translatesAutoresizingMaskIntoConstraints = false
-    view.placeholder = "+33 6 87 09 46 71"
     view.keyboardType = .phonePad
+    view.keyboardAppearance = .dark
     view.returnKeyType = .go
     view.autocorrectionType = .no
-    view.borderStyle = UITextBorderStyle.roundedRect
+    view.borderStyle = .line
     view.textAlignment = .center
-    view.isPartialFormatterEnabled = true
+    view.layer.borderColor = UIColor.gray.cgColor
+    view.layer.borderWidth = 1.0
     view.tag = 2
     view.addTarget(self, action: #selector(checkPhoneNumber), for: UIControlEvents.editingChanged)
     return view
@@ -67,7 +82,7 @@ class PhoneVerificationViewController: UIViewController, UITextFieldDelegate, UI
     view.autocorrectionType = .no
     view.borderStyle = UITextBorderStyle.roundedRect
     view.textAlignment = .center
-    view.addTarget(self, action: #selector(checkCode), for: UIControlEvents.editingChanged)
+    view.addTarget(self, action: #selector(checkCode), for: UIControlEvents.allEditingEvents)
     view.isHidden = true
     view.tag = 3
     return view
@@ -85,32 +100,79 @@ class PhoneVerificationViewController: UIViewController, UITextFieldDelegate, UI
     return view
   }()
   
+  lazy var countryOpenButton: UIButton = {
+    let view = UIButton()
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.setImage(#imageLiteral(resourceName: "flagButton"), for: .normal)
+    view.addTarget(self, action: #selector(openCountryView), for: .touchUpInside)
+    return view
+  }()
+  
+  lazy var countryCloseButton: UIButton = {
+    let view = UIButton()
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.setImage(#imageLiteral(resourceName: "close"), for: .normal)
+    view.addTarget(self, action: #selector(closeCountryView), for: .touchUpInside)
+    return view
+  }()
+  
+  lazy var countryViewTitle: UILabel = {
+    let view = UILabel()
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.text = "Votre pays"
+    view.font = Font.regular.title
+    view.textColor = TextColor.Light.title
+    view.textAlignment = .left
+    return view
+  }()
+  
   let countryView = CountryView()
   let countryTableView = CountryTableView()
-  
+  let currentCountryImage = UIImageView()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.navigationController?.setNavigationBarHidden(true, animated: false)
+    navigationController?.setNavigationBarHidden(true, animated: false)
     
-    self.view.addSubview(self.titleLabel)
-    self.view.addSubview(self.descriptionText)
-    self.view.addSubview(self.phoneTextField)
-    self.view.addSubview(self.sendButton)
-    self.view.addSubview(self.codeTextField)
-    self.view.addSubview(self.verifyButton)
+    partialFormater = PartialFormatter(phoneNumberKit: phoneNumberKit, defaultRegion: countrySelected, withPrefix: true)
+    
+    view.addSubview(self.titleLabel)
+    view.addSubview(self.descriptionText)
+    view.addSubview(countryOpenButton)
+    currentCountryImage.image = UIImage(named: countrySelected)
+    view.addSubview(currentCountryImage)
+    view.addSubview(self.phoneTextField)
+    view.addSubview(self.sendButton)
+    view.addSubview(self.codeTextField)
+    view.addSubview(self.verifyButton)
     
     // Country View
+    countryView.addSubview(countryCloseButton)
+    countryView.addSubview(countryViewTitle)
     countryView.addSubview(countryTableView)
     countryTableView.delegate = self
     countryTableView.dataSource = self
-    countryTableView.reloadData()
     
     view.addSubview(countryView)
+
+    let sortedNames = countriesName.sorted(by: { $0.0 < $1.0 })
+    for (key, value) in sortedNames {
+      countriesNameArray.append(Objects(sectionName: key, sectionObjects: value))
+    }
+    let sortedCode = countriesCode.sorted(by: { $0.0 < $1.0 })
+    for (key, value) in sortedCode {
+      countriesCodeArray.append(Objects(sectionName: key, sectionObjects: value))
+    }
+    
+    alphabeticalIndex.removeAll()
+    for letter in countriesNameArray {
+      alphabeticalIndex.append(letter.sectionName)
+    }
+    
+    countryTableView.reloadData()
     
     self.view.setNeedsUpdateConstraints()
-    
   }
   
   
@@ -144,6 +206,20 @@ class PhoneVerificationViewController: UIViewController, UITextFieldDelegate, UI
         make.height.equalTo(phoneTextField.snp.height)
       }
       
+      countryOpenButton.snp.makeConstraints { (make) -> Void in
+        make.width.equalTo(44)
+        make.height.equalTo(32)
+        make.centerY.equalTo(phoneTextField.snp.centerY)
+        make.right.equalTo(phoneTextField.snp.left).offset(-10)
+      }
+      
+      currentCountryImage.snp.makeConstraints { (make) -> Void in
+        make.width.equalTo(40)
+        make.height.equalTo(26)
+        make.centerY.equalTo(countryOpenButton.snp.centerY).offset(-2)
+        make.centerX.equalTo(countryOpenButton.snp.centerX)
+      }
+      
       sendButton.snp.makeConstraints { (make) -> Void in
         make.width.equalTo(view.snp.width).multipliedBy(0.4)
         make.centerX.equalTo(view.snp.centerX)
@@ -161,15 +237,28 @@ class PhoneVerificationViewController: UIViewController, UITextFieldDelegate, UI
       countryView.snp.makeConstraints { (make) -> Void in
         make.width.equalTo(view.snp.width)
         make.centerX.equalTo(view.snp.centerX)
-        make.bottom.equalTo(view.snp.bottom)
+        countryViewBottomConstraint = make.bottom.equalTo(view.snp.bottom).offset(view.frame.height).constraint
         make.height.equalTo(view.snp.height)
+      }
+      
+      countryCloseButton.snp.makeConstraints { (make) -> Void in
+        make.width.equalTo(20)
+        make.height.equalTo(20)
+        make.top.equalTo(countryView.snp.bottom).multipliedBy(0.05)
+        make.leftMargin.equalTo(15)
+      }
+      
+      countryViewTitle.snp.makeConstraints { (make) -> Void in
+        make.width.equalTo(countryView.snp.width)
+        make.top.equalTo(countryView.snp.bottom).multipliedBy(0.1)
+        make.leftMargin.equalTo(15)
       }
       
       countryTableView.snp.makeConstraints { (make) -> Void in
         make.width.equalTo(countryView.snp.width)
         make.centerX.equalTo(countryView.snp.centerX)
-        make.bottom.equalTo(countryView.snp.bottom)
-        make.height.equalTo(countryView.snp.height).multipliedBy(0.9)
+        make.top.equalTo(countryViewTitle.snp.bottom).offset(25)
+        make.height.equalTo(countryView.snp.height).multipliedBy(0.85).offset(-25)
       }
       
       didSetupConstraints = true
@@ -197,8 +286,9 @@ class PhoneVerificationViewController: UIViewController, UITextFieldDelegate, UI
     view.endEditing(true)
     if true {
       do {
-        let phoneNumber = try phoneNumberKit.parse(phoneTextField.text!)
+        let phoneNumber = try phoneNumberKit.parse(phoneTextField.text!, withRegion: countrySelected,  ignoreType: true)
         mainUser.phoneNumber = phoneNumberKit.format(phoneNumber, toType: .international)
+        mainUser.countryCode = countrySelected
         if mainUser.phoneNumber != nil {
           let registerVC = RegisterViewController()
           self.present(registerVC, animated: false, completion: nil)
@@ -211,8 +301,9 @@ class PhoneVerificationViewController: UIViewController, UITextFieldDelegate, UI
   }
   
   func checkPhoneNumber() {
+    phoneTextField.text = partialFormater.formatPartial(phoneTextField.text!)
     do {
-      _ = try phoneNumberKit.parse(phoneTextField.text!)
+      _ = try phoneNumberKit.parse(phoneTextField.text!, withRegion: countrySelected,  ignoreType: true)
       sendButton.setBackgroundColor(color: UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0), forState: .normal)
       sendButton.isEnabled = true
     }
@@ -232,6 +323,25 @@ class PhoneVerificationViewController: UIViewController, UITextFieldDelegate, UI
     }
   }
   
+  func openCountryView() {
+    view.endEditing(true)
+    UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseOut], animations: { () -> Void in
+      self.countryViewBottomConstraint?.update(offset: 0)
+      self.view.layoutIfNeeded()
+    })
+  }
+  
+  func closeCountryView() {
+    currentCountryImage.image = UIImage(named: countrySelected)
+    partialFormater = PartialFormatter(phoneNumberKit: phoneNumberKit, defaultRegion: countrySelected, withPrefix: true)
+    phoneTextField.text = ""
+    checkPhoneNumber()
+    UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseOut], animations: { () -> Void in
+      self.countryViewBottomConstraint?.update(offset: self.view.frame.size.height)
+      self.view.layoutIfNeeded()
+    })
+  }
+  
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     view.endEditing(true)
   }
@@ -239,27 +349,55 @@ class PhoneVerificationViewController: UIViewController, UITextFieldDelegate, UI
 
 extension PhoneVerificationViewController: UITableViewDelegate {
   
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return countriesNameArray.count
+  }
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return phoneNumberKit.allCountries().count
+    return countriesNameArray[section].sectionObjects.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    let cell = countryTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CountryTableViewCell
+    let CellIdentifier: String = "cell"
+    var cell: CountryTableViewCell? = tableView.dequeueReusableCell(withIdentifier: CellIdentifier) as? CountryTableViewCell
     
-    cell.selectionStyle = .none
-    cell.backgroundColor = .clear
-    
-    cell.titleLabel.text = phoneNumberKit.allCountries()[indexPath.row]
-    
-    return cell
-    
+    if cell != nil {
+      cell = CountryTableViewCell()
+      cell?.selectionStyle = .none
+      cell?.backgroundColor = .clear
+      
+      cell?.countryFlag.image = UIImage(named: countriesCodeArray[indexPath.section].sectionObjects[indexPath.row])
+      cell?.countryLabel.text = countriesNameArray[indexPath.section].sectionObjects[indexPath.row]
+      
+      if countriesCodeArray[indexPath.section].sectionObjects[indexPath.row] == countrySelected {
+        cell?.check.isHidden = false
+      } else {
+        cell?.check.isHidden = true
+      }
+    }
+  
+    return cell!
   }
   
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return countriesCodeArray[section].sectionName.capitalized
+  }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    print("You selected cell #\(indexPath.row)!")
+    countrySelected = countriesCodeArray[indexPath.section].sectionObjects[indexPath.row]
+    closeCountryView()
+    tableView.reloadData()
   }
+  
+  func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+    return alphabeticalIndex
+  }
+  
+  func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+    return index
+  }
+  
 }
 
 

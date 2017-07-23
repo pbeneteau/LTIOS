@@ -19,6 +19,3 @@ struct FirebaseConst {
   struct User {
   }
 }
-
-let mainUser = MainUser()
-var firstConnection: Bool = false
