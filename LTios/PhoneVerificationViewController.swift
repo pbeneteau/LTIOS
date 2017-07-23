@@ -306,6 +306,8 @@ class PhoneVerificationViewController: UIViewController, UITextFieldDelegate, UI
       _ = try phoneNumberKit.parse(phoneTextField.text!, withRegion: countrySelected,  ignoreType: true)
       sendButton.setBackgroundColor(color: UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0), forState: .normal)
       sendButton.isEnabled = true
+      countryOpenButton.isHidden = true
+      currentCountryImage.isHidden = true
     }
     catch {
       sendButton.setBackgroundColor(color: UIColor(red:0.50, green:0.55, blue:0.55, alpha:1.0), forState: .normal)
