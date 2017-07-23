@@ -11,7 +11,7 @@ import SnapKit
 import PhoneNumberKit
 import Firebase
 
-class PhoneVerificationViewController: UIViewController, UITextFieldDelegate {
+class PhoneVerificationViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource {
   
   var didSetupConstraints = false
   
@@ -85,9 +85,14 @@ class PhoneVerificationViewController: UIViewController, UITextFieldDelegate {
     return view
   }()
   
+  let countryView = CountryView()
+  let countryTableView = CountryTableView()
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    self.navigationController?.setNavigationBarHidden(true, animated: false)
     
     self.view.addSubview(self.titleLabel)
     self.view.addSubview(self.descriptionText)
@@ -96,19 +101,18 @@ class PhoneVerificationViewController: UIViewController, UITextFieldDelegate {
     self.view.addSubview(self.codeTextField)
     self.view.addSubview(self.verifyButton)
     
+    // Country View
+    countryView.addSubview(countryTableView)
+    countryTableView.delegate = self
+    countryTableView.dataSource = self
+    countryTableView.reloadData()
+    
+    view.addSubview(countryView)
+    
     self.view.setNeedsUpdateConstraints()
     
   }
   
-  override func viewDidAppear(_ animated: Bool) {
-    Auth.auth().addStateDidChangeListener { auth, user in
-      if user != nil {
-        mainUser.user = user
-        let homeVC = ScannerViewController()
-        self.present(homeVC, animated: false, completion: nil)
-      }
-    }
-  }
   
   override func updateViewConstraints() {
     
@@ -152,6 +156,20 @@ class PhoneVerificationViewController: UIViewController, UITextFieldDelegate {
         make.centerX.equalTo(sendButton.snp.centerX)
         make.top.equalTo(sendButton.snp.top)
         make.height.equalTo(sendButton.snp.height)
+      }
+      
+      countryView.snp.makeConstraints { (make) -> Void in
+        make.width.equalTo(view.snp.width).multipliedBy(0.9)
+        make.centerX.equalTo(view.snp.centerX)
+        make.bottom.equalTo(view.snp.bottom)
+        make.height.equalTo(view.snp.height).multipliedBy(0.9)
+      }
+      
+      countryTableView.snp.makeConstraints { (make) -> Void in
+        make.width.equalTo(countryView.snp.width)
+        make.centerX.equalTo(countryView.snp.centerX)
+        make.top.equalTo(countryView.snp.top)
+        make.height.equalTo(countryView.snp.height)
       }
       
       didSetupConstraints = true
@@ -216,6 +234,32 @@ class PhoneVerificationViewController: UIViewController, UITextFieldDelegate {
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     view.endEditing(true)
+  }
+}
+
+extension PhoneVerificationViewController: UITableViewDelegate {
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return phoneNumberKit.allCountries().count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    let cell = countryTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CountryTableViewCell
+    
+    cell.selectionStyle = .none
+    cell.backgroundColor = .clear
+    
+    
+    cell.titleLabel.text = phoneNumberKit.allCountries()[indexPath.row]
+    
+    return cell
+    
+  }
+  
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    print("You selected cell #\(indexPath.row)!")
   }
 }
 

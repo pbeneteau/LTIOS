@@ -91,6 +91,16 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     return view
   }()
   
+  lazy var notificationHideButton: UIButton = {
+    let view = UIButton()
+    let icon = UIImage(named: "hideNotifs")?.withRenderingMode(.alwaysTemplate)
+    view.setImage(icon, for: .normal)
+    view.tintColor = .lightGray
+    view.isHidden = true
+    view.addTarget(self, action: #selector(hideNotifications), for: .touchUpInside)
+    return view
+  }()
+  
   let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
   var blurEffectView = UIVisualEffectView()
   
@@ -135,6 +145,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     
     view.addSubview(chatButton)
     view.addSubview(profileButton)
+    view.addSubview(notificationHideButton)
     
     blurEffectView.frame = scannerVC.view.bounds
     blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -201,11 +212,11 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         make.top.equalTo(verticalScrollView.snp.top)
         make.left.equalTo(verticalScrollView.snp.left)
         make.width.equalTo(view.snp.width)
-        make.height.equalTo(view.snp.height)
+        make.height.equalTo(view.snp.height).multipliedBy(0.95)
       }
       
       addressBookVC.view.snp.makeConstraints { (make) -> Void in
-        make.top.equalTo(notificationVC.view.snp.bottom).offset(view.frame.size.height * 1.1)
+        make.top.equalTo(notificationVC.view.snp.bottom).offset(view.frame.size.height * 1.15)
         make.left.equalTo(verticalScrollView.snp.left)
         make.width.equalTo(view.snp.width)
         make.height.equalTo(view.snp.height).multipliedBy(0.9)
@@ -216,7 +227,6 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         make.height.equalTo(28)
         make.centerX.equalTo(view.snp.right).multipliedBy(0.9)
         make.top.equalTo(view.snp.bottom).multipliedBy(0.93)
-        
       }
       
       profileButton.snp.makeConstraints { (make) -> Void in
@@ -224,6 +234,13 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         make.height.equalTo(30)
         make.centerX.equalTo(view.snp.centerX).multipliedBy(0.2)
         make.top.equalTo(view.snp.bottom).multipliedBy(0.93)
+      }
+      
+      notificationHideButton.snp.makeConstraints { (make) -> Void in
+        make.width.equalTo(25)
+        make.height.equalTo(16)
+        make.centerX.equalTo(view.snp.centerX)
+        make.top.equalTo(notificationVC.view.snp.bottom).offset(10)
         
       }
       
@@ -297,6 +314,13 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         
         chatButtonVerticalScrollAnimations(alpha: 1 - blurIntensity)
         profileButtonVerticalScrollAnimations(alpha: 1 - blurIntensity)
+        
+      }
+      
+      if scrollView.contentOffset.y < view.frame.size.height / 2 {
+        notificationHideButton.isHidden = false
+      } else {
+        notificationHideButton.isHidden = true
       }
       
       // Scrolling to contacts VC
@@ -332,6 +356,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         profileButtonHorizontalScrollAnimations(scrollX: scrollView.contentOffset.x)
       }
     }
+
     
   }
   
@@ -368,11 +393,15 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
   // Mark: Menu buttons actions
   
   func scrollToChatVC() {
-    self.horizontalScrollView.setContentOffset(CGPoint(x: self.view.frame.width * 2,y: 0), animated: true)
+    horizontalScrollView.setContentOffset(CGPoint(x: self.view.frame.width * 2,y: 0), animated: true)
   }
   
   func scrollToProfileVC() {
-    self.horizontalScrollView.setContentOffset(CGPoint(x: 0,y: 0), animated: true)
+    horizontalScrollView.setContentOffset(CGPoint(x: 0,y: 0), animated: true)
+  }
+  
+  func hideNotifications() {
+    verticalScrollView.setContentOffset(CGPoint(x: 0, y: view.frame.size.height), animated: true)
   }
   
   

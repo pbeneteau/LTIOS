@@ -71,6 +71,16 @@ class LoginViewController: UIViewController {
     return view
   }()
   
+  lazy var registerButton: BlueButton = {
+    let view = BlueButton()
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.setTitle("S'inscrire", for: .normal)
+    view.titleLabel?.font = Font.bold.subtitle
+    view.setBackgroundColor(color: TextColor.Dark.subtitle, forState: .normal)
+    view.addTarget(self, action: #selector(registerButtonPressed(sender:)), for: .touchUpInside)
+    return view
+  }()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -80,6 +90,7 @@ class LoginViewController: UIViewController {
     view.addSubview(loginButton)
     view.addSubview(phoneLabel)
     view.addSubview(passwordLabel)
+    view.addSubview(registerButton)
     
     view.setNeedsUpdateConstraints()
   }
@@ -132,6 +143,13 @@ class LoginViewController: UIViewController {
         make.height.equalTo(40)
       }
       
+      registerButton.snp.makeConstraints { (make) -> Void in
+        make.width.equalTo(view.snp.width).multipliedBy(0.5)
+        make.centerX.equalTo(view.snp.centerX)
+        make.top.equalTo(view.snp.bottom).multipliedBy(0.9)
+        make.height.equalTo(30)
+      }
+      
       didSetupConstraints = true
       
     }
@@ -169,6 +187,11 @@ class LoginViewController: UIViewController {
       }
     }
   }
+  
+  func registerButtonPressed(sender: UIButton) {
+    let registerVC = PhoneVerificationViewController()
+    self.present(registerVC, animated: false, completion: nil)
+    }
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     view.endEditing(true)

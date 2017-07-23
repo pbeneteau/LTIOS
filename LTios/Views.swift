@@ -47,3 +47,75 @@ class ContactInputView: UIView {
     backgroundColor = UIColor(red:0.16, green:0.50, blue:0.73, alpha:1.0)
   }
 }
+
+class CountryView: UIView {
+  required init(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)!
+    commonInit()
+  }
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    commonInit()
+  }
+  
+  func commonInit(){
+    backgroundColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0)
+    layer.cornerRadius = 10
+  }
+}
+
+class CountryTableView: UITableView {
+  required init(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)!
+    commonInit()
+  }
+  
+  override init(frame: CGRect, style: UITableViewStyle) {
+    super.init(frame: frame, style: style)
+    commonInit()
+  }
+  
+  func commonInit(){
+    backgroundColor = .clear
+    allowsMultipleSelection = false
+    separatorInset.top = 40
+    estimatedRowHeight = 90
+    rowHeight = 90  //UITableViewAutomaticDimension
+    sectionHeaderHeight = 30
+    sectionFooterHeight = 20
+    layer.cornerRadius = 10
+    register(CountryTableViewCell.self, forCellReuseIdentifier: "cell")
+  }
+}
+
+class NotificationsTableView: UITableView {
+  required init(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)!
+    commonInit()
+  }
+  
+  override init(frame: CGRect, style: UITableViewStyle) {
+    super.init(frame: frame, style: style)
+    commonInit()
+  }
+  
+  func commonInit(){
+    allowsMultipleSelection = false
+    backgroundColor = .clear
+    separatorInset.top = 40
+    estimatedRowHeight = 90
+    rowHeight = 90
+    sectionHeaderHeight = 30
+    sectionFooterHeight = 20
+    register(NotificationsUITableViewCell.self, forCellReuseIdentifier: "cell")
+  }
+}
+
+
+
+
+
+
+
+

@@ -20,7 +20,7 @@ class StartViewController: UIViewController {
         let menuVC = MenuViewController()
         self.present(menuVC, animated: false, completion: nil)
       } else {
-        let loginVC = PhoneVerificationViewController()
+        let loginVC = LoginViewController()
         self.present(loginVC, animated: false, completion: nil)
       }
     }
