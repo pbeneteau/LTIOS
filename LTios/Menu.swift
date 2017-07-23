@@ -366,7 +366,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         self.titleLabel.alpha = alpha
         self.titleLabel.textColor = .gray
       } else {
-        let alpha = (scrollX - view.frame.width * 1.5) / view.frame.width
+        let alpha = ((scrollX - view.frame.width * 1.5) * 4) / (view.frame.width * 2)
         self.titleLabel.alpha = alpha
         self.titleLabel.text = "Chat"
         self.titleLabel.textColor = .white
@@ -379,7 +379,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         self.titleLabel.textColor = .gray
       } else {
         self.titleLabel.text = "Profile"
-        let alpha = 1 - (scrollX - view.frame.width * 0.5) / view.frame.width
+        let alpha = 1 - (scrollX * 2) / view.frame.width
         self.titleLabel.alpha = alpha
         self.titleLabel.textColor = .white
       }
@@ -395,7 +395,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         self.titleLabel.textColor = .gray
       } else {
         self.titleLabel.text = "Notifications"
-        let alpha = 1 - (scrollY / self.view.frame.height)
+        let alpha = 1 - (scrollY * 2 / self.view.frame.height)
         self.titleLabel.alpha = alpha
         self.titleLabel.textColor = .white
       }
@@ -407,7 +407,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         self.titleLabel.textColor = .gray
       } else {
         self.titleLabel.text = "Carnet d'adresse"
-        let alpha = (scrollY - self.view.frame.height) / self.view.frame.height
+        let alpha = ((scrollY - self.view.frame.height * 1.5) * 4) / (self.view.frame.height * 2)
         self.titleLabel.alpha = alpha
         self.titleLabel.textColor = .white
       }
