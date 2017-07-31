@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Firebase
+import NexmoVerify
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     FirebaseApp.configure()
+    
+    // Start up the NexmoClient with your application key(id) and your shared secret key
+    NexmoClient.start(applicationId: "a5707d16-0fb1-4acf-91a2-35f2b5463040", sharedSecretKey: "09bd353d4872d9c")
     
     window = UIWindow.init(frame: UIScreen.main.bounds)
     window?.backgroundColor = UIColor.white

@@ -7,33 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0003288C1F2F874F003F81F7 /* PhoneVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003288B1F2F874F003F81F7 /* PhoneVerificationViewController.swift */; };
 		0007E4DB1F1FECD700EBA50C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007E4DA1F1FECD700EBA50C /* AppDelegate.swift */; };
 		0007E4DD1F1FECD700EBA50C /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007E4DC1F1FECD700EBA50C /* StartViewController.swift */; };
 		0007E4E31F1FECD700EBA50C /* LTios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0007E4E11F1FECD700EBA50C /* LTios.xcdatamodeld */; };
-		0007E4E51F1FECD700EBA50C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0007E4E41F1FECD700EBA50C /* Assets.xcassets */; };
 		0007E4F31F1FECD700EBA50C /* LTiosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007E4F21F1FECD700EBA50C /* LTiosTests.swift */; };
 		0007E4FE1F1FECD700EBA50C /* LTiosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007E4FD1F1FECD700EBA50C /* LTiosUITests.swift */; };
-		002D61541F2415F400C2768F /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D61531F2415F400C2768F /* CountryTableViewCell.swift */; };
 		002D61561F24DB4E00C2768F /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D61551F24DB4E00C2768F /* Variables.swift */; };
-		0074A2521F2015E500683A53 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A2511F2015E500683A53 /* LoginViewController.swift */; };
-		0074A2541F2015EE00683A53 /* PhoneVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A2531F2015EE00683A53 /* PhoneVerificationViewController.swift */; };
-		0074A25A1F2016C600683A53 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A2591F2016C600683A53 /* ScannerViewController.swift */; };
-		0074A25C1F2017A700683A53 /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A25B1F2017A700683A53 /* Labels.swift */; };
+		006BDCC31F2F8845006DEF17 /* RegisterationFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCC21F2F8845006DEF17 /* RegisterationFormViewController.swift */; };
+		006BDCC51F2F8863006DEF17 /* FirstContactImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCC41F2F8863006DEF17 /* FirstContactImportViewController.swift */; };
+		006BDCC71F2F8883006DEF17 /* PasswordVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCC61F2F8883006DEF17 /* PasswordVerificationViewController.swift */; };
+		006BDCC91F2F889B006DEF17 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCC81F2F889B006DEF17 /* ProfileViewController.swift */; };
+		006BDCCB1F2F88A7006DEF17 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCCA1F2F88A7006DEF17 /* SettingsViewController.swift */; };
+		006BDCCD1F2F88BC006DEF17 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCCC1F2F88BC006DEF17 /* NotificationsViewController.swift */; };
+		006BDCCF1F2F88CA006DEF17 /* NearbyPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCCE1F2F88CA006DEF17 /* NearbyPlacesViewController.swift */; };
+		006BDCD11F2F88D4006DEF17 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCD01F2F88D4006DEF17 /* PlaceViewController.swift */; };
+		006BDCD31F2F88E1006DEF17 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCD21F2F88E1006DEF17 /* ContactsViewController.swift */; };
+		006BDCD51F2F88E9006DEF17 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCD41F2F88E9006DEF17 /* ScannerViewController.swift */; };
+		006BDCD71F2F88F9006DEF17 /* WhereAreYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCD61F2F88F9006DEF17 /* WhereAreYouViewController.swift */; };
+		006BDCD91F2F8961006DEF17 /* ContactProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCD81F2F8961006DEF17 /* ContactProfileViewController.swift */; };
+		006BDCE21F2F89FE006DEF17 /* Registering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCE11F2F89FE006DEF17 /* Registering.swift */; };
+		006BDCE41F2F8A03006DEF17 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCE31F2F8A03006DEF17 /* Login.swift */; };
+		006BDCE61F2F8A09006DEF17 /* Scanning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCE51F2F8A09006DEF17 /* Scanning.swift */; };
+		006BDCE81F2F8A0F006DEF17 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCE71F2F8A0F006DEF17 /* Profile.swift */; };
+		006BDCEA1F2F8A1E006DEF17 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCE91F2F8A1E006DEF17 /* Notifications.swift */; };
+		006BDCEC1F2F8A25006DEF17 /* NearbyPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCEB1F2F8A25006DEF17 /* NearbyPlaces.swift */; };
+		006BDCEE1F2F8A2B006DEF17 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCED1F2F8A2B006DEF17 /* Contacts.swift */; };
+		006BDCFE1F2F8E34006DEF17 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCF21F2F8E34006DEF17 /* Roboto-Black.ttf */; };
+		006BDCFF1F2F8E34006DEF17 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCF31F2F8E34006DEF17 /* Roboto-BlackItalic.ttf */; };
+		006BDD001F2F8E34006DEF17 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCF41F2F8E34006DEF17 /* Roboto-Bold.ttf */; };
+		006BDD011F2F8E34006DEF17 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCF51F2F8E34006DEF17 /* Roboto-BoldItalic.ttf */; };
+		006BDD021F2F8E34006DEF17 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCF61F2F8E34006DEF17 /* Roboto-Italic.ttf */; };
+		006BDD031F2F8E34006DEF17 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCF71F2F8E34006DEF17 /* Roboto-Light.ttf */; };
+		006BDD041F2F8E34006DEF17 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCF81F2F8E34006DEF17 /* Roboto-LightItalic.ttf */; };
+		006BDD051F2F8E34006DEF17 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCF91F2F8E34006DEF17 /* Roboto-Medium.ttf */; };
+		006BDD061F2F8E34006DEF17 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCFA1F2F8E34006DEF17 /* Roboto-MediumItalic.ttf */; };
+		006BDD071F2F8E34006DEF17 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCFB1F2F8E34006DEF17 /* Roboto-Regular.ttf */; };
+		006BDD081F2F8E34006DEF17 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCFC1F2F8E34006DEF17 /* Roboto-Thin.ttf */; };
+		006BDD091F2F8E34006DEF17 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCFD1F2F8E34006DEF17 /* Roboto-ThinItalic.ttf */; };
+		006BDD0A1F2F8E8B006DEF17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCEF1F2F8BFA006DEF17 /* Assets.xcassets */; };
 		0074A25F1F201B2200683A53 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A25E1F201B2200683A53 /* Color.swift */; };
 		0074A2611F201B2700683A53 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A2601F201B2700683A53 /* Font.swift */; };
-		0074A2631F20208200683A53 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A2621F20208200683A53 /* Buttons.swift */; };
-		0074A2651F20208D00683A53 /* TextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A2641F20208D00683A53 /* TextFields.swift */; };
 		0074A2671F2023BD00683A53 /* Sizes + Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A2661F2023BD00683A53 /* Sizes + Position.swift */; };
-		0074A2691F20AA5100683A53 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A2681F20AA5100683A53 /* RegisterViewController.swift */; };
-		0074A26B1F20AF6000683A53 /* NameAndContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A26A1F20AF6000683A53 /* NameAndContactsViewController.swift */; };
-		0074A26D1F20AFCA00683A53 /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A26C1F20AFCA00683A53 /* Views.swift */; };
-		0074A2721F20D06C00683A53 /* ScannerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A2711F20D06C00683A53 /* ScannerViews.swift */; };
-		0074A2741F20D0B200683A53 /* ScannerButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A2731F20D0B200683A53 /* ScannerButtons.swift */; };
-		0074A2781F20E3D700683A53 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A2771F20E3D700683A53 /* Menu.swift */; };
-		0074A27A1F20E46A00683A53 /* AddressBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A2791F20E46A00683A53 /* AddressBookViewController.swift */; };
-		0074A27C1F20E47400683A53 /* NotificationCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A27B1F20E47400683A53 /* NotificationCenterViewController.swift */; };
-		0074A27E1F20E47D00683A53 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A27D1F20E47D00683A53 /* ChatViewController.swift */; };
-		0074A2801F20FA2C00683A53 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A27F1F20FA2C00683A53 /* ProfileViewController.swift */; };
 		00CC1A941F20064200ECADAD /* NearbyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CC1A931F20064200ECADAD /* NearbyUser.swift */; };
 		00CC1A961F20064D00ECADAD /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CC1A951F20064D00ECADAD /* Contact.swift */; };
 		00CC1A981F20071400ECADAD /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CC1A971F20071400ECADAD /* Firebase.swift */; };
@@ -41,7 +56,6 @@
 		00CC1A9E1F200C7D00ECADAD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CC1A9D1F200C7D00ECADAD /* GoogleService-Info.plist */; };
 		00EBDEA01F2159A100676E70 /* MainUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EBDE9F1F2159A100676E70 /* MainUser.swift */; };
 		117A79360B93C15264F4D4A7 /* Pods_LTiosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ABAAA08C0B5E246906D3643 /* Pods_LTiosTests.framework */; };
-		38550B841F23DFDD00D23794 /* NotificationsUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38550B831F23DFDD00D23794 /* NotificationsUITableViewCell.swift */; };
 		98CA6EFB58DD7B6491BEE45C /* Pods_LTiosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D63D386CE37523546D50354D /* Pods_LTiosUITests.framework */; };
 		9A502145D7C38C05BE014890 /* Pods_LTios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACEF576580160AAA28DC6F2 /* Pods_LTios.framework */; };
 /* End PBXBuildFile section */
@@ -64,11 +78,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0003288B1F2F874F003F81F7 /* PhoneVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneVerificationViewController.swift; sourceTree = "<group>"; };
 		0007E4D71F1FECD700EBA50C /* LTios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LTios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0007E4DA1F1FECD700EBA50C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0007E4DC1F1FECD700EBA50C /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		0007E4E21F1FECD700EBA50C /* LTios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LTios.xcdatamodel; sourceTree = "<group>"; };
-		0007E4E41F1FECD700EBA50C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0007E4E91F1FECD700EBA50C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0007E4EE1F1FECD700EBA50C /* LTiosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LTiosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0007E4F21F1FECD700EBA50C /* LTiosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTiosTests.swift; sourceTree = "<group>"; };
@@ -76,27 +90,42 @@
 		0007E4F91F1FECD700EBA50C /* LTiosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LTiosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0007E4FD1F1FECD700EBA50C /* LTiosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTiosUITests.swift; sourceTree = "<group>"; };
 		0007E4FF1F1FECD700EBA50C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		002D61531F2415F400C2768F /* CountryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
 		002D61551F24DB4E00C2768F /* Variables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Variables.swift; sourceTree = "<group>"; };
-		0074A2511F2015E500683A53 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		0074A2531F2015EE00683A53 /* PhoneVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneVerificationViewController.swift; sourceTree = "<group>"; };
-		0074A2591F2016C600683A53 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
-		0074A25B1F2017A700683A53 /* Labels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
+		006BDCC21F2F8845006DEF17 /* RegisterationFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterationFormViewController.swift; sourceTree = "<group>"; };
+		006BDCC41F2F8863006DEF17 /* FirstContactImportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstContactImportViewController.swift; sourceTree = "<group>"; };
+		006BDCC61F2F8883006DEF17 /* PasswordVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordVerificationViewController.swift; sourceTree = "<group>"; };
+		006BDCC81F2F889B006DEF17 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		006BDCCA1F2F88A7006DEF17 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		006BDCCC1F2F88BC006DEF17 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		006BDCCE1F2F88CA006DEF17 /* NearbyPlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyPlacesViewController.swift; sourceTree = "<group>"; };
+		006BDCD01F2F88D4006DEF17 /* PlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
+		006BDCD21F2F88E1006DEF17 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		006BDCD41F2F88E9006DEF17 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		006BDCD61F2F88F9006DEF17 /* WhereAreYouViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhereAreYouViewController.swift; sourceTree = "<group>"; };
+		006BDCD81F2F8961006DEF17 /* ContactProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactProfileViewController.swift; sourceTree = "<group>"; };
+		006BDCE11F2F89FE006DEF17 /* Registering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Registering.swift; sourceTree = "<group>"; };
+		006BDCE31F2F8A03006DEF17 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		006BDCE51F2F8A09006DEF17 /* Scanning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scanning.swift; sourceTree = "<group>"; };
+		006BDCE71F2F8A0F006DEF17 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		006BDCE91F2F8A1E006DEF17 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		006BDCEB1F2F8A25006DEF17 /* NearbyPlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyPlaces.swift; sourceTree = "<group>"; };
+		006BDCED1F2F8A2B006DEF17 /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
+		006BDCEF1F2F8BFA006DEF17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		006BDCF21F2F8E34006DEF17 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		006BDCF31F2F8E34006DEF17 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		006BDCF41F2F8E34006DEF17 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		006BDCF51F2F8E34006DEF17 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		006BDCF61F2F8E34006DEF17 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		006BDCF71F2F8E34006DEF17 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		006BDCF81F2F8E34006DEF17 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		006BDCF91F2F8E34006DEF17 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		006BDCFA1F2F8E34006DEF17 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		006BDCFB1F2F8E34006DEF17 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		006BDCFC1F2F8E34006DEF17 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		006BDCFD1F2F8E34006DEF17 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
 		0074A25E1F201B2200683A53 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		0074A2601F201B2700683A53 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		0074A2621F20208200683A53 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
-		0074A2641F20208D00683A53 /* TextFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFields.swift; sourceTree = "<group>"; };
 		0074A2661F2023BD00683A53 /* Sizes + Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sizes + Position.swift"; sourceTree = "<group>"; };
-		0074A2681F20AA5100683A53 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		0074A26A1F20AF6000683A53 /* NameAndContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameAndContactsViewController.swift; sourceTree = "<group>"; };
-		0074A26C1F20AFCA00683A53 /* Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
-		0074A2711F20D06C00683A53 /* ScannerViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViews.swift; sourceTree = "<group>"; };
-		0074A2731F20D0B200683A53 /* ScannerButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerButtons.swift; sourceTree = "<group>"; };
-		0074A2771F20E3D700683A53 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
-		0074A2791F20E46A00683A53 /* AddressBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookViewController.swift; sourceTree = "<group>"; };
-		0074A27B1F20E47400683A53 /* NotificationCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterViewController.swift; sourceTree = "<group>"; };
-		0074A27D1F20E47D00683A53 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		0074A27F1F20FA2C00683A53 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		00CC1A931F20064200ECADAD /* NearbyUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyUser.swift; sourceTree = "<group>"; };
 		00CC1A951F20064D00ECADAD /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		00CC1A971F20071400ECADAD /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
@@ -104,7 +133,6 @@
 		00CC1A9D1F200C7D00ECADAD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00EBDE9F1F2159A100676E70 /* MainUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUser.swift; sourceTree = "<group>"; };
 		132C40A84842BF014D4FBBF4 /* Pods-LTios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LTios/Pods-LTios.debug.xcconfig"; sourceTree = "<group>"; };
-		38550B831F23DFDD00D23794 /* NotificationsUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsUITableViewCell.swift; sourceTree = "<group>"; };
 		6ABAAA08C0B5E246906D3643 /* Pods_LTiosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTiosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D3A809CBE0D3BB16C4D7CF /* Pods-LTiosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTiosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LTiosUITests/Pods-LTiosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9ACEF576580160AAA28DC6F2 /* Pods_LTios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +171,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		000328841F2F86D0003F81F7 /* Registering */ = {
+			isa = PBXGroup;
+			children = (
+				0003288B1F2F874F003F81F7 /* PhoneVerificationViewController.swift */,
+				006BDCC21F2F8845006DEF17 /* RegisterationFormViewController.swift */,
+				006BDCC41F2F8863006DEF17 /* FirstContactImportViewController.swift */,
+			);
+			name = Registering;
+			sourceTree = "<group>";
+		};
+		000328851F2F86DA003F81F7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				006BDCC61F2F8883006DEF17 /* PasswordVerificationViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		000328861F2F86E1003F81F7 /* Scanning */ = {
+			isa = PBXGroup;
+			children = (
+				006BDCD41F2F88E9006DEF17 /* ScannerViewController.swift */,
+				006BDCD61F2F88F9006DEF17 /* WhereAreYouViewController.swift */,
+			);
+			name = Scanning;
+			sourceTree = "<group>";
+		};
+		000328871F2F86F3003F81F7 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				006BDCD21F2F88E1006DEF17 /* ContactsViewController.swift */,
+				006BDCD81F2F8961006DEF17 /* ContactProfileViewController.swift */,
+			);
+			name = Contacts;
+			sourceTree = "<group>";
+		};
+		000328881F2F86FA003F81F7 /* NearbyPlaces */ = {
+			isa = PBXGroup;
+			children = (
+				006BDCCE1F2F88CA006DEF17 /* NearbyPlacesViewController.swift */,
+				006BDCD01F2F88D4006DEF17 /* PlaceViewController.swift */,
+			);
+			name = NearbyPlaces;
+			sourceTree = "<group>";
+		};
+		000328891F2F8705003F81F7 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				006BDCCC1F2F88BC006DEF17 /* NotificationsViewController.swift */,
+			);
+			name = Notifications;
+			sourceTree = "<group>";
+		};
+		0003288A1F2F870F003F81F7 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				006BDCC81F2F889B006DEF17 /* ProfileViewController.swift */,
+				006BDCCA1F2F88A7006DEF17 /* SettingsViewController.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		0007E4CE1F1FECD700EBA50C = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +286,81 @@
 			path = LTiosUITests;
 			sourceTree = "<group>";
 		};
+		006BDCDA1F2F8994006DEF17 /* Registering */ = {
+			isa = PBXGroup;
+			children = (
+				006BDCE11F2F89FE006DEF17 /* Registering.swift */,
+			);
+			name = Registering;
+			sourceTree = "<group>";
+		};
+		006BDCDB1F2F899F006DEF17 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				006BDCE31F2F8A03006DEF17 /* Login.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		006BDCDC1F2F89A5006DEF17 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				006BDCE71F2F8A0F006DEF17 /* Profile.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		006BDCDD1F2F89AA006DEF17 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				006BDCE91F2F8A1E006DEF17 /* Notifications.swift */,
+			);
+			name = Notifications;
+			sourceTree = "<group>";
+		};
+		006BDCDE1F2F89B0006DEF17 /* NearbyPlaces */ = {
+			isa = PBXGroup;
+			children = (
+				006BDCEB1F2F8A25006DEF17 /* NearbyPlaces.swift */,
+			);
+			name = NearbyPlaces;
+			sourceTree = "<group>";
+		};
+		006BDCDF1F2F89B8006DEF17 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				006BDCED1F2F8A2B006DEF17 /* Contacts.swift */,
+			);
+			name = Contacts;
+			sourceTree = "<group>";
+		};
+		006BDCE01F2F89BE006DEF17 /* Scanning */ = {
+			isa = PBXGroup;
+			children = (
+				006BDCE51F2F8A09006DEF17 /* Scanning.swift */,
+			);
+			name = Scanning;
+			sourceTree = "<group>";
+		};
+		006BDCF11F2F8E24006DEF17 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				006BDCF21F2F8E34006DEF17 /* Roboto-Black.ttf */,
+				006BDCF31F2F8E34006DEF17 /* Roboto-BlackItalic.ttf */,
+				006BDCF41F2F8E34006DEF17 /* Roboto-Bold.ttf */,
+				006BDCF51F2F8E34006DEF17 /* Roboto-BoldItalic.ttf */,
+				006BDCF61F2F8E34006DEF17 /* Roboto-Italic.ttf */,
+				006BDCF71F2F8E34006DEF17 /* Roboto-Light.ttf */,
+				006BDCF81F2F8E34006DEF17 /* Roboto-LightItalic.ttf */,
+				006BDCF91F2F8E34006DEF17 /* Roboto-Medium.ttf */,
+				006BDCFA1F2F8E34006DEF17 /* Roboto-MediumItalic.ttf */,
+				006BDCFB1F2F8E34006DEF17 /* Roboto-Regular.ttf */,
+				006BDCFC1F2F8E34006DEF17 /* Roboto-Thin.ttf */,
+				006BDCFD1F2F8E34006DEF17 /* Roboto-ThinItalic.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		0074A25D1F201B0800683A53 /* Color + Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,29 +371,17 @@
 			name = "Color + Font";
 			sourceTree = "<group>";
 		};
-		0074A2701F20D05800683A53 /* Scanner */ = {
-			isa = PBXGroup;
-			children = (
-				0074A2711F20D06C00683A53 /* ScannerViews.swift */,
-				0074A2731F20D0B200683A53 /* ScannerButtons.swift */,
-			);
-			name = Scanner;
-			sourceTree = "<group>";
-		};
 		00CC1A8E1F1FF09500ECADAD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0074A2771F20E3D700683A53 /* Menu.swift */,
 				0007E4DC1F1FECD700EBA50C /* StartViewController.swift */,
-				0074A2531F2015EE00683A53 /* PhoneVerificationViewController.swift */,
-				0074A2681F20AA5100683A53 /* RegisterViewController.swift */,
-				0074A26A1F20AF6000683A53 /* NameAndContactsViewController.swift */,
-				0074A2511F2015E500683A53 /* LoginViewController.swift */,
-				0074A2591F2016C600683A53 /* ScannerViewController.swift */,
-				0074A2791F20E46A00683A53 /* AddressBookViewController.swift */,
-				0074A27B1F20E47400683A53 /* NotificationCenterViewController.swift */,
-				0074A27D1F20E47D00683A53 /* ChatViewController.swift */,
-				0074A27F1F20FA2C00683A53 /* ProfileViewController.swift */,
+				000328841F2F86D0003F81F7 /* Registering */,
+				000328851F2F86DA003F81F7 /* Login */,
+				000328861F2F86E1003F81F7 /* Scanning */,
+				0003288A1F2F870F003F81F7 /* Profile */,
+				000328891F2F8705003F81F7 /* Notifications */,
+				000328881F2F86FA003F81F7 /* NearbyPlaces */,
+				000328871F2F86F3003F81F7 /* Contacts */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -236,13 +389,13 @@
 		00CC1A8F1F1FF09A00ECADAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0074A25B1F2017A700683A53 /* Labels.swift */,
-				0074A2621F20208200683A53 /* Buttons.swift */,
-				0074A2641F20208D00683A53 /* TextFields.swift */,
-				0074A26C1F20AFCA00683A53 /* Views.swift */,
-				002D61531F2415F400C2768F /* CountryTableViewCell.swift */,
-				38550B831F23DFDD00D23794 /* NotificationsUITableViewCell.swift */,
-				0074A2701F20D05800683A53 /* Scanner */,
+				006BDCDA1F2F8994006DEF17 /* Registering */,
+				006BDCDB1F2F899F006DEF17 /* Login */,
+				006BDCE01F2F89BE006DEF17 /* Scanning */,
+				006BDCDC1F2F89A5006DEF17 /* Profile */,
+				006BDCDD1F2F89AA006DEF17 /* Notifications */,
+				006BDCDE1F2F89B0006DEF17 /* NearbyPlaces */,
+				006BDCDF1F2F89B8006DEF17 /* Contacts */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -264,7 +417,8 @@
 		00CC1A9F1F200CAD00ECADAD /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
-				0007E4E41F1FECD700EBA50C /* Assets.xcassets */,
+				006BDCF11F2F8E24006DEF17 /* Fonts */,
+				006BDCEF1F2F8BFA006DEF17 /* Assets.xcassets */,
 			);
 			name = Ressources;
 			sourceTree = "<group>";
@@ -421,8 +575,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0007E4E51F1FECD700EBA50C /* Assets.xcassets in Resources */,
+				006BDD0A1F2F8E8B006DEF17 /* Assets.xcassets in Resources */,
+				006BDD051F2F8E34006DEF17 /* Roboto-Medium.ttf in Resources */,
+				006BDD011F2F8E34006DEF17 /* Roboto-BoldItalic.ttf in Resources */,
 				00CC1A9E1F200C7D00ECADAD /* GoogleService-Info.plist in Resources */,
+				006BDD001F2F8E34006DEF17 /* Roboto-Bold.ttf in Resources */,
+				006BDD021F2F8E34006DEF17 /* Roboto-Italic.ttf in Resources */,
+				006BDD071F2F8E34006DEF17 /* Roboto-Regular.ttf in Resources */,
+				006BDD041F2F8E34006DEF17 /* Roboto-LightItalic.ttf in Resources */,
+				006BDCFE1F2F8E34006DEF17 /* Roboto-Black.ttf in Resources */,
+				006BDD031F2F8E34006DEF17 /* Roboto-Light.ttf in Resources */,
+				006BDD091F2F8E34006DEF17 /* Roboto-ThinItalic.ttf in Resources */,
+				006BDD061F2F8E34006DEF17 /* Roboto-MediumItalic.ttf in Resources */,
+				006BDD081F2F8E34006DEF17 /* Roboto-Thin.ttf in Resources */,
+				006BDCFF1F2F8E34006DEF17 /* Roboto-BlackItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,36 +751,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38550B841F23DFDD00D23794 /* NotificationsUITableViewCell.swift in Sources */,
-				0074A2541F2015EE00683A53 /* PhoneVerificationViewController.swift in Sources */,
+				006BDCEA1F2F8A1E006DEF17 /* Notifications.swift in Sources */,
+				006BDCCD1F2F88BC006DEF17 /* NotificationsViewController.swift in Sources */,
+				006BDCD31F2F88E1006DEF17 /* ContactsViewController.swift in Sources */,
+				006BDCE81F2F8A0F006DEF17 /* Profile.swift in Sources */,
 				0074A2611F201B2700683A53 /* Font.swift in Sources */,
+				006BDCCF1F2F88CA006DEF17 /* NearbyPlacesViewController.swift in Sources */,
+				006BDCD11F2F88D4006DEF17 /* PlaceViewController.swift in Sources */,
+				006BDCE21F2F89FE006DEF17 /* Registering.swift in Sources */,
+				006BDCEE1F2F8A2B006DEF17 /* Contacts.swift in Sources */,
 				00CC1A981F20071400ECADAD /* Firebase.swift in Sources */,
-				0074A2691F20AA5100683A53 /* RegisterViewController.swift in Sources */,
 				00CC1A941F20064200ECADAD /* NearbyUser.swift in Sources */,
+				006BDCEC1F2F8A25006DEF17 /* NearbyPlaces.swift in Sources */,
+				006BDCC31F2F8845006DEF17 /* RegisterationFormViewController.swift in Sources */,
+				006BDCD91F2F8961006DEF17 /* ContactProfileViewController.swift in Sources */,
 				00EBDEA01F2159A100676E70 /* MainUser.swift in Sources */,
-				0074A25C1F2017A700683A53 /* Labels.swift in Sources */,
-				0074A2651F20208D00683A53 /* TextFields.swift in Sources */,
 				002D61561F24DB4E00C2768F /* Variables.swift in Sources */,
-				002D61541F2415F400C2768F /* CountryTableViewCell.swift in Sources */,
 				0007E4DD1F1FECD700EBA50C /* StartViewController.swift in Sources */,
-				0074A2631F20208200683A53 /* Buttons.swift in Sources */,
+				006BDCC91F2F889B006DEF17 /* ProfileViewController.swift in Sources */,
 				0074A2671F2023BD00683A53 /* Sizes + Position.swift in Sources */,
-				0074A2801F20FA2C00683A53 /* ProfileViewController.swift in Sources */,
-				0074A2741F20D0B200683A53 /* ScannerButtons.swift in Sources */,
+				006BDCE41F2F8A03006DEF17 /* Login.swift in Sources */,
+				006BDCC71F2F8883006DEF17 /* PasswordVerificationViewController.swift in Sources */,
 				00CC1A961F20064D00ECADAD /* Contact.swift in Sources */,
-				0074A2721F20D06C00683A53 /* ScannerViews.swift in Sources */,
-				0074A2781F20E3D700683A53 /* Menu.swift in Sources */,
-				0074A25A1F2016C600683A53 /* ScannerViewController.swift in Sources */,
 				0074A25F1F201B2200683A53 /* Color.swift in Sources */,
-				0074A2521F2015E500683A53 /* LoginViewController.swift in Sources */,
-				0074A27C1F20E47400683A53 /* NotificationCenterViewController.swift in Sources */,
-				0074A27A1F20E46A00683A53 /* AddressBookViewController.swift in Sources */,
-				0074A26B1F20AF6000683A53 /* NameAndContactsViewController.swift in Sources */,
-				0074A26D1F20AFCA00683A53 /* Views.swift in Sources */,
-				0074A27E1F20E47D00683A53 /* ChatViewController.swift in Sources */,
+				006BDCD51F2F88E9006DEF17 /* ScannerViewController.swift in Sources */,
+				006BDCD71F2F88F9006DEF17 /* WhereAreYouViewController.swift in Sources */,
+				0003288C1F2F874F003F81F7 /* PhoneVerificationViewController.swift in Sources */,
+				006BDCE61F2F8A09006DEF17 /* Scanning.swift in Sources */,
 				00CC1A9C1F20074D00ECADAD /* Notification.swift in Sources */,
 				0007E4DB1F1FECD700EBA50C /* AppDelegate.swift in Sources */,
+				006BDCC51F2F8863006DEF17 /* FirstContactImportViewController.swift in Sources */,
 				0007E4E31F1FECD700EBA50C /* LTios.xcdatamodeld in Sources */,
+				006BDCCB1F2F88A7006DEF17 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

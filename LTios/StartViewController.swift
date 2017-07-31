@@ -13,15 +13,14 @@ class StartViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
 
     Auth.auth().addStateDidChangeListener { auth, user in
       if user != nil {
         mainUser.user = user
-        let menuVC = MenuViewController()
-        self.present(menuVC, animated: false, completion: nil)
+        
       } else {
-        let loginVC = LoginViewController()
-        self.present(loginVC, animated: false, completion: nil)
+        
       }
     }
   }

@@ -41,6 +41,13 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.10)
+  - NexmoVerify (1.0.7):
+    - NexmoVerify/Core (= 1.0.7)
+  - NexmoVerify/Core (1.0.7):
+    - NexmoVerify/DeviceProperties (~> 1.0.6)
+    - NexmoVerify/RequestSigning (~> 1.0.6)
+  - NexmoVerify/DeviceProperties (1.0.7)
+  - NexmoVerify/RequestSigning (1.0.7)
   - PhoneNumberKit (1.2.3):
     - PhoneNumberKit/PhoneNumberKitCore (= 1.2.3)
     - PhoneNumberKit/UIKit (= 1.2.3)
@@ -51,6 +58,8 @@ PODS:
   - ReachabilitySwift (3)
   - SCLAlertView (0.7.0)
   - SnapKit (3.2.0)
+  - SwiftyJSON (3.1.4)
+  - TextFieldEffects (1.3.3)
   - Whisper (5.0.0)
 
 DEPENDENCIES:
@@ -59,11 +68,14 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
-  - PhoneNumberKit (~> 1.2)
+  - NexmoVerify
+  - PhoneNumberKit
   - Pulsator
-  - ReachabilitySwift (~> 3)
+  - ReachabilitySwift
   - SCLAlertView
-  - SnapKit (~> 3.2.0)
+  - SnapKit
+  - SwiftyJSON
+  - TextFieldEffects
   - Whisper
 
 SPEC CHECKSUMS:
@@ -77,13 +89,16 @@ SPEC CHECKSUMS:
   FirebaseStorage: 8110a1ed2034c8fbfd83890d2acc9cdbbd99afec
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
+  NexmoVerify: f7dfa599a38ea865aafd9522cff02c333044b9cb
   PhoneNumberKit: 1e5cca669113fc361a8c82ec1ee559c62b8cd0f7
   Pulsator: '0191f14f7ab82d6dbde6fdbde42036f07a4450e3'
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  TextFieldEffects: 8706f53525f1ce51c8921b7af32237caab50c467
   Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: d4edfd98c4914a69285162862bc06c76b7b6597f
+PODFILE CHECKSUM: 5fbfd1b9b2d42c57d4739ae5f1de18a432da9b9b
 
 COCOAPODS: 1.1.1

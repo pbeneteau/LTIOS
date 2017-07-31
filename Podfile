@@ -18,6 +18,9 @@ target 'LTios' do
   pod 'CryptoSwift'
   pod 'PhoneNumberKit'
   pod 'SCLAlertView'
+  pod 'SwiftyJSON'
+  pod "TextFieldEffects"
+  pod 'NexmoVerify'
 
   target 'LTiosTests' do
     inherit! :search_paths
