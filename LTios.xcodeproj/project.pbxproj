@@ -46,12 +46,10 @@
 		006BDD081F2F8E34006DEF17 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCFC1F2F8E34006DEF17 /* Roboto-Thin.ttf */; };
 		006BDD091F2F8E34006DEF17 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCFD1F2F8E34006DEF17 /* Roboto-ThinItalic.ttf */; };
 		006BDD0A1F2F8E8B006DEF17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCEF1F2F8BFA006DEF17 /* Assets.xcassets */; };
+		006BDD0C1F2F9613006DEF17 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDD0B1F2F9613006DEF17 /* CountryViewController.swift */; };
 		0074A25F1F201B2200683A53 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A25E1F201B2200683A53 /* Color.swift */; };
 		0074A2611F201B2700683A53 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A2601F201B2700683A53 /* Font.swift */; };
 		0074A2671F2023BD00683A53 /* Sizes + Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A2661F2023BD00683A53 /* Sizes + Position.swift */; };
-		00CC1A941F20064200ECADAD /* NearbyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CC1A931F20064200ECADAD /* NearbyUser.swift */; };
-		00CC1A961F20064D00ECADAD /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CC1A951F20064D00ECADAD /* Contact.swift */; };
-		00CC1A981F20071400ECADAD /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CC1A971F20071400ECADAD /* Firebase.swift */; };
 		00CC1A9C1F20074D00ECADAD /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CC1A9B1F20074D00ECADAD /* Notification.swift */; };
 		00CC1A9E1F200C7D00ECADAD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CC1A9D1F200C7D00ECADAD /* GoogleService-Info.plist */; };
 		00EBDEA01F2159A100676E70 /* MainUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EBDE9F1F2159A100676E70 /* MainUser.swift */; };
@@ -123,12 +121,10 @@
 		006BDCFB1F2F8E34006DEF17 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		006BDCFC1F2F8E34006DEF17 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		006BDCFD1F2F8E34006DEF17 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		006BDD0B1F2F9613006DEF17 /* CountryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
 		0074A25E1F201B2200683A53 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		0074A2601F201B2700683A53 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		0074A2661F2023BD00683A53 /* Sizes + Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sizes + Position.swift"; sourceTree = "<group>"; };
-		00CC1A931F20064200ECADAD /* NearbyUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyUser.swift; sourceTree = "<group>"; };
-		00CC1A951F20064D00ECADAD /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
-		00CC1A971F20071400ECADAD /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		00CC1A9B1F20074D00ECADAD /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		00CC1A9D1F200C7D00ECADAD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00EBDE9F1F2159A100676E70 /* MainUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUser.swift; sourceTree = "<group>"; };
@@ -375,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				0007E4DC1F1FECD700EBA50C /* StartViewController.swift */,
+				006BDD0B1F2F9613006DEF17 /* CountryViewController.swift */,
 				000328841F2F86D0003F81F7 /* Registering */,
 				000328851F2F86DA003F81F7 /* Login */,
 				000328861F2F86E1003F81F7 /* Scanning */,
@@ -404,10 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				00EBDE9F1F2159A100676E70 /* MainUser.swift */,
-				00CC1A951F20064D00ECADAD /* Contact.swift */,
-				00CC1A931F20064200ECADAD /* NearbyUser.swift */,
 				00CC1A9B1F20074D00ECADAD /* Notification.swift */,
-				00CC1A971F20071400ECADAD /* Firebase.swift */,
 				002D61551F24DB4E00C2768F /* Variables.swift */,
 				0074A25D1F201B0800683A53 /* Color + Font */,
 			);
@@ -760,8 +754,6 @@
 				006BDCD11F2F88D4006DEF17 /* PlaceViewController.swift in Sources */,
 				006BDCE21F2F89FE006DEF17 /* Registering.swift in Sources */,
 				006BDCEE1F2F8A2B006DEF17 /* Contacts.swift in Sources */,
-				00CC1A981F20071400ECADAD /* Firebase.swift in Sources */,
-				00CC1A941F20064200ECADAD /* NearbyUser.swift in Sources */,
 				006BDCEC1F2F8A25006DEF17 /* NearbyPlaces.swift in Sources */,
 				006BDCC31F2F8845006DEF17 /* RegisterationFormViewController.swift in Sources */,
 				006BDCD91F2F8961006DEF17 /* ContactProfileViewController.swift in Sources */,
@@ -772,9 +764,9 @@
 				0074A2671F2023BD00683A53 /* Sizes + Position.swift in Sources */,
 				006BDCE41F2F8A03006DEF17 /* Login.swift in Sources */,
 				006BDCC71F2F8883006DEF17 /* PasswordVerificationViewController.swift in Sources */,
-				00CC1A961F20064D00ECADAD /* Contact.swift in Sources */,
 				0074A25F1F201B2200683A53 /* Color.swift in Sources */,
 				006BDCD51F2F88E9006DEF17 /* ScannerViewController.swift in Sources */,
+				006BDD0C1F2F9613006DEF17 /* CountryViewController.swift in Sources */,
 				006BDCD71F2F88F9006DEF17 /* WhereAreYouViewController.swift in Sources */,
 				0003288C1F2F874F003F81F7 /* PhoneVerificationViewController.swift in Sources */,
 				006BDCE61F2F8A09006DEF17 /* Scanning.swift in Sources */,

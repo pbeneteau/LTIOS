@@ -19,10 +19,7 @@ class MainUser {
   var email: String?
   var countryCode: String?
   
-  // Scanning datas
-  var nearbyUserArray = [NearbyUser]()
-  var contactList = [Contact]()
-  var blockedContactList = [Contact]()
+
   
   init() {
     
