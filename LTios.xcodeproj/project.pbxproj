@@ -13,6 +13,7 @@
 		0007E4E31F1FECD700EBA50C /* LTios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0007E4E11F1FECD700EBA50C /* LTios.xcdatamodeld */; };
 		0007E4F31F1FECD700EBA50C /* LTiosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007E4F21F1FECD700EBA50C /* LTiosTests.swift */; };
 		0007E4FE1F1FECD700EBA50C /* LTiosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007E4FD1F1FECD700EBA50C /* LTiosUITests.swift */; };
+		0029BA641F2FEE1A00C67810 /* CountrySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0029BA631F2FEE1A00C67810 /* CountrySelector.swift */; };
 		002D61561F24DB4E00C2768F /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D61551F24DB4E00C2768F /* Variables.swift */; };
 		006BDCC31F2F8845006DEF17 /* RegisterationFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCC21F2F8845006DEF17 /* RegisterationFormViewController.swift */; };
 		006BDCC51F2F8863006DEF17 /* FirstContactImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCC41F2F8863006DEF17 /* FirstContactImportViewController.swift */; };
@@ -88,6 +89,7 @@
 		0007E4F91F1FECD700EBA50C /* LTiosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LTiosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0007E4FD1F1FECD700EBA50C /* LTiosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTiosUITests.swift; sourceTree = "<group>"; };
 		0007E4FF1F1FECD700EBA50C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0029BA631F2FEE1A00C67810 /* CountrySelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountrySelector.swift; sourceTree = "<group>"; };
 		002D61551F24DB4E00C2768F /* Variables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Variables.swift; sourceTree = "<group>"; };
 		006BDCC21F2F8845006DEF17 /* RegisterationFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterationFormViewController.swift; sourceTree = "<group>"; };
 		006BDCC41F2F8863006DEF17 /* FirstContactImportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstContactImportViewController.swift; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 		00CC1A8F1F1FF09A00ECADAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0029BA631F2FEE1A00C67810 /* CountrySelector.swift */,
 				006BDCDA1F2F8994006DEF17 /* Registering */,
 				006BDCDB1F2F899F006DEF17 /* Login */,
 				006BDCE01F2F89BE006DEF17 /* Scanning */,
@@ -763,6 +766,7 @@
 				006BDCC91F2F889B006DEF17 /* ProfileViewController.swift in Sources */,
 				0074A2671F2023BD00683A53 /* Sizes + Position.swift in Sources */,
 				006BDCE41F2F8A03006DEF17 /* Login.swift in Sources */,
+				0029BA641F2FEE1A00C67810 /* CountrySelector.swift in Sources */,
 				006BDCC71F2F8883006DEF17 /* PasswordVerificationViewController.swift in Sources */,
 				0074A25F1F201B2200683A53 /* Color.swift in Sources */,
 				006BDCD51F2F88E9006DEF17 /* ScannerViewController.swift in Sources */,
@@ -917,6 +921,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.littleworld.littleworld;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = (
 					"-wextra",
 					"-wall",
@@ -936,6 +941,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.littleworld.littleworld;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = (
 					"-wextra",
 					"-wall",

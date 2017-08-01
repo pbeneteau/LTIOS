@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import PhoneNumberKit
 
 
 // MARK: - Phone Verification
@@ -23,6 +23,7 @@ class RegisterationBG: UIImageView {
   }
   
   func commonInit(){
+    translatesAutoresizingMaskIntoConstraints = false
     image = #imageLiteral(resourceName: "RegisterationBG")
   }
 }
@@ -38,6 +39,7 @@ class RegisterationWorld: UIImageView {
   }
   
   func commonInit(){
+    translatesAutoresizingMaskIntoConstraints = false
     image = #imageLiteral(resourceName: "World")
   }
 }
@@ -54,10 +56,12 @@ class LogoTitle: UILabel {
   }
   
   func commonInit(){
+    translatesAutoresizingMaskIntoConstraints = false
     text = "Little World"
     font = UIFont(name: "Roboto-Medium", size: 36)
     textColor = .white
     textAlignment = .center
+    minimumScaleFactor = 0.5
   }
 }
 
@@ -73,32 +77,14 @@ class Slogan: UILabel {
   }
   
   func commonInit(){
+    translatesAutoresizingMaskIntoConstraints = false
     text = "Connect the world"
-    font = UIFont(name: "Roboto-Thin", size: 16)
+    font = UIFont(name: "Roboto-Light", size: 16)
     textColor = .white
     textAlignment = .center
   }
 }
 
-class CountryCode: UILabel {
-  required init(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)!
-    commonInit()
-  }
-  
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    commonInit()
-  }
-  
-  func commonInit(){
-    text = "+33"
-    font = UIFont(name: "Roboto-Regular", size: 20)
-    textColor = .white
-    alpha = 0.5
-    textAlignment = .center
-  }
-}
 
 class CountryButton: UIButton {
   required init(coder aDecoder: NSCoder) {
@@ -111,6 +97,7 @@ class CountryButton: UIButton {
   }
   
   func commonInit(){
+    translatesAutoresizingMaskIntoConstraints = false
     setImage(#imageLiteral(resourceName: "FR"), for: .normal)
   }
 }
@@ -126,11 +113,37 @@ class CountryArrow: UIImageView {
   }
   
   func commonInit(){
+    translatesAutoresizingMaskIntoConstraints = false
     image = #imageLiteral(resourceName: "FlagArrow")
   }
 }
 
-class PhoneTextField: UITextField {
+class PhoneTextField: PhoneNumberTextField {
+  required init(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    commonInit()
+  }
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    commonInit()
+  }
+  
+  func commonInit(){
+    translatesAutoresizingMaskIntoConstraints = false
+    textColor = TextColor.Dark.text
+    font = UIFont(name: "Roboto-Regular", size: 20)
+    textColor = .white
+    borderStyle = .none
+    keyboardType = .phonePad
+    keyboardAppearance = .dark
+    returnKeyType = .go
+    autocorrectionType = .no
+    isPartialFormatterEnabled = false
+  }
+}
+
+class PhonePlaceHolder: UILabel {
   required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)!
     commonInit()
@@ -142,11 +155,13 @@ class PhoneTextField: UITextField {
   }
   
   func commonInit(){
-    textColor = TextColor.Dark.text
-    font = UIFont(name: "Roboto-Regular", size: 20)
+    translatesAutoresizingMaskIntoConstraints = false
+    text = " Enter your phone number"
+    font = UIFont(name: "Roboto-Light", size: 16)
     textColor = .white
-    borderStyle = .none
-    placeholder = "Enter phone number"
+    textAlignment = .center
+    minimumScaleFactor = 0.2
+    adjustsFontSizeToFitWidth = true
   }
 }
 
@@ -161,7 +176,25 @@ class PhoneTextFieldLine: UIImageView {
   }
   
   func commonInit(){
+    translatesAutoresizingMaskIntoConstraints = false
     image = #imageLiteral(resourceName: "PhoneTextFieldLine")
+  }
+}
+
+class RegistrationNextButton: UIButton {
+  required init(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)!
+    commonInit()
+  }
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    commonInit()
+  }
+  
+  func commonInit(){
+    translatesAutoresizingMaskIntoConstraints = false
+    setImage(#imageLiteral(resourceName: "nextRegButton"), for: .normal)
+    alpha = 0.0
   }
 }
 
