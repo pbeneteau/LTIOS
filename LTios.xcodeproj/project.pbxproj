@@ -48,9 +48,6 @@
 		006BDD091F2F8E34006DEF17 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCFD1F2F8E34006DEF17 /* Roboto-ThinItalic.ttf */; };
 		006BDD0A1F2F8E8B006DEF17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCEF1F2F8BFA006DEF17 /* Assets.xcassets */; };
 		006BDD0C1F2F9613006DEF17 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDD0B1F2F9613006DEF17 /* CountryViewController.swift */; };
-		0074A25F1F201B2200683A53 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A25E1F201B2200683A53 /* Color.swift */; };
-		0074A2611F201B2700683A53 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A2601F201B2700683A53 /* Font.swift */; };
-		0074A2671F2023BD00683A53 /* Sizes + Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074A2661F2023BD00683A53 /* Sizes + Position.swift */; };
 		00CC1A9C1F20074D00ECADAD /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CC1A9B1F20074D00ECADAD /* Notification.swift */; };
 		00CC1A9E1F200C7D00ECADAD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CC1A9D1F200C7D00ECADAD /* GoogleService-Info.plist */; };
 		00EBDEA01F2159A100676E70 /* MainUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EBDE9F1F2159A100676E70 /* MainUser.swift */; };
@@ -124,9 +121,6 @@
 		006BDCFC1F2F8E34006DEF17 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		006BDCFD1F2F8E34006DEF17 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
 		006BDD0B1F2F9613006DEF17 /* CountryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
-		0074A25E1F201B2200683A53 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		0074A2601F201B2700683A53 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		0074A2661F2023BD00683A53 /* Sizes + Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sizes + Position.swift"; sourceTree = "<group>"; };
 		00CC1A9B1F20074D00ECADAD /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		00CC1A9D1F200C7D00ECADAD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00EBDE9F1F2159A100676E70 /* MainUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUser.swift; sourceTree = "<group>"; };
@@ -359,16 +353,6 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
-		0074A25D1F201B0800683A53 /* Color + Font */ = {
-			isa = PBXGroup;
-			children = (
-				0074A25E1F201B2200683A53 /* Color.swift */,
-				0074A2601F201B2700683A53 /* Font.swift */,
-				0074A2661F2023BD00683A53 /* Sizes + Position.swift */,
-			);
-			name = "Color + Font";
-			sourceTree = "<group>";
-		};
 		00CC1A8E1F1FF09500ECADAD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,7 +390,6 @@
 				00EBDE9F1F2159A100676E70 /* MainUser.swift */,
 				00CC1A9B1F20074D00ECADAD /* Notification.swift */,
 				002D61551F24DB4E00C2768F /* Variables.swift */,
-				0074A25D1F201B0800683A53 /* Color + Font */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -752,7 +735,6 @@
 				006BDCCD1F2F88BC006DEF17 /* NotificationsViewController.swift in Sources */,
 				006BDCD31F2F88E1006DEF17 /* ContactsViewController.swift in Sources */,
 				006BDCE81F2F8A0F006DEF17 /* Profile.swift in Sources */,
-				0074A2611F201B2700683A53 /* Font.swift in Sources */,
 				006BDCCF1F2F88CA006DEF17 /* NearbyPlacesViewController.swift in Sources */,
 				006BDCD11F2F88D4006DEF17 /* PlaceViewController.swift in Sources */,
 				006BDCE21F2F89FE006DEF17 /* Registering.swift in Sources */,
@@ -764,11 +746,9 @@
 				002D61561F24DB4E00C2768F /* Variables.swift in Sources */,
 				0007E4DD1F1FECD700EBA50C /* StartViewController.swift in Sources */,
 				006BDCC91F2F889B006DEF17 /* ProfileViewController.swift in Sources */,
-				0074A2671F2023BD00683A53 /* Sizes + Position.swift in Sources */,
 				006BDCE41F2F8A03006DEF17 /* Login.swift in Sources */,
 				0029BA641F2FEE1A00C67810 /* CountrySelector.swift in Sources */,
 				006BDCC71F2F8883006DEF17 /* PasswordVerificationViewController.swift in Sources */,
-				0074A25F1F201B2200683A53 /* Color.swift in Sources */,
 				006BDCD51F2F88E9006DEF17 /* ScannerViewController.swift in Sources */,
 				006BDD0C1F2F9613006DEF17 /* CountryViewController.swift in Sources */,
 				006BDCD71F2F88F9006DEF17 /* WhereAreYouViewController.swift in Sources */,
