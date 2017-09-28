@@ -14,7 +14,13 @@
 		0007E4F31F1FECD700EBA50C /* LTiosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007E4F21F1FECD700EBA50C /* LTiosTests.swift */; };
 		0007E4FE1F1FECD700EBA50C /* LTiosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007E4FD1F1FECD700EBA50C /* LTiosUITests.swift */; };
 		0029BA641F2FEE1A00C67810 /* CountrySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0029BA631F2FEE1A00C67810 /* CountrySelector.swift */; };
+		0029BA661F30A37F00C67810 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0029BA651F30A37F00C67810 /* Extension.swift */; };
 		002D61561F24DB4E00C2768F /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D61551F24DB4E00C2768F /* Variables.swift */; };
+		004288F51F33B591007FD732 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004288F41F33B591007FD732 /* MenuViewController.swift */; };
+		0042893B1F4A1198007FD732 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0042893A1F4A1198007FD732 /* Scene.swift */; };
+		0042893D1F4A11AF007FD732 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0042893C1F4A11AF007FD732 /* ScannerView.swift */; };
+		0042893F1F4A11CB007FD732 /* ScannerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0042893E1F4A11CB007FD732 /* ScannerNode.swift */; };
+		004289411F4AE3B6007FD732 /* NearbyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004289401F4AE3B6007FD732 /* NearbyUser.swift */; };
 		006BDCC31F2F8845006DEF17 /* RegisterationFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCC21F2F8845006DEF17 /* RegisterationFormViewController.swift */; };
 		006BDCC51F2F8863006DEF17 /* FirstContactImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCC41F2F8863006DEF17 /* FirstContactImportViewController.swift */; };
 		006BDCC71F2F8883006DEF17 /* PasswordVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCC61F2F8883006DEF17 /* PasswordVerificationViewController.swift */; };
@@ -87,7 +93,13 @@
 		0007E4FD1F1FECD700EBA50C /* LTiosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTiosUITests.swift; sourceTree = "<group>"; };
 		0007E4FF1F1FECD700EBA50C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0029BA631F2FEE1A00C67810 /* CountrySelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountrySelector.swift; sourceTree = "<group>"; };
+		0029BA651F30A37F00C67810 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		002D61551F24DB4E00C2768F /* Variables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Variables.swift; sourceTree = "<group>"; };
+		004288F41F33B591007FD732 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		0042893A1F4A1198007FD732 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		0042893C1F4A11AF007FD732 /* ScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		0042893E1F4A11CB007FD732 /* ScannerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerNode.swift; sourceTree = "<group>"; };
+		004289401F4AE3B6007FD732 /* NearbyUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyUser.swift; sourceTree = "<group>"; };
 		006BDCC21F2F8845006DEF17 /* RegisterationFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterationFormViewController.swift; sourceTree = "<group>"; };
 		006BDCC41F2F8863006DEF17 /* FirstContactImportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstContactImportViewController.swift; sourceTree = "<group>"; };
 		006BDCC61F2F8883006DEF17 /* PasswordVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordVerificationViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +196,7 @@
 		000328861F2F86E1003F81F7 /* Scanning */ = {
 			isa = PBXGroup;
 			children = (
+				004289391F4A115F007FD732 /* Magnet */,
 				006BDCD41F2F88E9006DEF17 /* ScannerViewController.swift */,
 				006BDCD61F2F88F9006DEF17 /* WhereAreYouViewController.swift */,
 			);
@@ -278,6 +291,16 @@
 			path = LTiosUITests;
 			sourceTree = "<group>";
 		};
+		004289391F4A115F007FD732 /* Magnet */ = {
+			isa = PBXGroup;
+			children = (
+				0042893A1F4A1198007FD732 /* Scene.swift */,
+				0042893C1F4A11AF007FD732 /* ScannerView.swift */,
+				0042893E1F4A11CB007FD732 /* ScannerNode.swift */,
+			);
+			name = Magnet;
+			sourceTree = "<group>";
+		};
 		006BDCDA1F2F8994006DEF17 /* Registering */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +381,7 @@
 			children = (
 				0007E4DC1F1FECD700EBA50C /* StartViewController.swift */,
 				006BDD0B1F2F9613006DEF17 /* CountryViewController.swift */,
+				004288F41F33B591007FD732 /* MenuViewController.swift */,
 				000328841F2F86D0003F81F7 /* Registering */,
 				000328851F2F86DA003F81F7 /* Login */,
 				000328861F2F86E1003F81F7 /* Scanning */,
@@ -388,8 +412,10 @@
 			isa = PBXGroup;
 			children = (
 				00EBDE9F1F2159A100676E70 /* MainUser.swift */,
+				004289401F4AE3B6007FD732 /* NearbyUser.swift */,
 				00CC1A9B1F20074D00ECADAD /* Notification.swift */,
 				002D61551F24DB4E00C2768F /* Variables.swift */,
+				0029BA651F30A37F00C67810 /* Extension.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -732,6 +758,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				006BDCEA1F2F8A1E006DEF17 /* Notifications.swift in Sources */,
+				004288F51F33B591007FD732 /* MenuViewController.swift in Sources */,
 				006BDCCD1F2F88BC006DEF17 /* NotificationsViewController.swift in Sources */,
 				006BDCD31F2F88E1006DEF17 /* ContactsViewController.swift in Sources */,
 				006BDCE81F2F8A0F006DEF17 /* Profile.swift in Sources */,
@@ -740,6 +767,7 @@
 				006BDCE21F2F89FE006DEF17 /* Registering.swift in Sources */,
 				006BDCEE1F2F8A2B006DEF17 /* Contacts.swift in Sources */,
 				006BDCEC1F2F8A25006DEF17 /* NearbyPlaces.swift in Sources */,
+				0042893F1F4A11CB007FD732 /* ScannerNode.swift in Sources */,
 				006BDCC31F2F8845006DEF17 /* RegisterationFormViewController.swift in Sources */,
 				006BDCD91F2F8961006DEF17 /* ContactProfileViewController.swift in Sources */,
 				00EBDEA01F2159A100676E70 /* MainUser.swift in Sources */,
@@ -747,6 +775,7 @@
 				0007E4DD1F1FECD700EBA50C /* StartViewController.swift in Sources */,
 				006BDCC91F2F889B006DEF17 /* ProfileViewController.swift in Sources */,
 				006BDCE41F2F8A03006DEF17 /* Login.swift in Sources */,
+				0042893D1F4A11AF007FD732 /* ScannerView.swift in Sources */,
 				0029BA641F2FEE1A00C67810 /* CountrySelector.swift in Sources */,
 				006BDCC71F2F8883006DEF17 /* PasswordVerificationViewController.swift in Sources */,
 				006BDCD51F2F88E9006DEF17 /* ScannerViewController.swift in Sources */,
@@ -755,10 +784,13 @@
 				0003288C1F2F874F003F81F7 /* PhoneVerificationViewController.swift in Sources */,
 				006BDCE61F2F8A09006DEF17 /* Scanning.swift in Sources */,
 				00CC1A9C1F20074D00ECADAD /* Notification.swift in Sources */,
+				0042893B1F4A1198007FD732 /* Scene.swift in Sources */,
 				0007E4DB1F1FECD700EBA50C /* AppDelegate.swift in Sources */,
 				006BDCC51F2F8863006DEF17 /* FirstContactImportViewController.swift in Sources */,
 				0007E4E31F1FECD700EBA50C /* LTios.xcdatamodeld in Sources */,
+				0029BA661F30A37F00C67810 /* Extension.swift in Sources */,
 				006BDCCB1F2F88A7006DEF17 /* SettingsViewController.swift in Sources */,
+				004289411F4AE3B6007FD732 /* NearbyUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

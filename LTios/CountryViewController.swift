@@ -62,14 +62,11 @@ class CountryViewController: UIViewController {
     if !didSetupConstraints {
       
       closeButton.snp.makeConstraints { (make) -> Void in
-        make.width.equalTo(20)
-        make.height.equalTo(20)
         make.top.equalTo(view.snp.bottom).multipliedBy(0.05)
         make.leftMargin.equalTo(15)
       }
       
       titleLabel.snp.makeConstraints { (make) -> Void in
-        make.width.equalTo(view.snp.width)
         make.top.equalTo(view.snp.bottom).multipliedBy(0.1)
         make.leftMargin.equalTo(15)
       }

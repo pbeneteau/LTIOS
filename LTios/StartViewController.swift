@@ -18,8 +18,8 @@ class StartViewController: UIViewController {
   
   let phoneNumberKit = PhoneNumberKit()
   
-  let bg = RegisterationBG(frame: CGRect())
-  let world = RegisterationWorld(frame: CGRect())
+  let bg = UIImageView(image: #imageLiteral(resourceName: "RegisterationBG"))
+  let world = UIImageView(image: #imageLiteral(resourceName: "World"))
   let logo = LogoTitle()
   let slogan = Slogan()
   lazy var countrySelector: CountryButton = {
@@ -34,7 +34,7 @@ class StartViewController: UIViewController {
   }()
   let phonePlaceHolder = PhonePlaceHolder()
   let phoneTextFieldLine = PhoneTextFieldLine(frame: CGRect())
-  let flagArrow = CountryArrow(frame: CGRect())
+  let flagArrow = UIImageView(image: #imageLiteral(resourceName: "FlagArrow"))
   let nextButton = RegistrationNextButton()
   
   let countryVC = CountryViewController()
@@ -63,6 +63,8 @@ class StartViewController: UIViewController {
     
     countrySelector.addTarget(self, action: #selector(openCountryView), for: .touchUpInside)
     
+    nextButton.addTarget(self, action: #selector(nextButtonPressed), for: .touchUpInside)
+    
     self.view.setNeedsUpdateConstraints()
   }
   
@@ -90,22 +92,16 @@ class StartViewController: UIViewController {
       }
       
       world.snp.makeConstraints { (make) -> Void in
-        make.width.equalTo(4855)
-        make.height.equalTo(479)
         make.top.equalTo(view.snp.top)
         make.left.equalTo(view.snp.left)
       }
       
       logo.snp.makeConstraints { (make) -> Void in
-        make.width.equalTo(view.snp.width)
-        make.height.equalTo(42)
         make.top.equalTo(view.snp.bottom).multipliedBy(0.12)
         make.centerX.equalTo(view.snp.centerX)
       }
       
       slogan.snp.makeConstraints { (make) -> Void in
-        make.width.equalTo(view.snp.width)
-        make.height.equalTo(20)
         make.top.equalTo(logo.snp.bottom).offset(5)
         make.centerX.equalTo(view.snp.centerX)
       }
@@ -138,15 +134,11 @@ class StartViewController: UIViewController {
       }
       
       flagArrow.snp.makeConstraints { (make) -> Void in
-        make.width.equalTo(20)
-        make.height.equalTo(7)
         make.top.equalTo(countrySelector.snp.bottom).offset(3)
         make.centerX.equalTo(countrySelector.snp.centerX)
       }
       
       nextButton.snp.makeConstraints { (make) -> Void in
-        make.width.equalTo(60)
-        make.height.equalTo(60)
         make.top.equalTo(phoneTextFieldLine.snp.bottom).offset(20)
         make.right.equalTo(view.snp.right).offset(-20)
       }
@@ -260,6 +252,11 @@ class StartViewController: UIViewController {
       self.nextButton.alpha = 0.0
     })
     initTextField(string: "")
+  }
+  
+  func nextButtonPressed() {
+    let verificationVC = PhoneVerificationViewController()
+    navigationController?.pushViewController(verificationVC, animated: true)
   }
   
 }

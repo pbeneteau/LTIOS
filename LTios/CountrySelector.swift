@@ -29,7 +29,7 @@ class CountryTableViewCell: UITableViewCell {
     
     
     countryLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
-    countryLabel.textColor = TextColor.Light.text
+    countryLabel.textColor = .gray
     
     contentView.addSubview(countryFlag)
     contentView.addSubview(countryLabel)
