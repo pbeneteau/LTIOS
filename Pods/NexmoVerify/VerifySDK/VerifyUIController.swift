@@ -87,12 +87,12 @@ class VerifyUIController : UIViewController, CountryPickerDelegate, UIAlertViewD
                     self.checkCodeField.alpha = 0
                     self.checkCodeSpinner.alpha = 0
                     
-                    self.cancelButtonLowConstraint.priority = UILayoutPriorityDefaultHigh
+                    self.cancelButtonLowConstraint.priority = UILayoutPriority.defaultHigh
                     self.cancelButtonHighConstraint.priority =
-                        UILayoutPriorityDefaultLow
+                        UILayoutPriority.defaultLow
                     
-                    self.tryAgainHiddenConstraint.priority = UILayoutPriorityDefaultHigh
-                    self.tryAgainVisibleConstraint.priority = UILayoutPriorityDefaultLow
+                    self.tryAgainHiddenConstraint.priority = UILayoutPriority.defaultHigh
+                    self.tryAgainVisibleConstraint.priority = UILayoutPriority.defaultLow
                     
                     self.tryAgainButton.alpha = 0
                     self.callInsteadButton.alpha = 0
@@ -121,12 +121,12 @@ class VerifyUIController : UIViewController, CountryPickerDelegate, UIAlertViewD
                     self.checkCodeField.alpha = 1
                     self.checkCodeSpinner.alpha = 1
                     
-                    self.cancelButtonLowConstraint.priority = UILayoutPriorityDefaultLow
+                    self.cancelButtonLowConstraint.priority = UILayoutPriority.defaultLow
                     self.cancelButtonHighConstraint.priority =
-                        UILayoutPriorityDefaultHigh-1
+                        UILayoutPriority(rawValue: UILayoutPriority.RawValue(Int(UILayoutPriority.defaultHigh.rawValue)-1))
                     
-                    self.tryAgainHiddenConstraint.priority = UILayoutPriorityDefaultHigh
-                    self.tryAgainVisibleConstraint.priority = UILayoutPriorityDefaultLow
+                    self.tryAgainHiddenConstraint.priority = UILayoutPriority.defaultHigh
+                    self.tryAgainVisibleConstraint.priority = UILayoutPriority.defaultLow
                     
                     self.tryAgainButton.alpha = 0
                     self.callInsteadButton.alpha = 0
@@ -154,12 +154,12 @@ class VerifyUIController : UIViewController, CountryPickerDelegate, UIAlertViewD
                     self.checkCodeField.alpha = 1
                     self.checkCodeSpinner.alpha = 1
                     
-                    self.cancelButtonLowConstraint.priority = UILayoutPriorityDefaultLow
+                    self.cancelButtonLowConstraint.priority = UILayoutPriority.defaultLow
                     self.cancelButtonHighConstraint.priority =
-                        UILayoutPriorityDefaultHigh-1
+                        UILayoutPriority(rawValue: UILayoutPriority.RawValue(Int(UILayoutPriority.defaultHigh.rawValue)-1))
                     
-                    self.tryAgainHiddenConstraint.priority = UILayoutPriorityDefaultLow
-                    self.tryAgainVisibleConstraint.priority = UILayoutPriorityDefaultHigh
+                    self.tryAgainHiddenConstraint.priority = UILayoutPriority.defaultLow
+                    self.tryAgainVisibleConstraint.priority = UILayoutPriority.defaultHigh
                     
                     self.tryAgainButton.alpha = 1
                     self.callInsteadButton.alpha = 1
@@ -217,7 +217,7 @@ class VerifyUIController : UIViewController, CountryPickerDelegate, UIAlertViewD
         infoText.text = message
     }
     
-    func hideKeyboard(_ gesture: UITapGestureRecognizer) {
+    @objc func hideKeyboard(_ gesture: UITapGestureRecognizer) {
         countryField.resignFirstResponder()
         numberField.resignFirstResponder()
         checkCodeField.resignFirstResponder()
@@ -305,7 +305,7 @@ class VerifyUIController : UIViewController, CountryPickerDelegate, UIAlertViewD
         }
     }
     
-    func sendCode(_ sender: AnyObject) {
+    @objc func sendCode(_ sender: AnyObject) {
         VerifyClient.getVerifiedUser(countryCode: (currentCountry["country_code"] as! String), phoneNumber: numberField.text!,
         onVerifyInProgress: onVerifyInProgressCallback,
         onUserVerified: onUserVerifiedCallback,
@@ -317,7 +317,7 @@ class VerifyUIController : UIViewController, CountryPickerDelegate, UIAlertViewD
         delegate?.userVerified?(verificationSuccessful)
     }
     
-    func checkCode(_ sender: AnyObject) {
+    @objc func checkCode(_ sender: AnyObject) {
         // check for no pin code
         if (checkCodeField.text?.characters.count == 0) {
             let action = UIAlertAction(title: "Okay", style: .default, handler: nil)
@@ -349,11 +349,11 @@ class VerifyUIController : UIViewController, CountryPickerDelegate, UIAlertViewD
         VerifyClient.checkPinCode(checkCodeField.text!)
     }
     
-    func cancelVerify(_ sender: AnyObject) {
+    @objc func cancelVerify(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
     }
     
-    func cancelCheck(_ sender: AnyObject) {
+    @objc func cancelCheck(_ sender: AnyObject) {
         // set up state correctly
         state = .verify
         pinTry = 0

@@ -85,7 +85,7 @@ class CountryViewController: UIViewController {
     super.updateViewConstraints()
   }
   
-  func closeView() {
+    @objc func closeView() {
     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "closeCountryView"), object: nil)
   }
   

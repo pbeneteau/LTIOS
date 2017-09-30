@@ -112,7 +112,7 @@ class FirstContactImportViewController: UIViewController {
     super.updateViewConstraints()
   }
   
-  func importButtonPressed() {
+    @objc func importButtonPressed() {
     success()
   }
   

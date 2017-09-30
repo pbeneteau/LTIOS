@@ -179,7 +179,7 @@ class StartViewController: UIViewController {
     disableTextField()
   }
   
-  func closeCountryView(notification: NSNotification){
+    @objc func closeCountryView(notification: NSNotification){
     UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: { () -> Void in
       self.countryVC.view.snp.remakeConstraints { make in
         make.width.equalTo(self.view.snp.width)
@@ -199,7 +199,7 @@ class StartViewController: UIViewController {
     disableTextField()
   }
   
-  func keyboardWillShow(notification: NSNotification) {
+    @objc func keyboardWillShow(notification: NSNotification) {
     if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
       let keyboardHeight = keyboardSize.height
       enableTextField(keyboardHeight: keyboardHeight)
@@ -254,7 +254,7 @@ class StartViewController: UIViewController {
     initTextField(string: "")
   }
   
-  func nextButtonPressed() {
+    @objc func nextButtonPressed() {
     let verificationVC = PhoneVerificationViewController()
     navigationController?.pushViewController(verificationVC, animated: true)
   }
@@ -267,16 +267,16 @@ extension StartViewController: UITextFieldDelegate {
   func initTextField(string: String) {
     let protectedRange = NSMakeRange(0, countryCodeString.characters.count)
     let attributedString = NSMutableAttributedString(string: countryCodeString)
-    attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0), range: protectedRange)
+    attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0), range: protectedRange)
     attributedString.append(NSAttributedString(string: string))
     phoneTextField.attributedText = attributedString
   }
   
   func textFieldDidBeginEditing(_ textField: UITextField) {
     
-  }
+}
   
-  func textFieldChanged() {
+    @objc func textFieldChanged() {
     let partialFormatter = PartialFormatter(phoneNumberKit: phoneNumberKit, defaultRegion: selectedCountry, withPrefix: false)
     let protectedRange = NSMakeRange(0, countryCodeString.characters.count)
     let substring = phoneTextField.text!.index(phoneTextField.text!.startIndex, offsetBy: protectedRange.length)

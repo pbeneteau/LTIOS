@@ -179,7 +179,7 @@ class PhoneVerificationViewController: UIViewController {
     }
   }
   
-  func backButtonPressed() {
+    @objc func backButtonPressed() {
     _ = navigationController?.popViewController(animated: true)
   }
   

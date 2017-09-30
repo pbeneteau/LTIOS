@@ -134,7 +134,7 @@ class RegisterationFormViewController: UIViewController {
     super.updateViewConstraints()
   }
   
-  func registerButtonPressed() {
+    @objc func registerButtonPressed() {
     let firstContactVC = FirstContactImportViewController()
     present(firstContactVC, animated: false, completion: nil)
   }
