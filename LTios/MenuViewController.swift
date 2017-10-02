@@ -103,6 +103,8 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     colorEffectView.alpha = 0
     scannerVC.view.addSubview(colorEffectView)
     
+    nearbyPlacesVC.view.backgroundColor = .clear
+    
     view.setNeedsUpdateConstraints()
     
   }
@@ -116,7 +118,6 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
   override func updateViewConstraints() {
     
     if !didSetupConstraints {
-      
       
       horizontalScrollView.snp.makeConstraints { (make) -> Void in
         make.centerX.equalTo(view.snp.centerX)
@@ -143,7 +144,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         make.left.equalTo(profileVC.view.snp.right).offset(view.frame.size.width)
         make.bottom.equalTo(view.snp.bottom)
         make.width.equalTo(view.snp.width)
-        make.height.equalTo(view.snp.height).multipliedBy(0.9)
+        make.height.equalTo(view.snp.height)
       }
       
       scannerVC.view.snp.makeConstraints { (make) -> Void in
@@ -190,8 +191,11 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
   
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    
+    
     // Resolve a bug
     if scrollView.tag == 10 {
+        print("x: \(scrollView.contentOffset.x)")
       if scrollView.contentOffset.x >= view.frame.width - 20 && scrollView.contentOffset.x <= view.frame.width + 20 {
         scannerVC.view.isUserInteractionEnabled = true
         verticalScrollView.isUserInteractionEnabled = true
@@ -203,6 +207,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     }
     
     if scrollView.tag == 20 {
+        print("y: \(scrollView.contentOffset.y)")
       if scrollView.contentOffset.y == 0.0 {
         self.horizontalScrollView.isScrollEnabled = false
       } else if scrollView.contentOffset.y == view.frame.size.height * 2.0 {

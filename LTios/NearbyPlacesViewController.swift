@@ -21,18 +21,14 @@ class NearbyPlacesViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        self.view.backgroundColor = .white
-        
         let maskLayer = CAShapeLayer()
         
-        
-        let path = UIBezierPath(roundedRect:self.view.bounds,
+        let path = UIBezierPath(roundedRect:self.tableView.bounds,
                                 byRoundingCorners:[.topLeft, .topRight],
                                 cornerRadii: CGSize(width: 10, height:  10))
         
         maskLayer.path = path.cgPath
-        self.view.layer.mask = maskLayer
+        //self.tableView.layer.mask = maskLayer
         
         var places = [NearbyPlaces]()
         
@@ -51,9 +47,9 @@ class NearbyPlacesViewController: UIViewController, UITableViewDataSource {
         
         
         view.addSubview(tableView)
+        tableView.isHidden = true
         
         self.tableView.reloadData()
-        self.tableView.separatorStyle = .none
         
         view.setNeedsUpdateConstraints()
     }
@@ -69,7 +65,7 @@ class NearbyPlacesViewController: UIViewController, UITableViewDataSource {
             
             tableView.snp.makeConstraints { (make) -> Void in
                 make.width.equalTo(view.snp.width)
-                make.height.equalTo(view.snp.height)
+                make.height.equalTo(view.snp.height).multipliedBy(0.9)
                 make.centerX.equalTo(view.snp.centerX)
                 make.bottom.equalTo(view.snp.bottom)
             }
@@ -128,7 +124,7 @@ extension NearbyPlacesViewController: UITableViewDelegate {
                 cell.placeImageView.image = self.nearbyPlaces[indexPath.section][indexPath.row].image
                 
                 cell.selectionStyle = .none
-                cell.backgroundColor = .white
+                cell.backgroundColor = .clear
                 
             })
         }
@@ -139,8 +135,8 @@ extension NearbyPlacesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        
-        let view = UIView() // The width will be the same as the cell, and the height should be set in tableView:heightForRowAtIndexPath:
+        let view = UIView()
+        view.backgroundColor = .white
         let label = UILabel()
         
         if section == 0 {

@@ -26,9 +26,10 @@ class nearbyPlacesTableView: UITableView {
         let dummyView = UIView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: dummyViewHeight))
         tableHeaderView = dummyView
         contentInset = UIEdgeInsetsMake(-dummyViewHeight, 0, 0, 0)
-        //
+        
+        separatorStyle = .none
         allowsMultipleSelection = false
-        backgroundColor = .clear
+        backgroundColor = .white
         estimatedRowHeight = 3*90
         rowHeight = 3*90
         sectionHeaderHeight = 30
