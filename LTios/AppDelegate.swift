@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Firebase
 import NexmoVerify
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,15 +19,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    
+    // Start FirbaseApp
     FirebaseApp.configure()
     
     // Start up the NexmoClient with your application key(id) and your shared secret key
     NexmoClient.start(applicationId: "a5707d16-0fb1-4acf-91a2-35f2b5463040", sharedSecretKey: "09bd353d4872d9c")
     
+    // Start up the GoogleMap APIs with your application key(id)
+    GMSPlacesClient.provideAPIKey("AIzaSyBff7glwUwe_zsSgv3zSaMaHMrs2j3arh0")
+    
     window = UIWindow.init(frame: UIScreen.main.bounds)
     window?.backgroundColor = UIColor.white
-    let navigationVC = UINavigationController(rootViewController: StartViewController())
+    let navigationVC = UINavigationController(rootViewController: MenuViewController())
     navigationVC.setNavigationBarHidden(true, animated: false)
+    
     window!.rootViewController = navigationVC
     window!.makeKeyAndVisible()
     

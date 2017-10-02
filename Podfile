@@ -21,6 +21,7 @@ target 'LTios' do
   pod 'SwiftyJSON'
   pod 'TextFieldEffects'
   pod 'NexmoVerify'
+  pod 'GooglePlaces'
 
   target 'LTiosTests' do
     inherit! :search_paths

@@ -26,10 +26,7 @@ class ScannerViewController: UIViewController {
     magnetic = scannerView.magnetic
     magnetic.magneticDelegate = self
     
-    add(nil)
-    add(nil)
-    add(nil)
-    add(nil)
+    //add(nil)
     
     view.addSubview(scannerView)
   }
@@ -43,7 +40,7 @@ class ScannerViewController: UIViewController {
     
     let nearbyUser = NearbyUser(uid: "136tweq8et123", publicName: "Antoine Beneteau", pushID: "125ef12512f172")
     
-    let node = Node(image: UIImage(named: "defaultDiscoveredNearbyIcon"), radius: 40, nearbyUser: nearbyUser)
+    let node = Node(image: UIImage(named: "defaultDiscoveredNearbyIcon"), radius: 70, nearbyUser: nearbyUser)
     magnetic.addChild(node)
     
   }
