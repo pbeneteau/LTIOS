@@ -14,6 +14,8 @@ class NearbyPlacesViewController: UIViewController, UITableViewDataSource {
     
     var didSetupConstraints = false
     
+    var containerView = UIView()
+    
     var tableView = nearbyPlacesTableView()
     
     var nearbyPlaces = [[NearbyPlaces]]()
@@ -21,14 +23,7 @@ class NearbyPlacesViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let maskLayer = CAShapeLayer()
-        
-        let path = UIBezierPath(roundedRect:self.tableView.bounds,
-                                byRoundingCorners:[.topLeft, .topRight],
-                                cornerRadii: CGSize(width: 10, height:  10))
-        
-        maskLayer.path = path.cgPath
-        //self.tableView.layer.mask = maskLayer
+        containerView.backgroundColor = .white
         
         var places = [NearbyPlaces]()
         
@@ -45,9 +40,8 @@ class NearbyPlacesViewController: UIViewController, UITableViewDataSource {
         tableView.dataSource = self
         tableView.delegate = self
         
-        
-        view.addSubview(tableView)
-        tableView.isHidden = true
+        view.addSubview(containerView)
+        containerView.addSubview(tableView)
         
         self.tableView.reloadData()
         
@@ -59,15 +53,34 @@ class NearbyPlacesViewController: UIViewController, UITableViewDataSource {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let maskLayer = CAShapeLayer()
+        
+        let path = UIBezierPath(roundedRect:self.tableView.bounds,
+                                byRoundingCorners:[.topLeft, .topRight],
+                                cornerRadii: CGSize(width: 10, height:  10))
+        
+        maskLayer.path = path.cgPath
+        //self.containerView.layer.mask = maskLayer
+    }
+    
     override func updateViewConstraints() {
         
         if !didSetupConstraints {
             
-            tableView.snp.makeConstraints { (make) -> Void in
+            containerView.snp.makeConstraints { (make) -> Void in
                 make.width.equalTo(view.snp.width)
                 make.height.equalTo(view.snp.height).multipliedBy(0.9)
                 make.centerX.equalTo(view.snp.centerX)
                 make.bottom.equalTo(view.snp.bottom)
+            }
+            
+            tableView.snp.makeConstraints { (make) -> Void in
+                make.width.equalTo(containerView.snp.width)
+                make.height.equalTo(containerView.snp.height)
+                make.centerX.equalTo(containerView.snp.centerX)
+                make.top.equalTo(containerView.snp.top)
             }
             
             didSetupConstraints = true

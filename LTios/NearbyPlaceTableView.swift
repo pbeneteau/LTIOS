@@ -21,12 +21,13 @@ class nearbyPlacesTableView: UITableView {
     }
     
     func commonInit() {
-        // Permit sticky section headers
+        // Allow sticky section headers
         let dummyViewHeight: CGFloat = 50
         let dummyView = UIView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: dummyViewHeight))
         tableHeaderView = dummyView
         contentInset = UIEdgeInsetsMake(-dummyViewHeight, 0, 0, 0)
         
+        backgroundColor = .clear
         separatorStyle = .none
         allowsMultipleSelection = false
         backgroundColor = .white

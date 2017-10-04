@@ -28,7 +28,7 @@ class ScannerViewController: UIViewController {
     
     //add(nil)
     
-    view.addSubview(scannerView)
+    //view.addSubview(scannerView)
   }
   
   override func didReceiveMemoryWarning() {
