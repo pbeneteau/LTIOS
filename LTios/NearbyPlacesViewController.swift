@@ -185,4 +185,7 @@ extension NearbyPlacesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    }
 }
