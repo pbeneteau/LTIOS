@@ -54,6 +54,21 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     
     // Mark: NAvigation bar
     
+    lazy var titleLabel: TitleLabel = {
+        let view = TitleLabel()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.text = "Scanner"
+        view.alpha = 1.0
+        view.sizeToFit()
+        return view
+    }()
+    
+    lazy var titleLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
+        return view
+    }()
+    
     // Mark: Navigation Buttons
     
     var colorEffectView = UIView()
@@ -95,6 +110,9 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         colorEffectView.alpha = 0
         scannerVC.view.addSubview(colorEffectView)
         
+        view.addSubview(titleLabel)
+        view.addSubview(titleLine)
+        
         nearbyPlacesVC.view.backgroundColor = .clear
         
         view.setNeedsUpdateConstraints()
@@ -130,7 +148,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
                 make.left.equalTo(horizontalScrollView.snp.left)
                 make.bottom.equalTo(view.snp.bottom)
                 make.width.equalTo(view.snp.width)
-                make.height.equalTo(view.snp.height).multipliedBy(0.9)
+                make.height.equalTo(view.snp.height)
             }
             
             nearbyPlacesVC.view.snp.makeConstraints { (make) -> Void in
@@ -168,6 +186,19 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
                 make.height.equalTo(scannerVC.view.snp.height)
             }
             
+            titleLabel.snp.makeConstraints { (make) -> Void in
+                make.width.equalTo(view.snp.width).multipliedBy(0.7)
+                make.centerX.equalTo(view.snp.centerX)
+                make.topMargin.equalTo(8)
+            }
+            
+            titleLine.snp.makeConstraints { (make) -> Void in
+                make.width.equalTo(view.snp.width)
+                make.height.equalTo(0.5)
+                make.centerX.equalTo(view.snp.centerX)
+                make.top.equalTo(view.snp.bottom).multipliedBy(0.1)
+            }
+            
             didSetupConstraints = true
         }
         super.updateViewConstraints()
@@ -185,7 +216,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
                 scannerVC.view.isUserInteractionEnabled = false
                 verticalScrollView.isUserInteractionEnabled = false
             }
-            //titleManagerHorizontal(scrollX: scrollView.contentOffset.x)
+            titleManagerHorizontal(scrollX: scrollView.contentOffset.x)
             
             // Scrolling to chat VC
             if scrollView.contentOffset.x > view.frame.size.width {
@@ -213,7 +244,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
                 self.horizontalScrollView.isScrollEnabled = true
             }
             
-            //titleManagerVertical(scrollY: scrollView.contentOffset.y)
+            titleManagerVertical(scrollY: scrollView.contentOffset.y)
             
             // Scrolling to notification VC
             if scrollView.contentOffset.y < view.frame.size.height {
@@ -242,10 +273,69 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         } else {
             print("autre: \(scrollView.contentOffset)")
         }
-        
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func titleManagerHorizontal(scrollX: CGFloat) { // NearbyPlacesVC
+        if scrollX > view.frame.size.width {
+            self.titleLabel.snp.updateConstraints { (make) -> Void in
+                make.centerX.equalTo(self.view.snp.centerX).offset(((scrollX - view.frame.size.width)/10)*2)
+            }
+            if scrollX < view.frame.size.width * 1.5 {
+                self.titleLabel.text = "Scanner"
+                let alpha = (1  - (scrollX - view.frame.width) / view.frame.width)
+                self.titleLabel.alpha = alpha
+                self.titleLabel.textColor = .gray
+            } else {
+                let alpha = ((scrollX - view.frame.width * 1.5) * 4) / (view.frame.width * 2)
+                self.titleLabel.alpha = alpha
+                self.titleLabel.text = "Nearby Places"
+                self.titleLabel.textColor = .white
+            }
+        } else if scrollX < view.frame.size.width { // ProfileVC
+            self.titleLabel.snp.updateConstraints { (make) -> Void in
+                make.centerX.equalTo(self.view.snp.centerX).inset(((scrollX - view.frame.size.width)/10)*3.5)
+            }
+            if scrollX > view.frame.size.width / 2 {
+                self.titleLabel.text = "Scanner"
+                let alpha = (scrollX / view.frame.width)
+                self.titleLabel.alpha = alpha
+                self.titleLabel.textColor = .gray
+            } else {
+                self.titleLabel.text = "Profile"
+                let alpha = 1 - (scrollX * 2) / view.frame.width
+                self.titleLabel.alpha = alpha
+                self.titleLabel.textColor = .white
+            }
+        }
     }
+    
+    func titleManagerVertical(scrollY: CGFloat) {
+        if scrollY < view.frame.size.height { // Notif
+            if scrollY > view.frame.size.height / 2 { // Notif
+                self.titleLabel.text = "Scanner"
+                let alpha = (scrollY / self.view.frame.height)
+                self.titleLabel.alpha = alpha
+                self.titleLabel.textColor = .gray
+            } else {
+                self.titleLabel.text = "Notifications"
+                let alpha = 1 - (scrollY * 2 / self.view.frame.height)
+                self.titleLabel.alpha = alpha
+                self.titleLabel.textColor = .white
+            }
+        } else if scrollY > view.frame.size.height { // addressBook
+            if scrollY < view.frame.size.height * 1.5 { // addressBook
+                self.titleLabel.text = "Scanner"
+                let alpha = (1  - (scrollY - self.view.frame.height) / self.view.frame.height)
+                self.titleLabel.alpha = alpha
+                self.titleLabel.textColor = .gray
+            } else {
+                self.titleLabel.text = "Carnet d'adresse"
+                let alpha = ((scrollY - self.view.frame.height * 1.5) * 4) / (self.view.frame.height * 2)
+                self.titleLabel.alpha = alpha
+                self.titleLabel.textColor = .white
+            }
+        }
+    }
+    
+
 }

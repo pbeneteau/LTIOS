@@ -55,14 +55,15 @@ class NearbyPlacesViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         let maskLayer = CAShapeLayer()
         
-        let path = UIBezierPath(roundedRect:self.tableView.bounds,
+        let path = UIBezierPath(roundedRect:self.containerView.bounds,
                                 byRoundingCorners:[.topLeft, .topRight],
                                 cornerRadii: CGSize(width: 10, height:  10))
         
         maskLayer.path = path.cgPath
-        //self.containerView.layer.mask = maskLayer
+        self.containerView.layer.mask = maskLayer
     }
     
     override func updateViewConstraints() {

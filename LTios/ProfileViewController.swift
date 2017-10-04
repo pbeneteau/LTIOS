@@ -9,29 +9,50 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
     
-    self.view.backgroundColor = .white
+    var didSetupConstraints = false
     
+    var containerView = UIView()
     
     
-    let maskLayer = CAShapeLayer()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        containerView.backgroundColor = .white
+        self.view.addSubview(containerView)
+    }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let maskLayer = CAShapeLayer()
+        let path = UIBezierPath(roundedRect:containerView.bounds,
+                                byRoundingCorners:[.topLeft, .topRight],
+                                cornerRadii: CGSize(width: 10, height:  10))
+        maskLayer.path = path.cgPath
+        containerView.layer.mask = maskLayer
+    }
     
-    let path = UIBezierPath(roundedRect:self.view.bounds,
-                            byRoundingCorners:[.topLeft, .topRight],
-                            cornerRadii: CGSize(width: 10, height:  10))
+    override func updateViewConstraints() {
+        
+        if !didSetupConstraints {
+            
+            containerView.snp.makeConstraints { (make) -> Void in
+                make.width.equalTo(view.snp.width)
+                make.height.equalTo(view.snp.height).multipliedBy(0.9)
+                make.centerX.equalTo(view.snp.centerX)
+                make.bottom.equalTo(view.snp.bottom)
+            }
+            
+            didSetupConstraints = true
+        }
+        
+        super.updateViewConstraints()
+    }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
-    maskLayer.path = path.cgPath
-    self.view.layer.mask = maskLayer
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
 }
