@@ -48,11 +48,6 @@ class NearbyPlacesViewController: UIViewController, UITableViewDataSource {
         view.setNeedsUpdateConstraints()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -150,7 +145,7 @@ extension NearbyPlacesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
         let label = UILabel()
         
         if section == 0 {
@@ -179,9 +174,7 @@ extension NearbyPlacesViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
-    {
-        return 50
-    }
+    { return 50 }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
