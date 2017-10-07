@@ -15,12 +15,14 @@ class NearbyPlacesTableViewCell: UITableViewCell {
     let queue = SerialOperationQueue()
     
     let shadowEffectView = UIView()
-    var placeImageView = UIImageView()
+    let placeImageView = ImageViewWithGradient()
     
     let publicNameLabel = UILabel()
+    let distanceIcon = UIImageView()
     let distanceLabel = UILabel()
-    let statusLabel = UILabel()
+    let peopleLabel = UILabel()
     let typeLabel = UILabel()
+    let peopleIcon = UIImageView()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -37,37 +39,39 @@ class NearbyPlacesTableViewCell: UITableViewCell {
         contentView.addSubview(shadowEffectView)
         contentView.addSubview(placeImageView)
         contentView.addSubview(publicNameLabel)
+        contentView.addSubview(distanceIcon)
         contentView.addSubview(distanceLabel)
         contentView.addSubview(typeLabel)
-        contentView.addSubview(statusLabel)
+        contentView.addSubview(peopleLabel)
+        contentView.addSubview(peopleIcon)
         
         self.updateConstraints()
         
         shadowEffectView.backgroundColor = .white
         shadowEffectView.addShadow(offset: CGSize(width: 0, height: 18.0), color: UIColor.black, radius: 15, opacity: 0.3)
-
         
-        // ImageView
         placeImageView.backgroundColor = .black
         placeImageView.clipsToBounds = true
         placeImageView.contentMode = .scaleAspectFill
         placeImageView.layer.cornerRadius = 15
         
-        
-        publicNameLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        publicNameLabel.font = LTFont.NearbyPlaces.TableView.Cell.name
         publicNameLabel.textColor = .white
         
+        distanceIcon.image = UIImage(named: "ic_location")
         
-        distanceLabel.font = UIFont.systemFont(ofSize: 16)
+        distanceLabel.font = LTFont.NearbyPlaces.TableView.Cell.distance
         distanceLabel.textColor = .white
         
         
-        typeLabel.font = UIFont.systemFont(ofSize: 16)
+        typeLabel.font = LTFont.NearbyPlaces.TableView.Cell.type
         typeLabel.textColor = .white
         
+        peopleLabel.font = LTFont.NearbyPlaces.TableView.Cell.people
+        peopleLabel.textColor = .white
+        peopleLabel.textAlignment = .right
         
-        statusLabel.isHidden = true
-        
+        peopleIcon.image = UIImage(named: "ic_persons")
         
     }
     
@@ -79,40 +83,55 @@ class NearbyPlacesTableViewCell: UITableViewCell {
             placeImageView.snp.makeConstraints { (make) -> Void in
                 make.width.equalTo(contentView.snp.width).multipliedBy(0.8875)
                 make.height.equalTo(contentView.snp.height).multipliedBy(0.9)
-                make.leftMargin.equalTo(15)
+                make.centerX.equalTo(contentView.snp.centerX)
                 make.top.equalTo(contentView.snp.top)
             }
             
             shadowEffectView.snp.makeConstraints { (make) -> Void in
                 make.width.equalTo(placeImageView.snp.width).multipliedBy(0.95)
-                make.center.equalTo(placeImageView.snp.center)
                 make.height.equalTo(placeImageView.snp.height).multipliedBy(0.95)
+                make.center.equalTo(placeImageView.snp.center)
             }
             
             typeLabel.snp.makeConstraints { (make) -> Void in
                 make.width.equalTo(placeImageView.snp.width).multipliedBy(0.65)
-                make.left.equalTo(placeImageView.snp.left).multipliedBy(1.7)
-                make.bottom.equalTo(placeImageView.snp.bottom).multipliedBy(0.80)
+                make.left.equalTo(placeImageView.snp.left).offset(10)
+                make.bottom.equalTo(publicNameLabel.snp.top).inset(-5)
             }
             
             publicNameLabel.snp.makeConstraints { (make) -> Void in
                 make.width.equalTo(placeImageView.snp.width).multipliedBy(0.65)
-                make.left.equalTo(placeImageView.snp.left).multipliedBy(1.7)
+                make.left.equalTo(typeLabel.snp.left)
                 make.bottom.equalTo(placeImageView.snp.bottom).multipliedBy(0.85)
+            }
+            
+            distanceIcon.snp.makeConstraints { (make) -> Void in
+                make.height.equalTo(20)
+                make.width.equalTo(distanceIcon.snp.height).multipliedBy(0.70683333)
+                make.left.equalTo(publicNameLabel.snp.left)
+                make.bottom.equalTo(placeImageView.snp.bottom).multipliedBy(0.95)
             }
             
             distanceLabel.snp.makeConstraints { (make) -> Void in
                 make.width.equalTo(placeImageView.snp.width).multipliedBy(0.65)
-                make.left.equalTo(placeImageView.snp.left).multipliedBy(2.7)
-                make.bottom.equalTo(placeImageView.snp.bottom).multipliedBy(0.95)
+                make.left.equalTo(distanceIcon.snp.left).offset(20)
+                make.centerY.equalTo(distanceIcon.snp.centerY) 
             }
             
-            statusLabel.snp.makeConstraints { (make) -> Void in
-                make.width.equalTo(contentView.snp.width).multipliedBy(0.2)
+            peopleLabel.snp.makeConstraints { (make) -> Void in
+                make.width.equalTo(30)
                 make.height.equalTo(21)
-                make.right.equalTo(contentView.snp.right)
-                make.bottom.equalTo(distanceLabel.snp.bottom)
+                make.right.equalTo(placeImageView.snp.right).offset(-15)
+                make.centerY.equalTo(distanceIcon.snp.centerY)
             }
+            
+            peopleIcon.snp.makeConstraints { (make) -> Void in
+                make.width.equalTo(distanceIcon.snp.height)
+                make.height.equalTo(peopleIcon.snp.width)
+                make.right.equalTo(peopleLabel.snp.left)
+                make.centerY.equalTo(distanceIcon.snp.centerY)
+            }
+            
             
             didSetupConstraints = true
             
@@ -125,6 +144,7 @@ class NearbyPlacesTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    
     
 }
 class SerialOperationQueue: OperationQueue
@@ -153,5 +173,20 @@ extension UIView {
         let backgroundCGColor = self.backgroundColor?.cgColor
         self.backgroundColor = nil
         layer.backgroundColor =  backgroundCGColor
+    }
+}
+
+class ImageViewWithGradient: UIImageView {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor(red:0.00, green:0.00, blue:0.00, alpha:0.7).cgColor]
+        gradientLayer.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y + self.frame.height / 2, width: self.frame.width, height: self.frame.height / 2)
+        
+        self.layer.shouldRasterize = true
+        self.layer.rasterizationScale = UIScreen.main.scale;
+
+        self.layer.addSublayer(gradientLayer)
     }
 }

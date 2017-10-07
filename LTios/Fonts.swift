@@ -9,16 +9,28 @@
 import UIKit
 
 
-struct Font {
-    struct bold {
-        
-        static let bigTitle = UIFont(name: "HelveticaNeue-Bold", size: 35)
-        static let title = UIFont(name: "HelveticaNeue-Bold", size: 30)
-        static let smallTitle = UIFont(name: "HelveticaNeue-Bold", size: 25)
-        static let subtitle = UIFont(name: "HelveticaNeue-Bold", size: 20)
-        static let bigText = UIFont(name: "HelveticaNeue-Bold", size: 15)
-        static let text = UIFont(name: "HelveticaNeue-Bold", size: 13)
+struct LTFont {
+    
+    struct Menu {
+        static let title = UIFont(name: "Roboto-Medium", size: 23)
     }
+    
+    struct NearbyPlaces {
+        
+        struct TableView {
+            
+            static let headerTitle = UIFont(name: "Roboto-Regular", size: 26)
+            
+            struct Cell {
+                static let type = UIFont(name: "Roboto-Medium", size: 15)
+                static let name = UIFont(name: "Roboto-Black", size: 17)
+                static let distance = UIFont(name: "Roboto-Regular", size: 16)
+                static let people = UIFont(name: "Roboto-Bold", size: 20)
+            }
+        }
+    }
+    
+    
     struct regular {
         
         static let bigTitle = UIFont(name: "Helvetica Neue", size: 35)

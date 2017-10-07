@@ -29,7 +29,7 @@ class NearbyPlacesViewController: UIViewController, UITableViewDataSource {
         
         for i in 0..<10 {
             
-            let place = NearbyPlaces(ID: "\(i)", name: "Place \(i)", status: true, location: CLLocation(latitude: 0, longitude: 0), description: "10 m", type: "Bar", image: UIImage(named: "barPic")!)
+            let place = NearbyPlaces(ID: "\(i)", name: "Le bar du poissonnier \(i)", status: true, location: CLLocation(latitude: 0, longitude: 0), description: "10 m", type: "Bar", image: UIImage(named: "barPic")!)
             
             places.append(place)
         }
@@ -131,10 +131,10 @@ extension NearbyPlacesViewController: UITableViewDelegate {
                 cell.distanceLabel.text = "10 m"
                 cell.typeLabel.text = self.nearbyPlaces[indexPath.section][indexPath.row].type
                 cell.placeImageView.image = self.nearbyPlaces[indexPath.section][indexPath.row].image
+                cell.peopleLabel.text = "4"
                 
                 cell.selectionStyle = .none
                 cell.backgroundColor = .clear
-                
             })
         }
         
@@ -156,7 +156,7 @@ extension NearbyPlacesViewController: UITableViewDelegate {
             label.text = "Moins de 1 km"
         }
         label.textColor = .gray
-        label.font = UIFont.boldSystemFont(ofSize: 26.0)
+        label.font = LTFont.NearbyPlaces.TableView.headerTitle
         
         view.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -174,7 +174,7 @@ extension NearbyPlacesViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
-    { return 50 }
+    { return 60 }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }

@@ -275,7 +275,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     func titleManagerHorizontal(scrollX: CGFloat) { // NearbyPlacesVC
         if scrollX > view.frame.size.width {
             self.titleLabel.snp.updateConstraints { (make) -> Void in
-                make.centerX.equalTo(self.view.snp.centerX).offset(((scrollX - view.frame.size.width)/10)*2)
+                make.centerX.equalTo(self.view.snp.centerX).offset(((scrollX - view.frame.size.width)/10)*2.5)
             }
             if scrollX < view.frame.size.width * 1.5 {
                 self.titleLabel.text = "Scanner"

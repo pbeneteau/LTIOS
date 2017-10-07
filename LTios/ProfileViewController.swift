@@ -136,14 +136,14 @@ class ProfileViewController: UIViewController {
                 make.width.equalTo(view.snp.width).multipliedBy(0.7)
                 make.height.equalTo(25)
                 make.centerX.equalTo(view.snp.centerX)
-                make.top.equalTo(usernameLabel.snp.bottom).offset(4)
+                make.top.equalTo(usernameLabel.snp.bottom).offset(3)
             }
             
             lineView.snp.makeConstraints { (make) -> Void in
                 make.width.equalTo(view.snp.width).multipliedBy(0.3)
                 make.height.equalTo(0.5)
                 make.centerX.equalTo(view.snp.centerX)
-                make.top.equalTo(badgeLabel.snp.bottom).offset(10)
+                make.top.equalTo(badgeLabel.snp.bottom).offset(8)
             }
             
             didSetupConstraints = true
