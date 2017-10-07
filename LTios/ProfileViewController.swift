@@ -20,10 +20,14 @@ class ProfileViewController: UIViewController {
 
     var settingsButton = UIButton()
     
-    var profilePicture = UIImageView()
-    var profilePictureBorder = UIView()
+    var profilePictureView = roundedImageView()
+    var profilePictureBorderView = roundedView()
     
     var usernameLabel = UILabel()
+    
+    var badgeLabel = UILabel()
+    
+    var lineView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +38,17 @@ class ProfileViewController: UIViewController {
         gradiantView.image = UIImage(named: "ProfileGradiant")
         containerView.addSubview(gradiantView)
         
-        profilePictureBorder.backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.3)
-        containerView.addSubview(profilePictureBorder)
-        profilePicture.image = UIImage(named: "profilePicture")
-        containerView.addSubview(profilePicture)
+        profilePictureBorderView.backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.3)
+        containerView.addSubview(profilePictureBorderView)
+        profilePictureView.image = UIImage(named: "profilePicture")
+        profilePictureView.contentMode = .scaleAspectFill
+        containerView.addSubview(profilePictureView)
+        
+        settingsButton.setBackgroundImage(UIImage(named: "ic_settings"), for: .normal)
+        containerView.addSubview(settingsButton)
+        
+        logoutButton.setBackgroundImage(UIImage(named: "ic_logout"), for: .normal)
+        containerView.addSubview(logoutButton)
         
         usernameLabel.text = "Hacker"
         usernameLabel.font = UIFont.boldSystemFont(ofSize: 25)
@@ -45,11 +56,17 @@ class ProfileViewController: UIViewController {
         usernameLabel.textAlignment = .center
         containerView.addSubview(usernameLabel)
         
-        settingsButton.setBackgroundImage(UIImage(named: "ic_settings"), for: .normal)
-        containerView.addSubview(settingsButton)
+        badgeLabel.text = "Explorer"
+        badgeLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        badgeLabel.textColor = UIColor(red:0.57, green:0.42, blue:0.75, alpha:1.0)
+        badgeLabel.textAlignment = .center
+        containerView.addSubview(badgeLabel)
         
-        logoutButton.setBackgroundImage(UIImage(named: "ic_logout"), for: .normal)
-        containerView.addSubview(logoutButton)
+        lineView.backgroundColor = .gray
+        lineView.alpha = 0.4
+        containerView.addSubview(lineView)
+        
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -61,12 +78,6 @@ class ProfileViewController: UIViewController {
                                 cornerRadii: CGSize(width: 10, height:  10))
         maskLayer.path = containerViewPath.cgPath
         containerView.layer.mask = maskLayer
-        
-        profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2
-        profilePicture.clipsToBounds = true
-        
-        profilePictureBorder.layer.cornerRadius = self.profilePictureBorder.frame.size.width / 2
-        profilePictureBorder.clipsToBounds = true
     }
     
     override func updateViewConstraints() {
@@ -87,19 +98,6 @@ class ProfileViewController: UIViewController {
                 make.top.equalTo(containerView.snp.top).offset(-1)
             }
             
-            profilePicture.snp.makeConstraints { (make) -> Void in
-                make.width.equalTo(view.snp.width).multipliedBy(0.3125)
-                make.height.equalTo(view.snp.height).multipliedBy(0.1761)
-                make.centerX.equalTo(view.snp.centerX)
-                make.centerY.equalTo(gradiantView.snp.bottom).multipliedBy(0.86)
-            }
-            
-            profilePictureBorder.snp.makeConstraints { (make) -> Void in
-                make.width.equalTo(profilePicture.snp.width).multipliedBy(1.2)
-                make.height.equalTo(profilePicture.snp.height).multipliedBy(1.2)
-                make.center.equalTo(profilePicture.snp.center)
-            }
-            
             logoutButton.snp.makeConstraints { (make) -> Void in
                 make.width.equalTo(21)
                 make.height.equalTo(25)
@@ -114,11 +112,38 @@ class ProfileViewController: UIViewController {
                 make.top.equalTo(containerView.snp.top).inset(10)
             }
             
+            profilePictureView.snp.makeConstraints { (make) -> Void in
+                make.width.equalTo(view.snp.width).multipliedBy(0.3125)
+                make.height.equalTo(profilePictureView.snp.width)
+                make.centerX.equalTo(view.snp.centerX)
+                make.centerY.equalTo(gradiantView.snp.bottom).multipliedBy(0.86)
+            }
+            
+            profilePictureBorderView.snp.makeConstraints { (make) -> Void in
+                make.width.equalTo(profilePictureView.snp.width).multipliedBy(1.2)
+                make.height.equalTo(profilePictureView.snp.height).multipliedBy(1.2)
+                make.center.equalTo(profilePictureView.snp.center)
+            }
+            
             usernameLabel.snp.makeConstraints { (make) -> Void in
                 make.width.equalTo(view.snp.width).multipliedBy(0.7)
                 make.height.equalTo(25)
                 make.centerX.equalTo(view.snp.centerX)
-                make.top.equalTo(profilePicture.snp.bottom).offset(10)
+                make.top.equalTo(profilePictureView.snp.bottom).offset(10)
+            }
+            
+            badgeLabel.snp.makeConstraints { (make) -> Void in
+                make.width.equalTo(view.snp.width).multipliedBy(0.7)
+                make.height.equalTo(25)
+                make.centerX.equalTo(view.snp.centerX)
+                make.top.equalTo(usernameLabel.snp.bottom).offset(4)
+            }
+            
+            lineView.snp.makeConstraints { (make) -> Void in
+                make.width.equalTo(view.snp.width).multipliedBy(0.3)
+                make.height.equalTo(0.5)
+                make.centerX.equalTo(view.snp.centerX)
+                make.top.equalTo(badgeLabel.snp.bottom).offset(10)
             }
             
             didSetupConstraints = true
@@ -132,4 +157,26 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+}
+
+class roundedImageView: UIImageView {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let radius: CGFloat = self.bounds.size.width / 2.0
+        
+        self.layer.cornerRadius = radius
+        
+        self.clipsToBounds = true
+    }
+}
+
+class roundedView: UIView {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let radius: CGFloat = self.bounds.size.width / 2.0
+        
+        self.layer.cornerRadius = radius
+    }
 }
