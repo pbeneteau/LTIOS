@@ -1,14 +1,14 @@
 //
-//  NearbyPlacesTableViewCell.swift
+//  NearbyPlacesUICollectionViewCell.swift
 //  LTios
 //
-//  Created by Paul Bénéteau on 01/10/2017.
+//  Created by Paul Bénéteau on 08/10/2017.
 //  Copyright © 2017 Tastyapp. All rights reserved.
 //
 
 import UIKit
 
-class NearbyPlacesTableViewCell: UITableViewCell {
+class NearbyPlacesUICollectionViewCell: UICollectionViewCell {
     
     var didSetupConstraints = false
     
@@ -24,12 +24,13 @@ class NearbyPlacesTableViewCell: UITableViewCell {
     let typeLabel = UILabel()
     let peopleIcon = UIImageView()
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        prepareForReuse()
-    }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        prepareForReuse()
     }
     
     override func prepareForReuse()
@@ -50,7 +51,7 @@ class NearbyPlacesTableViewCell: UITableViewCell {
         shadowEffectView.backgroundColor = .white
         shadowEffectView.addShadow(offset: CGSize(width: 0, height: 18.0), color: UIColor.black, radius: 15, opacity: 0.3)
         
-        placeImageView.backgroundColor = .black
+        placeImageView.backgroundColor = .clear
         placeImageView.clipsToBounds = true
         placeImageView.contentMode = .scaleAspectFill
         placeImageView.layer.cornerRadius = 15
@@ -82,7 +83,7 @@ class NearbyPlacesTableViewCell: UITableViewCell {
             
             placeImageView.snp.makeConstraints { (make) -> Void in
                 make.width.equalTo(contentView.snp.width).multipliedBy(0.8875)
-                make.height.equalTo(contentView.snp.height).multipliedBy(0.9)
+                make.height.equalTo(contentView.snp.height).multipliedBy(0.95)
                 make.centerX.equalTo(contentView.snp.centerX)
                 make.top.equalTo(contentView.snp.top)
             }
@@ -115,7 +116,7 @@ class NearbyPlacesTableViewCell: UITableViewCell {
             distanceLabel.snp.makeConstraints { (make) -> Void in
                 make.width.equalTo(placeImageView.snp.width).multipliedBy(0.65)
                 make.left.equalTo(distanceIcon.snp.left).offset(20)
-                make.centerY.equalTo(distanceIcon.snp.centerY) 
+                make.centerY.equalTo(distanceIcon.snp.centerY)
             }
             
             peopleLabel.snp.makeConstraints { (make) -> Void in
@@ -139,12 +140,6 @@ class NearbyPlacesTableViewCell: UITableViewCell {
         super.updateConstraints()
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
     
 }
 class SerialOperationQueue: OperationQueue
@@ -153,26 +148,6 @@ class SerialOperationQueue: OperationQueue
     {
         super.init()
         maxConcurrentOperationCount = 1
-    }
-}
-
-extension UIView {
-    
-    func addShadow(offset: CGSize, color: UIColor, radius: CGFloat, opacity: Float) {
-        let layer = self.layer
-        layer.masksToBounds = false
-        layer.shadowOffset = offset
-        layer.shadowColor = color.cgColor
-        layer.shadowRadius = radius
-        layer.shadowOpacity = opacity
-        
-        //Optional, to improve performance:
-        layer.shadowPath = UIBezierPath(rect: layer.bounds).cgPath
-        layer.shouldRasterize = true
-
-        let backgroundCGColor = self.backgroundColor?.cgColor
-        self.backgroundColor = nil
-        layer.backgroundColor =  backgroundCGColor
     }
 }
 
@@ -186,7 +161,7 @@ class ImageViewWithGradient: UIImageView {
         
         self.layer.shouldRasterize = true
         self.layer.rasterizationScale = UIScreen.main.scale;
-
+        
         self.layer.addSublayer(gradientLayer)
     }
 }

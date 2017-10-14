@@ -9,14 +9,14 @@
 import UIKit
 import CoreLocation
 
-class NearbyPlacesViewController: UIViewController, UITableViewDataSource {
+class NearbyPlacesViewController: UIViewController, UICollectionViewDataSource {
     
     
     var didSetupConstraints = false
     
     var containerView = UIView()
     
-    var tableView = nearbyPlacesTableView()
+    var collectionView = NearbyPlacesUICollectionView()
     
     var nearbyPlaces = [[NearbyPlaces]]()
     
@@ -37,13 +37,13 @@ class NearbyPlacesViewController: UIViewController, UITableViewDataSource {
         nearbyPlaces.append(places)
         nearbyPlaces.append(places)
         
-        tableView.dataSource = self
-        tableView.delegate = self
+        collectionView.dataSource = self
+        collectionView.delegate = self
         
         view.addSubview(containerView)
-        containerView.addSubview(tableView)
+        containerView.addSubview(collectionView)
         
-        self.tableView.reloadData()
+        self.collectionView.reloadData()
         
         view.setNeedsUpdateConstraints()
     }
@@ -72,7 +72,7 @@ class NearbyPlacesViewController: UIViewController, UITableViewDataSource {
                 make.bottom.equalTo(view.snp.bottom)
             }
             
-            tableView.snp.makeConstraints { (make) -> Void in
+            collectionView.snp.makeConstraints { (make) -> Void in
                 make.width.equalTo(containerView.snp.width)
                 make.height.equalTo(containerView.snp.height)
                 make.centerX.equalTo(containerView.snp.centerX)
@@ -87,36 +87,30 @@ class NearbyPlacesViewController: UIViewController, UITableViewDataSource {
     
 }
 
-extension NearbyPlacesViewController: UITableViewDelegate {
+extension NearbyPlacesViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return nearbyPlaces.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return nearbyPlaces[section].count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        var cell: NearbyPlacesTableViewCell? = tableView.dequeueReusableCell(withIdentifier: "nearbyPlacesCell") as? NearbyPlacesTableViewCell
-        if cell == nil
-        {
-            cell = NearbyPlacesTableViewCell(style:.default, reuseIdentifier: "nearbyPlacesCell")
-        }
-        
+        let cell: NearbyPlacesUICollectionViewCell? = collectionView.dequeueReusableCell(withReuseIdentifier: "nearbyPlaceCell", for: indexPath) as? NearbyPlacesUICollectionViewCell
         return cell!
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
-    {
-        if let cell = cell as? NearbyPlacesTableViewCell
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let cell = cell as? NearbyPlacesUICollectionViewCell
         {
             _configureCell(cell, atIndexPath: indexPath)
         }
     }
     
-    fileprivate func _configureCell(_ cell: NearbyPlacesTableViewCell, atIndexPath indexPath: IndexPath)
+    fileprivate func _configureCell(_ cell: NearbyPlacesUICollectionViewCell, atIndexPath indexPath: IndexPath)
     {
         cell.queue.cancelAllOperations()
         
@@ -133,7 +127,6 @@ extension NearbyPlacesViewController: UITableViewDelegate {
                 cell.placeImageView.image = self.nearbyPlaces[indexPath.section][indexPath.row].image
                 cell.peopleLabel.text = "4"
                 
-                cell.selectionStyle = .none
                 cell.backgroundColor = .clear
             })
         }
@@ -141,44 +134,47 @@ extension NearbyPlacesViewController: UITableViewDelegate {
         cell.queue.addOperation(operation)
     }
     
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let view = UIView()
-        view.backgroundColor = .clear
-        let label = UILabel()
-        
-        if section == 0 {
-            label.text = "Notre Sélection"
-        } else if section == 1 {
-            label.text = "Moins de 100 m"
-        } else if section == 2 {
-            label.text = "Moins de 1 km"
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+            
+        case UICollectionElementKindSectionHeader:
+            
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "NearbyPlaceHeader_\(indexPath.section)", for: indexPath) as! NearbyPlacesHeaderCollectionReusableView
+            
+            if indexPath.section == 0 {
+                headerView.label.text = "Notre Sélection"
+            } else if indexPath.section == 1 {
+                headerView.label.text = "Moins de 100 m"
+            } else if indexPath.section == 2 {
+                headerView.label.text = "Moins de 1 km"
+            }
+            
+            
+            return headerView
+        default:
+            assert(false, "Unexpected element kind")
         }
-        label.textColor = .gray
-        label.font = LTFont.NearbyPlaces.TableView.headerTitle
-        
-        view.addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        let views = ["label": label, "view": view]
-        
-        let horizontallayoutContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-23-[label]-10-|", options: .alignAllCenterY, metrics: nil, views: views)
-        view.addConstraints(horizontallayoutContraints)
-        
-        let verticalLayoutContraint = NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
-        
-        view.addConstraint(verticalLayoutContraint)
-        
-        return view
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
-    { return 60 }
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: 70)
+        
+    }
+}
+
+// Segues
+extension NearbyPlacesViewController {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let placeVC = PlaceViewController()
+        placeVC.selectedIndex = indexPath
+        
+        show(placeVC, sender: nil)
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    }
 }

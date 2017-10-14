@@ -58,8 +58,10 @@
 		00CC1A9E1F200C7D00ECADAD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CC1A9D1F200C7D00ECADAD /* GoogleService-Info.plist */; };
 		00EBDEA01F2159A100676E70 /* MainUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EBDE9F1F2159A100676E70 /* MainUser.swift */; };
 		117A79360B93C15264F4D4A7 /* Pods_LTiosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ABAAA08C0B5E246906D3643 /* Pods_LTiosTests.framework */; };
-		380604B41F8232E500CD0B28 /* NearbyPlaceTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380604B31F8232E500CD0B28 /* NearbyPlaceTableView.swift */; };
-		385DAC2D1F814F55004E829B /* NearbyPlacesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DAC2C1F814F55004E829B /* NearbyPlacesTableViewCell.swift */; };
+		38343E6C1F8AB20100F4909E /* NearbyPlacesUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38343E6B1F8AB20100F4909E /* NearbyPlacesUICollectionViewCell.swift */; };
+		38343E6E1F8AB2B400F4909E /* NearbyPlacesUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38343E6D1F8AB2B300F4909E /* NearbyPlacesUICollectionView.swift */; };
+		38343E701F8B9DE400F4909E /* NearbyPlacesHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38343E6F1F8B9DE400F4909E /* NearbyPlacesHeaderCollectionReusableView.swift */; };
+		38343E721F8C009700F4909E /* PlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38343E711F8C009700F4909E /* PlaceCollectionViewCell.swift */; };
 		386466281F85264D00C18D53 /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386466271F85264D00C18D53 /* Labels.swift */; };
 		3864662A1F85267D00C18D53 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386466291F85267D00C18D53 /* Fonts.swift */; };
 		3864662C1F8526B200C18D53 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864662B1F8526B200C18D53 /* Colors.swift */; };
@@ -142,8 +144,10 @@
 		00CC1A9D1F200C7D00ECADAD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00EBDE9F1F2159A100676E70 /* MainUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUser.swift; sourceTree = "<group>"; };
 		132C40A84842BF014D4FBBF4 /* Pods-LTios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LTios/Pods-LTios.debug.xcconfig"; sourceTree = "<group>"; };
-		380604B31F8232E500CD0B28 /* NearbyPlaceTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPlaceTableView.swift; sourceTree = "<group>"; };
-		385DAC2C1F814F55004E829B /* NearbyPlacesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPlacesTableViewCell.swift; sourceTree = "<group>"; };
+		38343E6B1F8AB20100F4909E /* NearbyPlacesUICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPlacesUICollectionViewCell.swift; sourceTree = "<group>"; };
+		38343E6D1F8AB2B300F4909E /* NearbyPlacesUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPlacesUICollectionView.swift; sourceTree = "<group>"; };
+		38343E6F1F8B9DE400F4909E /* NearbyPlacesHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPlacesHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		38343E711F8C009700F4909E /* PlaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCollectionViewCell.swift; sourceTree = "<group>"; };
 		386466271F85264D00C18D53 /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
 		386466291F85267D00C18D53 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		3864662B1F8526B200C18D53 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -346,8 +350,10 @@
 		006BDCDE1F2F89B0006DEF17 /* NearbyPlaces */ = {
 			isa = PBXGroup;
 			children = (
-				385DAC2C1F814F55004E829B /* NearbyPlacesTableViewCell.swift */,
-				380604B31F8232E500CD0B28 /* NearbyPlaceTableView.swift */,
+				38343E6D1F8AB2B300F4909E /* NearbyPlacesUICollectionView.swift */,
+				38343E6F1F8B9DE400F4909E /* NearbyPlacesHeaderCollectionReusableView.swift */,
+				38343E6B1F8AB20100F4909E /* NearbyPlacesUICollectionViewCell.swift */,
+				38343E711F8C009700F4909E /* PlaceCollectionViewCell.swift */,
 			);
 			name = NearbyPlaces;
 			sourceTree = "<group>";
@@ -776,6 +782,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				006BDCEA1F2F8A1E006DEF17 /* Notifications.swift in Sources */,
+				38343E721F8C009700F4909E /* PlaceCollectionViewCell.swift in Sources */,
 				004288F51F33B591007FD732 /* MenuViewController.swift in Sources */,
 				006BDCCD1F2F88BC006DEF17 /* NotificationsViewController.swift in Sources */,
 				006BDCD31F2F88E1006DEF17 /* ContactsViewController.swift in Sources */,
@@ -783,13 +790,15 @@
 				006BDCCF1F2F88CA006DEF17 /* NearbyPlacesViewController.swift in Sources */,
 				006BDCD11F2F88D4006DEF17 /* PlaceViewController.swift in Sources */,
 				006BDCE21F2F89FE006DEF17 /* Registering.swift in Sources */,
-				380604B41F8232E500CD0B28 /* NearbyPlaceTableView.swift in Sources */,
 				006BDCEE1F2F8A2B006DEF17 /* Contacts.swift in Sources */,
 				006BDCEC1F2F8A25006DEF17 /* NearbyPlaces.swift in Sources */,
 				0042893F1F4A11CB007FD732 /* ScannerNode.swift in Sources */,
 				006BDCC31F2F8845006DEF17 /* RegisterationFormViewController.swift in Sources */,
 				006BDCD91F2F8961006DEF17 /* ContactProfileViewController.swift in Sources */,
+				38343E701F8B9DE400F4909E /* NearbyPlacesHeaderCollectionReusableView.swift in Sources */,
 				00EBDEA01F2159A100676E70 /* MainUser.swift in Sources */,
+				38343E6E1F8AB2B400F4909E /* NearbyPlacesUICollectionView.swift in Sources */,
+				38343E6C1F8AB20100F4909E /* NearbyPlacesUICollectionViewCell.swift in Sources */,
 				002D61561F24DB4E00C2768F /* Variables.swift in Sources */,
 				0007E4DD1F1FECD700EBA50C /* StartViewController.swift in Sources */,
 				006BDCC91F2F889B006DEF17 /* ProfileViewController.swift in Sources */,
@@ -798,7 +807,6 @@
 				0029BA641F2FEE1A00C67810 /* CountrySelector.swift in Sources */,
 				006BDCC71F2F8883006DEF17 /* PasswordVerificationViewController.swift in Sources */,
 				006BDCD51F2F88E9006DEF17 /* ScannerViewController.swift in Sources */,
-				385DAC2D1F814F55004E829B /* NearbyPlacesTableViewCell.swift in Sources */,
 				006BDD0C1F2F9613006DEF17 /* CountryViewController.swift in Sources */,
 				006BDCD71F2F88F9006DEF17 /* WhereAreYouViewController.swift in Sources */,
 				0003288C1F2F874F003F81F7 /* PhoneVerificationViewController.swift in Sources */,
