@@ -9,40 +9,46 @@
 import UIKit
 
 class NearbyPlacesHeaderCollectionReusableView: UICollectionReusableView {
+  
+  var didSetupConstraints = false
+  let label = UILabel()
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  override init(frame: CGRect) {
+    super.init(frame: CGRect())
+    commonInit()
+  }
+  
+  
+  func commonInit() {
     
-    let label = UILabel()
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    if self.subviews.count == 0 {
+      label.textColor = .gray
+      label.font = LTFont.NearbyPlaces.TableView.headerTitle
+      label.translatesAutoresizingMaskIntoConstraints = false
+      self.addSubview(label)
+      addHeaderConstraints()
     }
+  }
+  
+  func addHeaderConstraints() {
     
-    override init(frame: CGRect) {
-        super.init(frame: CGRect())
-        commonInit()
+    if !didSetupConstraints {
+      let views = ["label": label, "view": self]
+      
+      let horizontallayoutContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-23-[label]-10-|", options: .alignAllCenterY, metrics: nil, views: views)
+      
+      self.addConstraints(horizontallayoutContraints)
+      
+      let verticalLayoutContraint = NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0)
+      
+      self.addConstraint(verticalLayoutContraint)
+      
+      didSetupConstraints = true
     }
-    
-    
-    func commonInit() {
-        
-        if self.subviews.count == 0 {
-            label.textColor = .gray
-            label.font = LTFont.NearbyPlaces.TableView.headerTitle
-            label.translatesAutoresizingMaskIntoConstraints = false
-            self.addSubview(label)
-            addHeaderConstraints()
-        }
-    }
-    
-    func addHeaderConstraints() {
-        
-        let views = ["label": label, "view": self]
-        
-        let horizontallayoutContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-23-[label]-10-|", options: .alignAllCenterY, metrics: nil, views: views)
-        
-        self.addConstraints(horizontallayoutContraints)
-        
-        let verticalLayoutContraint = NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0)
-        
-        self.addConstraint(verticalLayoutContraint)
-    }
+  }
 }
+

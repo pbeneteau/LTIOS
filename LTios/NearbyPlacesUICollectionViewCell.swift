@@ -133,15 +133,13 @@ class NearbyPlacesUICollectionViewCell: UICollectionViewCell {
                 make.centerY.equalTo(distanceIcon.snp.centerY)
             }
             
-            
             didSetupConstraints = true
             
         }
         super.updateConstraints()
     }
-    
-    
 }
+
 class SerialOperationQueue: OperationQueue
 {
     override init()

@@ -47,7 +47,6 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.3)
   - GTMSessionFetcher/Core (1.1.12)
-  - Hero (0.3.6)
   - leveldb-library (1.18.3)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -82,7 +81,6 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - GooglePlaces
-  - Hero
   - NexmoVerify
   - PhoneNumberKit
   - Pulsator
@@ -106,7 +104,6 @@ SPEC CHECKSUMS:
   GooglePlaces: aafe5990fa7951e98e078761bbdaaf236d7e0c65
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
-  Hero: d3c6f4dd80cdcdbb339be64e57ae3b5c3ab9938c
   leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   NexmoVerify: f7dfa599a38ea865aafd9522cff02c333044b9cb
@@ -119,6 +116,6 @@ SPEC CHECKSUMS:
   TextFieldEffects: 8706f53525f1ce51c8921b7af32237caab50c467
   Whisper: 051f25e704bf8992641ffd28b20d5682ddc5f5d3
 
-PODFILE CHECKSUM: 8ed9843bd167558882137d1f5598d0f32c973b26
+PODFILE CHECKSUM: b0e610054c56c1a5788f669d5a7e40e9a4a745ff
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.1.1

@@ -122,12 +122,9 @@ class PlaceCollectionViewCell: UICollectionViewCell {
             
             
             didSetupConstraints = true
-            
         }
         super.updateConstraints()
     }
-    
-    
 }
 
 extension UIView {

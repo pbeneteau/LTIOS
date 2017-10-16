@@ -9,29 +9,30 @@
 import UIKit
 
 class NearbyPlacesUICollectionView: UICollectionView {
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)!
+  }
+  
+  override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+    let layout = UICollectionViewFlowLayout()
+    layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
+    layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 80*3)
+    super.init(frame: CGRect(), collectionViewLayout: layout)
+    commonInit()
+  }
+  
+  func commonInit() {
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
-    }
+    allowsMultipleSelection = false
+    backgroundColor = .clear
     
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 80*3)
-        super.init(frame: CGRect(), collectionViewLayout: layout)
-      commonInit()
-    }
+    frame = UIScreen.main.bounds
+    self.register(NearbyPlacesUICollectionViewCell.self, forCellWithReuseIdentifier: "nearbyPlaceCell")
     
-    func commonInit() {
-        
-        allowsMultipleSelection = false
-        backgroundColor = .clear
-        
-        frame = UIScreen.main.bounds
-        self.register(NearbyPlacesUICollectionViewCell.self, forCellWithReuseIdentifier: "nearbyPlaceCell")
-        
-        register(NearbyPlacesHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "NearbyPlaceHeader_0")
-        register(NearbyPlacesHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "NearbyPlaceHeader_1")
-        register(NearbyPlacesHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "NearbyPlaceHeader_2")
-    }
+    register(NearbyPlacesHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "NearbyPlaceHeader_0")
+    register(NearbyPlacesHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "NearbyPlaceHeader_1")
+    register(NearbyPlacesHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "NearbyPlaceHeader_2")
+  }
 }
+

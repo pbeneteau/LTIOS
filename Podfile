@@ -22,7 +22,6 @@ target 'LTios' do
   pod 'TextFieldEffects'
   pod 'NexmoVerify'
   pod 'GooglePlaces'
-  pod 'Hero'
 
   target 'LTiosTests' do
     inherit! :search_paths

@@ -21,6 +21,9 @@
 		0042893D1F4A11AF007FD732 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0042893C1F4A11AF007FD732 /* ScannerView.swift */; };
 		0042893F1F4A11CB007FD732 /* ScannerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0042893E1F4A11CB007FD732 /* ScannerNode.swift */; };
 		004289411F4AE3B6007FD732 /* NearbyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004289401F4AE3B6007FD732 /* NearbyUser.swift */; };
+		005596341F936B690040F39C /* NotificationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005596331F936B690040F39C /* NotificationsTableViewCell.swift */; };
+		005596361F936CC40040F39C /* NotificationsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005596351F936CC40040F39C /* NotificationsHeaderView.swift */; };
+		005596381F936ED60040F39C /* NotificationsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005596371F936ED60040F39C /* NotificationsTableView.swift */; };
 		006BDCC31F2F8845006DEF17 /* RegisterationFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCC21F2F8845006DEF17 /* RegisterationFormViewController.swift */; };
 		006BDCC51F2F8863006DEF17 /* FirstContactImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCC41F2F8863006DEF17 /* FirstContactImportViewController.swift */; };
 		006BDCC71F2F8883006DEF17 /* PasswordVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCC61F2F8883006DEF17 /* PasswordVerificationViewController.swift */; };
@@ -37,7 +40,6 @@
 		006BDCE41F2F8A03006DEF17 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCE31F2F8A03006DEF17 /* Login.swift */; };
 		006BDCE61F2F8A09006DEF17 /* Scanning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCE51F2F8A09006DEF17 /* Scanning.swift */; };
 		006BDCE81F2F8A0F006DEF17 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCE71F2F8A0F006DEF17 /* Profile.swift */; };
-		006BDCEA1F2F8A1E006DEF17 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCE91F2F8A1E006DEF17 /* Notifications.swift */; };
 		006BDCEC1F2F8A25006DEF17 /* NearbyPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCEB1F2F8A25006DEF17 /* NearbyPlaces.swift */; };
 		006BDCEE1F2F8A2B006DEF17 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCED1F2F8A2B006DEF17 /* Contacts.swift */; };
 		006BDCFE1F2F8E34006DEF17 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCF21F2F8E34006DEF17 /* Roboto-Black.ttf */; };
@@ -107,6 +109,9 @@
 		0042893C1F4A11AF007FD732 /* ScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		0042893E1F4A11CB007FD732 /* ScannerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerNode.swift; sourceTree = "<group>"; };
 		004289401F4AE3B6007FD732 /* NearbyUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyUser.swift; sourceTree = "<group>"; };
+		005596331F936B690040F39C /* NotificationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewCell.swift; sourceTree = "<group>"; };
+		005596351F936CC40040F39C /* NotificationsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsHeaderView.swift; sourceTree = "<group>"; };
+		005596371F936ED60040F39C /* NotificationsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableView.swift; sourceTree = "<group>"; };
 		006BDCC21F2F8845006DEF17 /* RegisterationFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterationFormViewController.swift; sourceTree = "<group>"; };
 		006BDCC41F2F8863006DEF17 /* FirstContactImportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstContactImportViewController.swift; sourceTree = "<group>"; };
 		006BDCC61F2F8883006DEF17 /* PasswordVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordVerificationViewController.swift; sourceTree = "<group>"; };
@@ -123,7 +128,6 @@
 		006BDCE31F2F8A03006DEF17 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		006BDCE51F2F8A09006DEF17 /* Scanning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scanning.swift; sourceTree = "<group>"; };
 		006BDCE71F2F8A0F006DEF17 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
-		006BDCE91F2F8A1E006DEF17 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		006BDCEB1F2F8A25006DEF17 /* NearbyPlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyPlaces.swift; sourceTree = "<group>"; };
 		006BDCED1F2F8A2B006DEF17 /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		006BDCEF1F2F8BFA006DEF17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -342,7 +346,9 @@
 		006BDCDD1F2F89AA006DEF17 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				006BDCE91F2F8A1E006DEF17 /* Notifications.swift */,
+				005596371F936ED60040F39C /* NotificationsTableView.swift */,
+				005596351F936CC40040F39C /* NotificationsHeaderView.swift */,
+				005596331F936B690040F39C /* NotificationsTableViewCell.swift */,
 			);
 			name = Notifications;
 			sourceTree = "<group>";
@@ -781,7 +787,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				006BDCEA1F2F8A1E006DEF17 /* Notifications.swift in Sources */,
+				005596341F936B690040F39C /* NotificationsTableViewCell.swift in Sources */,
 				38343E721F8C009700F4909E /* PlaceCollectionViewCell.swift in Sources */,
 				004288F51F33B591007FD732 /* MenuViewController.swift in Sources */,
 				006BDCCD1F2F88BC006DEF17 /* NotificationsViewController.swift in Sources */,
@@ -793,6 +799,7 @@
 				006BDCEE1F2F8A2B006DEF17 /* Contacts.swift in Sources */,
 				006BDCEC1F2F8A25006DEF17 /* NearbyPlaces.swift in Sources */,
 				0042893F1F4A11CB007FD732 /* ScannerNode.swift in Sources */,
+				005596381F936ED60040F39C /* NotificationsTableView.swift in Sources */,
 				006BDCC31F2F8845006DEF17 /* RegisterationFormViewController.swift in Sources */,
 				006BDCD91F2F8961006DEF17 /* ContactProfileViewController.swift in Sources */,
 				38343E701F8B9DE400F4909E /* NearbyPlacesHeaderCollectionReusableView.swift in Sources */,
@@ -800,6 +807,7 @@
 				38343E6E1F8AB2B400F4909E /* NearbyPlacesUICollectionView.swift in Sources */,
 				38343E6C1F8AB20100F4909E /* NearbyPlacesUICollectionViewCell.swift in Sources */,
 				002D61561F24DB4E00C2768F /* Variables.swift in Sources */,
+				005596361F936CC40040F39C /* NotificationsHeaderView.swift in Sources */,
 				0007E4DD1F1FECD700EBA50C /* StartViewController.swift in Sources */,
 				006BDCC91F2F889B006DEF17 /* ProfileViewController.swift in Sources */,
 				006BDCE41F2F8A03006DEF17 /* Login.swift in Sources */,
