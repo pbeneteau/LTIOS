@@ -155,13 +155,6 @@ class ContactsViewController: UIViewController, UITableViewDataSource {
     })
   }
   
-  override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-    view.endEditing(true)
-    searchTextField.text = ""
-    searchConstraintsDisable()
-    isSearching = false
-    tableView.reloadData()
-  }
 }
   
 extension ContactsViewController {
@@ -215,6 +208,7 @@ extension ContactsViewController: UITextFieldDelegate {
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
   {
     isSearching = true
+    
     if string.isEmpty
     {
       search = String(search.characters.dropLast())
@@ -300,5 +294,12 @@ extension ContactsViewController: UITableViewDelegate {
     }
     
     cell.queue.addOperation(operation)
+  }
+}
+
+extension ContactsViewController: UIScrollViewDelegate {
+  func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    view.endEditing(true)
+    searchConstraintsDisable()
   }
 }
