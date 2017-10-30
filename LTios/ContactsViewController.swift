@@ -160,6 +160,7 @@ class ContactsViewController: UIViewController, UITableViewDataSource {
     searchTextField.text = ""
     searchConstraintsDisable()
     isSearching = false
+    tableView.reloadData()
   }
 }
   
