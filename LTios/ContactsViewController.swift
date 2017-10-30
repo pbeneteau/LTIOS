@@ -159,6 +159,7 @@ class ContactsViewController: UIViewController, UITableViewDataSource {
     view.endEditing(true)
     searchTextField.text = ""
     searchConstraintsDisable()
+    isSearching = false
   }
 }
   
