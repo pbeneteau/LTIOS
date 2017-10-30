@@ -44,3 +44,20 @@ extension CGPoint {
   }
 }
 
+extension UIView {
+  func roundCorners(corners:UIRectCorner, radius: CGFloat) {
+    let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+    let mask = CAShapeLayer()
+    mask.path = path.cgPath
+    self.layer.mask = mask
+  }
+}
+
+extension UIImageView {
+  
+  func setRounded(width: CGFloat) {
+    self.layer.cornerRadius = width / 2
+    self.clipsToBounds = true
+  }
+}
+

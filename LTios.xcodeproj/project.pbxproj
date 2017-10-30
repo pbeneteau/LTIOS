@@ -21,15 +21,13 @@
 		0042893D1F4A11AF007FD732 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0042893C1F4A11AF007FD732 /* ScannerView.swift */; };
 		0042893F1F4A11CB007FD732 /* ScannerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0042893E1F4A11CB007FD732 /* ScannerNode.swift */; };
 		004289411F4AE3B6007FD732 /* NearbyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004289401F4AE3B6007FD732 /* NearbyUser.swift */; };
-		005596341F936B690040F39C /* NotificationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005596331F936B690040F39C /* NotificationsTableViewCell.swift */; };
-		005596361F936CC40040F39C /* NotificationsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005596351F936CC40040F39C /* NotificationsHeaderView.swift */; };
-		005596381F936ED60040F39C /* NotificationsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005596371F936ED60040F39C /* NotificationsTableView.swift */; };
+		006AC8591FA3A4DB00AFCCCE /* ContactsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AC8581FA3A4DB00AFCCCE /* ContactsTableView.swift */; };
+		006AC85B1FA3A4F000AFCCCE /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AC85A1FA3A4F000AFCCCE /* ContactsTableViewCell.swift */; };
 		006BDCC31F2F8845006DEF17 /* RegisterationFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCC21F2F8845006DEF17 /* RegisterationFormViewController.swift */; };
 		006BDCC51F2F8863006DEF17 /* FirstContactImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCC41F2F8863006DEF17 /* FirstContactImportViewController.swift */; };
 		006BDCC71F2F8883006DEF17 /* PasswordVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCC61F2F8883006DEF17 /* PasswordVerificationViewController.swift */; };
 		006BDCC91F2F889B006DEF17 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCC81F2F889B006DEF17 /* ProfileViewController.swift */; };
 		006BDCCB1F2F88A7006DEF17 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCCA1F2F88A7006DEF17 /* SettingsViewController.swift */; };
-		006BDCCD1F2F88BC006DEF17 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCCC1F2F88BC006DEF17 /* NotificationsViewController.swift */; };
 		006BDCCF1F2F88CA006DEF17 /* NearbyPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCCE1F2F88CA006DEF17 /* NearbyPlacesViewController.swift */; };
 		006BDCD11F2F88D4006DEF17 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCD01F2F88D4006DEF17 /* PlaceViewController.swift */; };
 		006BDCD31F2F88E1006DEF17 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCD21F2F88E1006DEF17 /* ContactsViewController.swift */; };
@@ -41,7 +39,6 @@
 		006BDCE61F2F8A09006DEF17 /* Scanning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCE51F2F8A09006DEF17 /* Scanning.swift */; };
 		006BDCE81F2F8A0F006DEF17 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCE71F2F8A0F006DEF17 /* Profile.swift */; };
 		006BDCEC1F2F8A25006DEF17 /* NearbyPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCEB1F2F8A25006DEF17 /* NearbyPlaces.swift */; };
-		006BDCEE1F2F8A2B006DEF17 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDCED1F2F8A2B006DEF17 /* Contacts.swift */; };
 		006BDCFE1F2F8E34006DEF17 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCF21F2F8E34006DEF17 /* Roboto-Black.ttf */; };
 		006BDCFF1F2F8E34006DEF17 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCF31F2F8E34006DEF17 /* Roboto-BlackItalic.ttf */; };
 		006BDD001F2F8E34006DEF17 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCF41F2F8E34006DEF17 /* Roboto-Bold.ttf */; };
@@ -56,9 +53,11 @@
 		006BDD091F2F8E34006DEF17 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCFD1F2F8E34006DEF17 /* Roboto-ThinItalic.ttf */; };
 		006BDD0A1F2F8E8B006DEF17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCEF1F2F8BFA006DEF17 /* Assets.xcassets */; };
 		006BDD0C1F2F9613006DEF17 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDD0B1F2F9613006DEF17 /* CountryViewController.swift */; };
-		00CC1A9C1F20074D00ECADAD /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CC1A9B1F20074D00ECADAD /* Notification.swift */; };
 		00CC1A9E1F200C7D00ECADAD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CC1A9D1F200C7D00ECADAD /* GoogleService-Info.plist */; };
 		00EBDEA01F2159A100676E70 /* MainUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EBDE9F1F2159A100676E70 /* MainUser.swift */; };
+		00FF14DE1FA7475D00D9F6FB /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF14DD1FA7475D00D9F6FB /* Contact.swift */; };
+		00FF14E21FA752E600D9F6FB /* ContactsSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF14E11FA752E600D9F6FB /* ContactsSearchController.swift */; };
+		00FF14E41FA7537B00D9F6FB /* ContactsSearchbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF14E31FA7537B00D9F6FB /* ContactsSearchbar.swift */; };
 		117A79360B93C15264F4D4A7 /* Pods_LTiosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ABAAA08C0B5E246906D3643 /* Pods_LTiosTests.framework */; };
 		38343E6C1F8AB20100F4909E /* NearbyPlacesUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38343E6B1F8AB20100F4909E /* NearbyPlacesUICollectionViewCell.swift */; };
 		38343E6E1F8AB2B400F4909E /* NearbyPlacesUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38343E6D1F8AB2B300F4909E /* NearbyPlacesUICollectionView.swift */; };
@@ -109,15 +108,13 @@
 		0042893C1F4A11AF007FD732 /* ScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		0042893E1F4A11CB007FD732 /* ScannerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerNode.swift; sourceTree = "<group>"; };
 		004289401F4AE3B6007FD732 /* NearbyUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyUser.swift; sourceTree = "<group>"; };
-		005596331F936B690040F39C /* NotificationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewCell.swift; sourceTree = "<group>"; };
-		005596351F936CC40040F39C /* NotificationsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsHeaderView.swift; sourceTree = "<group>"; };
-		005596371F936ED60040F39C /* NotificationsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableView.swift; sourceTree = "<group>"; };
+		006AC8581FA3A4DB00AFCCCE /* ContactsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableView.swift; sourceTree = "<group>"; };
+		006AC85A1FA3A4F000AFCCCE /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
 		006BDCC21F2F8845006DEF17 /* RegisterationFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterationFormViewController.swift; sourceTree = "<group>"; };
 		006BDCC41F2F8863006DEF17 /* FirstContactImportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstContactImportViewController.swift; sourceTree = "<group>"; };
 		006BDCC61F2F8883006DEF17 /* PasswordVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordVerificationViewController.swift; sourceTree = "<group>"; };
 		006BDCC81F2F889B006DEF17 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		006BDCCA1F2F88A7006DEF17 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		006BDCCC1F2F88BC006DEF17 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		006BDCCE1F2F88CA006DEF17 /* NearbyPlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyPlacesViewController.swift; sourceTree = "<group>"; };
 		006BDCD01F2F88D4006DEF17 /* PlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
 		006BDCD21F2F88E1006DEF17 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
@@ -129,7 +126,6 @@
 		006BDCE51F2F8A09006DEF17 /* Scanning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scanning.swift; sourceTree = "<group>"; };
 		006BDCE71F2F8A0F006DEF17 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		006BDCEB1F2F8A25006DEF17 /* NearbyPlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyPlaces.swift; sourceTree = "<group>"; };
-		006BDCED1F2F8A2B006DEF17 /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		006BDCEF1F2F8BFA006DEF17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		006BDCF21F2F8E34006DEF17 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		006BDCF31F2F8E34006DEF17 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -144,9 +140,11 @@
 		006BDCFC1F2F8E34006DEF17 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		006BDCFD1F2F8E34006DEF17 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
 		006BDD0B1F2F9613006DEF17 /* CountryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
-		00CC1A9B1F20074D00ECADAD /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		00CC1A9D1F200C7D00ECADAD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00EBDE9F1F2159A100676E70 /* MainUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUser.swift; sourceTree = "<group>"; };
+		00FF14DD1FA7475D00D9F6FB /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		00FF14E11FA752E600D9F6FB /* ContactsSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsSearchController.swift; sourceTree = "<group>"; };
+		00FF14E31FA7537B00D9F6FB /* ContactsSearchbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsSearchbar.swift; sourceTree = "<group>"; };
 		132C40A84842BF014D4FBBF4 /* Pods-LTios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LTios/Pods-LTios.debug.xcconfig"; sourceTree = "<group>"; };
 		38343E6B1F8AB20100F4909E /* NearbyPlacesUICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPlacesUICollectionViewCell.swift; sourceTree = "<group>"; };
 		38343E6D1F8AB2B300F4909E /* NearbyPlacesUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPlacesUICollectionView.swift; sourceTree = "<group>"; };
@@ -226,6 +224,8 @@
 			children = (
 				006BDCD21F2F88E1006DEF17 /* ContactsViewController.swift */,
 				006BDCD81F2F8961006DEF17 /* ContactProfileViewController.swift */,
+				00FF14E11FA752E600D9F6FB /* ContactsSearchController.swift */,
+				00FF14E31FA7537B00D9F6FB /* ContactsSearchbar.swift */,
 			);
 			name = Contacts;
 			sourceTree = "<group>";
@@ -237,14 +237,6 @@
 				006BDCD01F2F88D4006DEF17 /* PlaceViewController.swift */,
 			);
 			name = NearbyPlaces;
-			sourceTree = "<group>";
-		};
-		000328891F2F8705003F81F7 /* Notifications */ = {
-			isa = PBXGroup;
-			children = (
-				006BDCCC1F2F88BC006DEF17 /* NotificationsViewController.swift */,
-			);
-			name = Notifications;
 			sourceTree = "<group>";
 		};
 		0003288A1F2F870F003F81F7 /* Profile */ = {
@@ -343,16 +335,6 @@
 			name = Profile;
 			sourceTree = "<group>";
 		};
-		006BDCDD1F2F89AA006DEF17 /* Notifications */ = {
-			isa = PBXGroup;
-			children = (
-				005596371F936ED60040F39C /* NotificationsTableView.swift */,
-				005596351F936CC40040F39C /* NotificationsHeaderView.swift */,
-				005596331F936B690040F39C /* NotificationsTableViewCell.swift */,
-			);
-			name = Notifications;
-			sourceTree = "<group>";
-		};
 		006BDCDE1F2F89B0006DEF17 /* NearbyPlaces */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,7 +349,8 @@
 		006BDCDF1F2F89B8006DEF17 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
-				006BDCED1F2F8A2B006DEF17 /* Contacts.swift */,
+				006AC8581FA3A4DB00AFCCCE /* ContactsTableView.swift */,
+				006AC85A1FA3A4F000AFCCCE /* ContactsTableViewCell.swift */,
 			);
 			name = Contacts;
 			sourceTree = "<group>";
@@ -409,7 +392,6 @@
 				000328851F2F86DA003F81F7 /* Login */,
 				000328861F2F86E1003F81F7 /* Scanning */,
 				0003288A1F2F870F003F81F7 /* Profile */,
-				000328891F2F8705003F81F7 /* Notifications */,
 				000328881F2F86FA003F81F7 /* NearbyPlaces */,
 				000328871F2F86F3003F81F7 /* Contacts */,
 			);
@@ -424,7 +406,6 @@
 				006BDCDB1F2F899F006DEF17 /* Login */,
 				006BDCE01F2F89BE006DEF17 /* Scanning */,
 				006BDCDC1F2F89A5006DEF17 /* Profile */,
-				006BDCDD1F2F89AA006DEF17 /* Notifications */,
 				006BDCDE1F2F89B0006DEF17 /* NearbyPlaces */,
 				006BDCDF1F2F89B8006DEF17 /* Contacts */,
 			);
@@ -435,9 +416,9 @@
 			isa = PBXGroup;
 			children = (
 				00EBDE9F1F2159A100676E70 /* MainUser.swift */,
+				00FF14DD1FA7475D00D9F6FB /* Contact.swift */,
 				004289401F4AE3B6007FD732 /* NearbyUser.swift */,
 				006BDCEB1F2F8A25006DEF17 /* NearbyPlaces.swift */,
-				00CC1A9B1F20074D00ECADAD /* Notification.swift */,
 				002D61551F24DB4E00C2768F /* Variables.swift */,
 				0029BA651F30A37F00C67810 /* Extension.swift */,
 				386466271F85264D00C18D53 /* Labels.swift */,
@@ -787,19 +768,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				005596341F936B690040F39C /* NotificationsTableViewCell.swift in Sources */,
+				006AC8591FA3A4DB00AFCCCE /* ContactsTableView.swift in Sources */,
+				006AC85B1FA3A4F000AFCCCE /* ContactsTableViewCell.swift in Sources */,
+				00FF14E21FA752E600D9F6FB /* ContactsSearchController.swift in Sources */,
 				38343E721F8C009700F4909E /* PlaceCollectionViewCell.swift in Sources */,
 				004288F51F33B591007FD732 /* MenuViewController.swift in Sources */,
-				006BDCCD1F2F88BC006DEF17 /* NotificationsViewController.swift in Sources */,
 				006BDCD31F2F88E1006DEF17 /* ContactsViewController.swift in Sources */,
 				006BDCE81F2F8A0F006DEF17 /* Profile.swift in Sources */,
 				006BDCCF1F2F88CA006DEF17 /* NearbyPlacesViewController.swift in Sources */,
+				00FF14E41FA7537B00D9F6FB /* ContactsSearchbar.swift in Sources */,
 				006BDCD11F2F88D4006DEF17 /* PlaceViewController.swift in Sources */,
 				006BDCE21F2F89FE006DEF17 /* Registering.swift in Sources */,
-				006BDCEE1F2F8A2B006DEF17 /* Contacts.swift in Sources */,
 				006BDCEC1F2F8A25006DEF17 /* NearbyPlaces.swift in Sources */,
 				0042893F1F4A11CB007FD732 /* ScannerNode.swift in Sources */,
-				005596381F936ED60040F39C /* NotificationsTableView.swift in Sources */,
+				00FF14DE1FA7475D00D9F6FB /* Contact.swift in Sources */,
 				006BDCC31F2F8845006DEF17 /* RegisterationFormViewController.swift in Sources */,
 				006BDCD91F2F8961006DEF17 /* ContactProfileViewController.swift in Sources */,
 				38343E701F8B9DE400F4909E /* NearbyPlacesHeaderCollectionReusableView.swift in Sources */,
@@ -807,7 +789,6 @@
 				38343E6E1F8AB2B400F4909E /* NearbyPlacesUICollectionView.swift in Sources */,
 				38343E6C1F8AB20100F4909E /* NearbyPlacesUICollectionViewCell.swift in Sources */,
 				002D61561F24DB4E00C2768F /* Variables.swift in Sources */,
-				005596361F936CC40040F39C /* NotificationsHeaderView.swift in Sources */,
 				0007E4DD1F1FECD700EBA50C /* StartViewController.swift in Sources */,
 				006BDCC91F2F889B006DEF17 /* ProfileViewController.swift in Sources */,
 				006BDCE41F2F8A03006DEF17 /* Login.swift in Sources */,
@@ -819,7 +800,6 @@
 				006BDCD71F2F88F9006DEF17 /* WhereAreYouViewController.swift in Sources */,
 				0003288C1F2F874F003F81F7 /* PhoneVerificationViewController.swift in Sources */,
 				006BDCE61F2F8A09006DEF17 /* Scanning.swift in Sources */,
-				00CC1A9C1F20074D00ECADAD /* Notification.swift in Sources */,
 				0042893B1F4A1198007FD732 /* Scene.swift in Sources */,
 				0007E4DB1F1FECD700EBA50C /* AppDelegate.swift in Sources */,
 				006BDCC51F2F8863006DEF17 /* FirstContactImportViewController.swift in Sources */,

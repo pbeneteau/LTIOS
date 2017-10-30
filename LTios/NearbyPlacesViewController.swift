@@ -23,6 +23,8 @@ class NearbyPlacesViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    view.backgroundColor = .clear
+    
     containerView.backgroundColor = .white
     
     var places = [NearbyPlaces]()
@@ -51,14 +53,7 @@ class NearbyPlacesViewController: UIViewController {
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     
-    let maskLayer = CAShapeLayer()
-    
-    let path = UIBezierPath(roundedRect:self.containerView.bounds,
-                            byRoundingCorners:[.topLeft, .topRight],
-                            cornerRadii: CGSize(width: 10, height:  10))
-    
-    maskLayer.path = path.cgPath
-    self.containerView.layer.mask = maskLayer
+    containerView.roundCorners(corners: [.topLeft , .topRight], radius: 10)
   }
   
   override func updateViewConstraints() {

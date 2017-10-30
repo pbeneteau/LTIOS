@@ -166,7 +166,7 @@ class StartViewController: UIViewController {
   }
   
   
-  @objc private func openCountryView() {
+  @objc func openCountryView() {
     UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: { () -> Void in
       self.countryVC.view.snp.remakeConstraints { make in
         make.width.equalTo(self.view.snp.width)

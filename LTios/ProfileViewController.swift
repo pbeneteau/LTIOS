@@ -71,13 +71,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        let maskLayer = CAShapeLayer()
-        let containerViewPath = UIBezierPath(roundedRect:containerView.bounds,
-                                byRoundingCorners:[.topLeft, .topRight],
-                                cornerRadii: CGSize(width: 10, height:  10))
-        maskLayer.path = containerViewPath.cgPath
-        containerView.layer.mask = maskLayer
+        containerView.roundCorners(corners: [.topLeft , .topRight], radius: 10)
     }
     
     override func updateViewConstraints() {

@@ -19,6 +19,10 @@ struct NearbyPlaces {
     var description: String?
     var type: String?
     var image: UIImage?
+  
+  init() {
+    
+  }
     
     init(ID: String, name: String, status: Bool, location: CLLocation, description: String, type: String, image: UIImage) {
         self.ID = ID

@@ -38,7 +38,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     view.showsVerticalScrollIndicator = false
     view.showsHorizontalScrollIndicator = false
     view.tag = 20
-    view.backgroundColor = .clear
+    view.backgroundColor = .green
     view.bounces = false
     if #available(iOS 11.0, *) {
       view.contentInsetAdjustmentBehavior = .never
@@ -52,7 +52,6 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
   let scannerVC = ScannerViewController() // middle
   let nearbyPlacesVC = NearbyPlacesViewController() // right
   let profileVC = ProfileViewController() // left
-  let notificationVC = NotificationsViewController() // top
   
   
   // Mark: NAvigation bar
@@ -69,12 +68,6 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
   lazy var titleLine: UIView = {
     let view = UIView()
     view.backgroundColor = .lightGray
-    return view
-  }()
-  
-  lazy var menuBlockHidder: UIView = {
-    let view = UIView()
-    view.backgroundColor = .white
     return view
   }()
   
@@ -107,16 +100,10 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     profileVC.didMove(toParentViewController: self)
     
     
-    addChildViewController(notificationVC)
-    verticalScrollView.addSubview(notificationVC.view)
-    notificationVC.didMove(toParentViewController: self)
-    
-    view.addSubview(menuBlockHidder)
-    
     horizontalScrollView.contentOffset = CGPoint(x: view.frame.size.width, y: 0)
-    verticalScrollView.contentOffset = CGPoint(x: 0, y: view.frame.size.height)
+    verticalScrollView.contentOffset = CGPoint(x: 0, y: 0)
     horizontalScrollView.contentSize = CGSize(width: view.frame.size.width * 3, height: view.frame.size.height)
-    verticalScrollView.contentSize = CGSize(width: view.frame.size.width, height: view.frame.size.height * 3)
+    verticalScrollView.contentSize = CGSize(width: view.frame.size.width, height: view.frame.size.height * 2)
     
     colorEffectView.backgroundColor = UIColor(red:0.11, green:0.15, blue:0.18, alpha:1.0)
     colorEffectView.alpha = 0
@@ -124,9 +111,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     
     view.addSubview(titleLabel)
     view.addSubview(titleLine)
-    
-    nearbyPlacesVC.view.backgroundColor = .clear
-    
+        
     view.setNeedsUpdateConstraints()
   }
   
@@ -151,7 +136,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
       
       verticalScrollView.snp.makeConstraints { (make) -> Void in
         make.centerX.equalTo(view.snp.centerX)
-        make.centerY.equalTo(view.snp.centerY)
+        make.top.equalTo(horizontalScrollView.snp.top)
         make.width.equalTo(view.snp.width)
         make.height.equalTo(view.snp.height)
       }
@@ -171,24 +156,17 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
       }
       
       scannerVC.view.snp.makeConstraints { (make) -> Void in
-        make.centerY.equalTo(view.snp.centerY)
         make.centerX.equalTo(view.snp.centerX)
-        make.width.equalTo(view.snp.width)
-        make.height.equalTo(view.snp.height)
-      }
-      
-      notificationVC.view.snp.makeConstraints { (make) -> Void in
-        make.top.equalTo(verticalScrollView.snp.top).offset(view.frame.height * 0.1)
-        make.left.equalTo(verticalScrollView.snp.left)
+        make.centerY.equalTo(view.snp.centerY)
         make.width.equalTo(view.snp.width)
         make.height.equalTo(view.snp.height)
       }
       
       addressBookVC.view.snp.makeConstraints { (make) -> Void in
-        make.top.equalTo(notificationVC.view.snp.bottom).offset(view.frame.size.height)
+        make.top.equalTo(verticalScrollView.snp.top).offset(scannerVC.view.frame.height)
         make.left.equalTo(verticalScrollView.snp.left)
         make.width.equalTo(view.snp.width)
-        make.height.equalTo(view.snp.height).multipliedBy(0.9)
+        make.height.equalTo(view.snp.height)
       }
       
       colorEffectView.snp.makeConstraints { (make) -> Void in
@@ -196,13 +174,6 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         make.centerY.equalTo(scannerVC.view.snp.centerY)
         make.width.equalTo(scannerVC.view.snp.width)
         make.height.equalTo(scannerVC.view.snp.height)
-      }
-      
-      menuBlockHidder.snp.makeConstraints { (make) -> Void in
-          make.width.equalTo(view.snp.width)
-          make.height.equalTo(view.frame.height * 0.1)
-          make.centerX.equalTo(view.snp.centerX)
-          make.top.equalTo(view.snp.top)
       }
       
       titleLine.snp.makeConstraints { (make) -> Void in
@@ -227,8 +198,6 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     
     if scrollView.tag == 10 {
-      notificationVC.view.isHidden = true
-      menuBlockHidder.isHidden = true
       titleManagerHorizontal(scrollX: scrollView.contentOffset.x)
       
       // disable vertical scrolling and scannerVC interactions when scrollinh horizontally
@@ -255,34 +224,15 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
       }
     } else if scrollView.tag == 20 {
       
-      if scrollView.contentOffset.y == 0.0 {
-        self.horizontalScrollView.isScrollEnabled = false
-      } else if scrollView.contentOffset.y == view.frame.size.height * 2.0 {
+      if scrollView.contentOffset.y == view.frame.size.height {
         self.horizontalScrollView.isScrollEnabled = false
       } else {
         self.horizontalScrollView.isScrollEnabled = true
       }
       titleManagerVertical(scrollY: scrollView.contentOffset.y)
-      
-      if scrollView.contentOffset.y < view.frame.size.height { // NotificationsVC
-        menuBlockHidder.isHidden = false
-        notificationVC.view.isHidden = false
-        let alpha = 1 - scrollView.contentOffset.y / view.frame.size.height
-        titleLine.alpha = 1 - alpha
-        statusBarWindow?.alpha = 1 - alpha
-        
-        //chatButtonVerticalScrollAnimations(alpha: 1 - blurIntensity)
-        //profileButtonVerticalScrollAnimations(alpha: 1 - blurIntensity)
-      }
-      if scrollView.contentOffset.y < view.frame.size.height / 2 {
-        //notificationHideButton.isHidden = false
-      } else {
-        //notificationHideButton.isHidden = true
-      }
-      if scrollView.contentOffset.y > view.frame.size.height { // contactsVC
-        menuBlockHidder.isHidden = true
-        notificationVC.view.isHidden = true
-        let alpha = (scrollView.contentOffset.y - view.frame.size.height) / (view.frame.size.height)
+
+      if scrollView.contentOffset.y > 0 { // contactsVC
+        let alpha = (scrollView.contentOffset.y) / (view.frame.size.height)
         colorEffectView.alpha = alpha
         titleLine.alpha = 1 - alpha * 5
         statusBarWindow?.alpha = 1 - alpha * 5
@@ -328,27 +278,15 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
   }
   
   func titleManagerVertical(scrollY: CGFloat) {
-    if scrollY < view.frame.size.height { // Notif
-      if scrollY > view.frame.size.height / 2 { // Notif
-        self.titleLabel.text = "Scanner"
-        let alpha = (scrollY / self.view.frame.height)
-        self.titleLabel.textColor = UIColor(red:0.11, green:0.15, blue:0.18, alpha:1.0)
-        self.titleLabel.alpha = alpha
-      } else {
-        self.titleLabel.text = "Notifications"
-        let alpha = 1 - (scrollY / self.view.frame.height)
-        self.titleLabel.alpha = alpha
-        self.titleLabel.textColor = .white
-      }
-    } else if scrollY > view.frame.size.height { // addressBook
-      if scrollY < view.frame.size.height * 1.5 { // addressBook
+    if scrollY > 0 { // addressBook
+      if scrollY < view.frame.size.height * 0.5 { // addressBook
         self.titleLabel.text = "Scanner"
         let alpha = (1  - (scrollY - self.view.frame.height) / self.view.frame.height)
         self.titleLabel.textColor = UIColor(red:0.11, green:0.15, blue:0.18, alpha:1.0)
         self.titleLabel.alpha = alpha
       } else {
         self.titleLabel.text = "Carnet d'adresse"
-        let alpha = ((scrollY - self.view.frame.height * 1.5) * 4) / (self.view.frame.height * 2)
+        let alpha = ((scrollY - self.view.frame.height * 0.5) * 4) / (self.view.frame.height * 2)
         self.titleLabel.alpha = alpha
         self.titleLabel.textColor = .white
       }
@@ -372,14 +310,8 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
   }
   
   func statusBarVerticalManager(scrollY: CGFloat) {
-    if scrollY < view.frame.size.height {
-      if scrollY > view.frame.size.height / 2 {
-        makeStatusBarDark()
-      } else {
-        makeStatusBarLight()
-      }
-    } else if scrollY > view.frame.size.height {
-      if scrollY < view.frame.size.height * 1.5 {
+    if scrollY > 0 {
+      if scrollY < view.frame.size.height * 0.5 {
         makeStatusBarDark()
       } else {
         makeStatusBarLight()

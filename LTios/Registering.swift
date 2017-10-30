@@ -88,7 +88,6 @@ class PhoneTextField: PhoneNumberTextField {
     translatesAutoresizingMaskIntoConstraints = false
     textColor = .white
     font = UIFont(name: "Roboto-Regular", size: 20)
-    textColor = .white
     borderStyle = .none
     keyboardType = .phonePad
     keyboardAppearance = .light
